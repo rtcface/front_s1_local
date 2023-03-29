@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/estilos.css">
+    <link rel="stylesheet" href="../css/datepicker.css">
+
+	<script src="../js/jquery-3.3.1.min.js"></script>
+	<script src="../js/tether.min.js"></script>
+	<script src="../js/popper.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/moment.js"></script>
+    <script src="../js/bootstrap-datepicker.js"></script>
+    <script src="../js/extras.js"></script>
+    <script src="../js/insert.js"></script>
+    <script src="../js/update.js"></script>
+    <script src="../js/selectById.js"></script>
+    <script src="../js/selectAll.js"></script>
+    <script src="../js/delete.js"></script>
+    <script src="../js/insertOrUpdate.js"></script>
+    <script src="../js/scripts.js"></script>
+    <script src="../js/noAplica.js"></script>
+    
+    
+</head>
+<body oncontextmenu="return false" id="cuerpo"  onload="selectAllClientesPrincipales();desEstados();">
+    <div class="container-fluid">
+        <br>
+        <label id="label_titulo" class="ruta">Declaración patrimonial<i class="icono glyphicon glyphicon-chevron-right"></i>
+        Declaración de intereses<i class="icono glyphicon glyphicon-chevron-right"></i>
+        Clientes principales</label>
+        <h3>II. Declaración de Intereses</h3>
+        <form class="well form-horizontal" onsubmit="insertUpdate(20);return false;">
+            <h4>5. Clientes principales (Hasta los 2 últimos años) </h4>
+            <p>En caso de tener alguna empresa, negocio o actividad lucrativa deberá señalar a sus clientes principales, siempre y cuando el beneficio o ganancia directa al Declarante supere mensualmente 250 Unidades de Medida y Actualización (UMA), refiriéndose al valor diario de ésta. Deberá reportar hasta los últimos dos años.</p><br>
+            <div class="form-group"> 
+                <div class="col-md-3 inputGroupConteiner">
+                    <label id="label_noAplica">No aplica</label>
+                    <input  type="checkbox" name="completo" id="completo" value="true" onclick="formularioCompleto()">
+                </div>
+                <div class="col-md-3 inputGroupConteiner">
+                    <button id="agregar_nuevo" class="botonEnviar" onclick="nuevoRegistro()">Agregar Nuevo</button>
+                </div>
+            </div>
+            <div class="form-group" id="formCompleto" style="display: none">
+                <div class="form-group">
+                    <div class="col-md-12 inputGroupConteiner">
+                        <h4>Todos los datos del cliente principal de la pareja o dependientes económicos no serán públicos.</h4>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-6 inputGroupConteiner">
+                        <br>
+                        <label class="dato_publico">¿Raliza alguna actividad lucrativa independiente al empleo, cargo o comisión?</label>
+                    </div>
+                    <div class="col-md-1 inputGroupConteiner">
+                        <br>
+                        <input type="radio" name="actividadLucrativa" id="actividadLucrativaS" value="true" checked>Si
+                    </div>
+                    <div class="col-md-1 inputGroupConteiner">
+                        <br>
+                        <input type="radio" name="actividadLucrativa" id="actividadLucrativaN" value="false">No
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-12 inputGroupConteiner">
+                        <label class="dato_publico">Señalar quien tiene el cliente.</label>
+                    </div>
+                    <div class="col-md-2 inputGroupConteiner">
+                        <input type="radio" name="declarado" id="declarador" value="Declarante" checked onclick="declarante()">Declarante
+                    </div>
+                    <div class="col-md-2 inputGroupConteiner">
+                        <input type="radio" name="declarado" id="parejaDeclarador" value="Pareja" onclick="declarante()">Pareja
+                    </div>
+                    <div class="col-md-3 inputGroupConteiner">
+                        <input type="radio" name="declarado" id="dependienteDeclarador" value="Dependiente económico" onclick="declarante()">Dependiente económico
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-6 inputGroupContainer">
+                        <label class="dato_publico">Nombre de la empresa o servicio que proporciona</label>
+                        <input name="nombreEmpresa" id="nombreEmpresa" placeholder="Nombre" class="form-control" type="text" pattern="[0-9-_.,&A-ZÑ\x26a-zñ\x26\s]{0,250}" maxlength="250" required>
+                    </div>
+                    <div class="col-md-4 inputGroupConteiner">
+                        <label class="dato_publico">RFC</label>
+                        <input name="rfc" id="rfc" placeholder="RFC" maxlength="13" pattern="([A-ZÑ\x26a-zñ\x26]{3,4}([0-9]{2})(0[1-9]|1[0-2])(0[1-9]|1[0-9]|2[0-9]|3[0-1]))([A-Za-z0-9]{3})" class="form-control" type="text"  required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-3 inputGroupConteiner">
+                        <br>
+                        <label class="dato_publico" id="label_tipoTercero">Cliente principal</label>
+                    </div>
+                    <div class="col-md-2 inputGroupConteiner">
+                        <br>
+                        <input class="client" type="radio" name="client" id="clientFisico" value="fisica" onclick="clientFisicoMoral()">Persona física
+                    </div>
+                    <div class="col-md-2 inputGroupConteiner">
+                        <br>
+                        <input class="client" type="radio" name="client" id="clientMoral" value="moral" onclick="clientFisicoMoral()" checked>Persona moral
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-6 inputGroupContainer">
+                        <label class="dato_publico" id="label_nombreTercero">Nombre o razón social del cliente</label>
+                        <input name="nombreCliente" id="nombreCliente" placeholder="Nombre" class="form-control" type="text" pattern="[0-9-_.,&A-ZÑ\x26a-zñ\x26\s]{0,250}" maxlength="250" required>
+                    </div>
+                    <div class="col-md-4 inputGroupConteiner">
+                        <label class="dato_publico" id="label_rfcTercero">RFC</label>
+                        <input name="rfcCliente" id="rfcCliente" placeholder="RFC" maxlength="13" pattern="([A-ZÑ\x26a-zñ\x26]{3}([0-9]{2})(0[1-9]|1[0-2])(0[1-9]|1[0-9]|2[0-9]|3[0-1]))([A-Za-z0-9]{3})" class="form-control" type="text"  required>
+                    </div>
+                </div>
+                <div class="form-group" id="contSector">
+                    <div class="col-md-12 inputGroupConteiner">
+                        <label class="dato_publico">Sector / Industria</label>
+                    </div>    
+                    <div class="col-md-1 inputGroupConteiner"></div>
+                    <div class="col-md-8 inputGroupConteiner">
+                        <input class="sectorIndustria" type="radio" name="sectorIndustria" id="sector_1" value="sector_1" checked> Agricultura<br>
+                        <input class="sectorIndustria" type="radio" name="sectorIndustria" id="sector_2" value="sector_2"> Minería<br>
+                        <input class="sectorIndustria" type="radio" name="sectorIndustria" id="sector_3" value="sector_3"> Energía eléctrica<br>
+                        <input class="sectorIndustria" type="radio" name="sectorIndustria" id="sector_4" value="sector_4"> Construcción<br>
+                        <input class="sectorIndustria" type="radio" name="sectorIndustria" id="sector_5" value="sector_5"> Industria manufacturera<br>
+                        <input class="sectorIndustria" type="radio" name="sectorIndustria" id="sector_6" value="sector_6"> Comercio al por mayor<br>
+                        <input class="sectorIndustria" type="radio" name="sectorIndustria" id="sector_7" value="sector_7"> Comercio al por menor<br>
+                        <input class="sectorIndustria" type="radio" name="sectorIndustria" id="sector_8" value="sector_8"> Transporte<br>
+                        <input class="sectorIndustria" type="radio" name="sectorIndustria" id="sector_9" value="sector_9"> Medios masivos<br>
+                        <input class="sectorIndustria" type="radio" name="sectorIndustria" id="sector_10" value="sector_10"> Servicios financieros<br>
+                        <input class="sectorIndustria" type="radio" name="sectorIndustria" id="sector_11" value="sector_11"> Servicios inmobiliarios<br>
+                        <input class="sectorIndustria" type="radio" name="sectorIndustria" id="sector_12" value="sector_12"> Servicios profesionales<br>
+                        <input class="sectorIndustria" type="radio" name="sectorIndustria" id="sector_13" value="sector_13"> Servicios corporativos<br>
+                        <input class="sectorIndustria" type="radio" name="sectorIndustria" id="sector_14" value="sector_14"> Servicios de salud<br>
+                        <input class="sectorIndustria" type="radio" name="sectorIndustria" id="sector_15" value="sector_15"> Servicios de esparcimiento<br>
+                        <input class="sectorIndustria" type="radio" name="sectorIndustria" id="sector_16" value="sector_16"> Servicios de alojamiento<br>
+                        <input class="sectorIndustria" type="radio" name="sectorIndustria" id="sector_17" value="sector_17" onclick="sectorOtro()">Otro<br>
+                        <input type="text" name="otroSector" id="otroSector" class="form-control" pattern="[0-9-_.,&A-ZÑ\x26a-zñ\x26\s]{0,250}" maxlength="250" placeholder="Especificar" style="display:none;">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-6 inputGroupContainer">
+                        <label class="dato_publico">Monto aproximado mensual que obtiene del cliente</label>
+                        <input name="monto" id="monto"  class="form-control" type="number"    required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-3 inputGroupConteiner"><br>
+                        <label class="dato_publico">Lugar donde se ubica</label><br>
+                     </div>
+                    <div class="col-md-2 inputGroupConteiner"><br>
+                        <input class="registro" type="radio" name="registro" id="registroM" value="146" onclick="lugarUbica()" checked>México
+                    </div>
+                    <div class="col-md-2 inputGroupConteiner"><br>
+                        <input class="registro" type="radio" name="registro" id="registroE" value="extranjero" onclick="lugarUbica()">Extranjero
+                    </div>
+                    <div class="col-md-5 inputGroupConteiner">
+                        <br>
+                        <select name="pais" id="pais" class="selectpicker form-control" style="display: none"></select>
+                        <select name="entidadFed" id="entidadFed" class="selectpicker form-control"></select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-12 inputGroupConteiner">
+                        <label id="label_observaciones">Observaciones y comentarios</label>
+                        <input name="obsComentarios" id="obsComentarios" placeholder="Observaciones" class="form-control" type="text" pattern="[0-9-_.,&A-ZÑ\x26a-zñ\x26\s]{0,254}" maxlength="254">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label id="label_final" class="col-md-7 control-label"></label>
+                    <div class="col-md-2 inputGroupContainer">
+                        <input class="botonEnviar" type="submit" value="Guardar" >
+                    </div>
+                    <div class="col-md-2 inputGroupContainer">
+                        <button class="botonCancelar" onclick="window.location.href='#tituloD';window.location.reload()">Cancelar</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <button class="botonActualizar" onclick="selectClientesPrincipales()" id="bEditar">Editar</button>
+        <button class="botonEliminar" onclick="deleteClientesPrincipales()" id="bEliminar">Eliminar</button>
+        <button id="guardar_np" class="botonActualizar" onclick="clientesAplica(false)" style="display: none">Guardar</button>
+        <table class="table" id="tablaCurriculares">
+            <thead class="thead-dark" id="contenido">
+                
+            </thead>
+        </table>
+    </div>
+    <script src="../jsResize/iframeResizer.contentWindow.min.js"></script>
+</body>
+</html>

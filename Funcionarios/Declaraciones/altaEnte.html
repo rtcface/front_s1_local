@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport"
+		content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+
+	<title>PDE Tlaxcala</title>
+    <link rel="icon" type="image/ico" href="../../Img/icono_pde1.ico" />
+	<link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/altas.css">
+
+	<script src="js/jquery-3.3.1.min.js"></script>
+	<script src="js/tether.min.js"></script>
+	<script src="js/popper.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/scripts.js"></script>
+    <script src="js/login.js"></script>
+    <script src="js/extras.js"></script>
+    <script src="../../host/host.js"></script>
+	
+</head>
+
+<body oncontextmenu="return false" id="cuerpo"  onload="sesionI();cargarEntes();desMunicipios()" style="background: rgb(248, 248, 248);">
+	
+	<div>
+		
+		<nav class="navbar navbar-color">
+			<div class="container-fluid">
+				<div class="col-md-3">
+					<a  href="#"><img style="height: 40%;width: 55%;" src="Img/logo-16.png" ></a>
+				</div>
+				<div class="col-md-8">
+					<ul class="nav navbar-nav navbar-right" style="padding:1%">
+						<li><a onclick="salir()" href="#"> Salir</a></li>
+					</ul>
+				</div>	
+			</div>
+		</nav>
+		
+		<div class="ruta2">
+            <label><a href="../index.html">PDE</a><i class="glyphicon glyphicon-chevron-right"></i>
+            <a href="declaracionPatrimonial.html">Declaración Patrimonial</a><i class="glyphicon glyphicon-chevron-right"></i>Altas</label>
+		</div>
+		
+        <div class="container encabezado">
+			<div class="col-md-3" style="padding-top:3%;padding-left:3%">
+				<img src="Img/logo_plataforma-11.png" style="float:left;">
+			</div>
+            <div class="col-md-2">
+                <img src="Img/icon_user_log in.png">
+            </div>
+            <div class="col-md-7">
+                <h2 id="texto">Altas Declarantes</h2>
+            </div>
+        </div>
+        
+        <div class="container">
+            <div class="col-md-8">
+            </div>
+            <div class="col-md-4">
+                <button id="contenedorEnte" class="botonEnviar" onclick="location.href='altaAdmin.html'">Volver</button>
+            </div>
+            <div class="login-form">
+
+<!--Formulario Para Nuevo Ente Publico-->
+                <div id="nuevoEntePublico" class="formulario" > 
+                    <div class="form-group">
+                        <div class="col-md-9 inputGroupConteiner">
+                            <label>Nombre del Ente Publico</label>
+                            <input type="text" class="form-control" name="nombreEnte" id="nombreEnte"  >
+                        </div>
+                        <div class="col-md-3 inputGroupConteiner">
+                            <label>Siglas</label>
+                            <input type="text" class="form-control" name="siglas" id="siglas"  >
+                        </div>
+                    </div>
+                    <br><br><br><br>
+                    <div class="form-group">
+                        <div class="col-md-6 inputGroupConteiner">
+                            <label>Estado</label>
+                            <select name="entidadFed" id="entidadFed" class="selectpicker form-control"  >
+                                <option value="29">Tlaxcala</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6 inputGroupConteiner">
+                            <label>Municipio</label>
+                            <select name="municipio" id="municipio" class="selectpicker form-control"></select>
+                        </div>
+                    </div>   
+                    <br><br><br><br>
+                    <div class="form-group">
+                        <div class="col-md-3 inputGroupConteiner"></div>
+                        <div class="col-md-3 inputGroupConteiner">
+                            <button class="botonEnviar" onclick="insertUpdateEnte()">Guardar</button>
+                        </div>
+                        <div class="col-md-3 inputGroupConteiner">
+                            <button class="botonCancelar" onclick="location.reload()">Cancelar</button>   
+                        </div>
+                    </div>
+                    <br><br><br><br>
+                    <button class="botonActualizar" onclick="selectEnteById()">Editar</button>
+                    <button class="botonEliminar" onclick="deleteEnte()">Eliminar</button> 
+                    <br><br>
+                    <table class="table" id="tablaEntes">
+                        <thead class="thead-dark" id="contenidoEntes">
+                           
+                        </thead>
+                    </table>
+                </div>
+            </div>
+        </div>
+	</div>
+
+</body>
+</html>

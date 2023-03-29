@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport"
+		content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+
+	<title>PDE Tlaxcala</title>
+    <link rel="icon" type="image/ico" href="../../Img/icono_pde1.ico" />
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<link rel="stylesheet" href="css/estilos.css">
+
+	<script src="js/jquery-3.3.1.min.js"></script>
+	<script src="js/tether.min.js"></script>
+	<script src="js/popper.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/scripts.js"></script>
+	<script src="js/login.js"></script>
+	<script src="../../host/host.js"></script>
+	
+</head>
+
+<body oncontextmenu="return false" id="cuerpo"  onload="sesionI();mostarBoton();historialEntes()" style="background: rgb(248, 248, 248);">
+	
+	<div>
+		
+		<nav class="navbar navbar-expand-md navbar-light bg-light navbar-color">
+			<div class="container-fluid">
+				<div class="col-md-3">
+					<a  href="#"><img style="height: 40%;width: 55%;" src="Img/logo-16.png" ></a>
+				</div>
+				<div>
+					<ul class="nav navbar-nav navbar-right" style="padding:1%;">
+						<li><a onclick="salir()" href="#"> Salir</a></li>
+					</ul>
+				</div>	
+			</div>
+		</nav>
+		
+		<div class="ruta2">
+            <label><a href="../index.html">PDE</a><i class="glyphicon glyphicon-chevron-right"></i>
+                <a href="index.html">Declaración de Situación Patrimonial y de Intereses</a><i class="glyphicon glyphicon-chevron-right"></i>
+                Declaración Patrimonial</label>
+		</div>
+		
+        <div class="container encabezado">
+			<div class="col-md-3" style="padding-top:3%;padding-left:3%">
+				<img src="Img/logo_plataforma-11.png" style="float:left;">
+			</div>
+            <div class="col-md-2">
+                <img src="Img/patrimonial_icon.png">
+            </div>
+            <div class="col-md-7">
+                <h2>Declaración Patrimonial</h2>
+            </div>
+		</div>
+		
+		<div class="container tab" id="userOpciones">
+            <div class="col-md-4">
+                <button class="tablinks" onclick="tipoDeclaracion(1)">Declaración<br>Inicial</button>
+            </div>
+            <div class="col-md-4"> 
+                <button class="tablinks" onclick="tipoDeclaracion(2)">Declaración<br>de Modificación</button>
+            </div>
+            <div class="col-md-4">
+                <button class="tablinks" onclick="tipoDeclaracion(3)">Declaración<br>de Conclusión</button>
+            </div>
+		</div>
+		<div class="container tab" id="adminOpciones" style="display: none">
+			<div class="col-md-2"></div>
+            <div class="col-md-3">
+                <button class="tablinks" id="status" onclick="location.href='administrador.html'">Estatus de<br>Declaraciones</button>
+            </div>
+			<div class="col-md-2">
+                <button class="tablinks" id="sincronizar" data-toggle="modal" data-target="#modalSincronizar" style="display: none">Sincronizar Datos<br>Para Interoperabilidad</button>
+			</div>
+            <div class="col-md-3">
+                <button class="tablinks" id="botonAlta" onclick="adminUser()">Dar de<br>Alta</button>
+			</div>
+			<div class="col-md-2"></div>
+		</div>
+
+	<!-- Modal Busqueda-->
+	<div class="modal fade" id="myModalBusqueda" role="dialog">
+		<div class="modal-dialog"  id="modalTamanio">
+		
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title" id="tituloDeclaracion"></h4>
+				</div>
+				<div class="modal-body">
+					<p>Consultar declaraciones de algun ente público en el que haya laborado anteriormente.</p>
+					
+						<div class="col-md-6">
+							<label>Ente Público</label>
+							<select class="form-control" name="enteAnterior" id="enteAnterior" onchange=""></select>
+						</div>
+						<div class="col-md-6">
+							<label>Año Fiscal</label>
+							<input name="anioFiscal" id="anioFiscal" type='number' class="form-control">
+						</div>
+					
+					<br>
+					
+					<table class="table">
+						<thead class="thead-dark" id="tablaDeclaraciones">
+							
+						</thead>
+					</table>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="botonDescargar" onclick="buscarDeclaraciones()">Buscar Declaraciones</button>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+	<!-- Final Modal -->
+
+	<!-- Modal -->
+	<div class="modal fade" id="myModal" role="dialog">
+		<div class="modal-dialog">
+		
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title" id="tituloModal"></h4>
+				</div>
+				<div class="modal-body">
+					<button type="button" class="botonDescargar" onclick="buscadorDeclaracion()">Buscar Declaraciones</button>
+					<button type="button" class="botonDescargar" onclick="continuarDeclaracion()">Continuar Declaración</button>
+				</div>
+				<div class="modal-footer">
+					
+				</div>
+			</div>
+			
+		</div>
+	</div>
+	<!-- Final Modal -->
+		
+<!-- Modal Sincronizar -->
+<div class="modal fade" id="modalSincronizar" role="dialog">
+	<div class="modal-dialog">
+	
+		<!-- Modal content-->
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title" id="tituloModal" style="text-align: center;">Para realizar está accón se requiere volver a ingresar sus contraseñas.</h4>
+			</div>
+			<div class="modal-body">
+				<div class="login-form">
+					<div class="formulario">
+						<h2 class="text-center">ACCESO</h2>   
+						<div class="form-group">
+							<input type="text" class="form-control" name="userSincronizacion" id="userSincronizacion" placeholder="USUARIO" required="required">
+						</div>
+						<div class="form-group">
+							<input type="password" class="form-control" name="passSincronizacion" id="passSincronizacion" placeholder="CONTRASEÑA" required="required">
+						</div>        
+						<div class="form-group">
+							<button class="btn btn-primary btn-lg btn-block" onclick="sincronizar()">Entrar</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				
+			</div>
+		</div>
+		
+	</div>
+</div>
+<!-- Final Modal -->
+	</div>
+
+</body>
+</html>

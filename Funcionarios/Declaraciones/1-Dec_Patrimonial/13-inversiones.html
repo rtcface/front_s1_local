@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/estilos.css">
+    <link rel="stylesheet" href="../css/datepicker.css">
+
+	<script src="../js/jquery-3.3.1.min.js"></script>
+	<script src="../js/tether.min.js"></script>
+	<script src="../js/popper.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/moment.js"></script>
+    <script src="../js/bootstrap-datepicker.js"></script>
+    <script src="../js/extras.js"></script>
+    <script src="../js/insert.js"></script>
+    <script src="../js/update.js"></script>
+    <script src="../js/selectById.js"></script>
+    <script src="../js/selectAll.js"></script>
+    <script src="../js/delete.js"></script>
+    <script src="../js/insertOrUpdate.js"></script>
+    <script src="../js/scripts.js"></script>
+    <script src="../js/scripts.js"></script>
+    <script src="../js/noAplica.js"></script>
+    <script src="../js/datosBienes.js"></script>
+    
+</head>
+<body oncontextmenu="return false" id="cuerpo"  onload="selectAllInversiones();titulos(13);">
+    <div class="container-fluid">
+        <br>
+        <label class="ruta">Declaración patrimonial<i class="icono glyphicon glyphicon-chevron-right"></i>
+        Declaración de situación patrimonial<i class="icono glyphicon glyphicon-chevron-right"></i>
+        <label class="tituloRuta">Inversiones, cuentas bancarias y otro tipo de valores/activos </label></label>
+        <h3>I. Declaración de situación patrimonial</h3>
+        <form class="well form-horizontal" onsubmit="verificarTercero(13);return false;">
+            <h4 class="titulo">13. Inversiones, cuentas bancarias y otro tipo de valores/activos (Situación actual)</h4><br>
+             <div class="form-group"> 
+                <div class="col-md-3 inputGroupConteiner">
+                    <label>No aplica</label>
+                    <input  type="checkbox" name="completo" id="completo" value="true" onclick="formularioCompleto()">
+                </div>
+                <div class="col-md-3 inputGroupConteiner">
+                    <button id="agregar_nuevo" class="botonEnviar" onclick="nuevoRegistro()">Agregar Nuevo</button>
+                </div>
+            </div>
+            <div class="form-group" id="formCompleto" style="display: none">
+                <div class="form-group">
+                    <div class="col-md-12 inputGroupConteiner">
+                        <h4>Todos los datos de las inversiones, cuentas bancarias y otro tipo de valores/activos a nombre de la pareja, dependientes económicos y/o terceros o que sea en copropiedad con el declarante no serán públicos.</h4>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-3 inputGroupContainer">
+                        <label class="dato_publico" id="label_tipoBien">Tipo de inversión / Activo</label>
+                        <select name="tipoBien" id="tipoBien" class="selectpicker form-control" onchange="desTipoInversion()">
+                            <option value="BANCARIA">Bancaria</option>
+                            <option value="FONDOS DE INVERSION">Fondos de inversión</option>
+                            <option value="ORGANIZACIONES PRIVADAS Y/O MERCANTILES">Organizaciones privadas y/o mercantiles</option>
+                            <option value="POSESION DE MONEDAS Y/O METALES">Posesión de monedas y/o metales</option>
+                            <option value="SEGUROS">Seguros</option>
+                            <option value="VALORES BURSATILES">Valores Bursátiles</option>
+                            <option value="AFORES Y OTROS">Afores y otros</option>
+                        </select>
+                    </div>
+                    <div class="col-md-5 inputGroupContainer" id="contenedorBancaria">
+                        <label class="dato_publico" id="label_banco">Bancaria</label>
+                        <select name="selectBancaria" id="selectBancaria" class="selectpicker form-control">
+                            <option value="CNOM">Cuenta de nómina</option>
+                            <option value="CAHO">Cuenta de ahorro</option>
+                            <option value="CCHE">Cuenta de cheques</option>
+                            <option value="CMAS">Cuenta maestra</option>
+                            <option value="CEJE">Cuenta eje</option>
+                            <option value="DPLA">Depósito a plazos</option>
+                        </select>
+                    </div>
+                    <div class="col-md-5 inputGroupContainer" id="contenedorFondos" style="display: none">
+                        <label class="dato_publico" id="label_fondos">Fondos de inversión</label>
+                        <select name="selectFondos" id="selectFondos" class="selectpicker form-control">
+                            <option value="SOIN">Sociedades de inversión</option>
+                            <option value="IFEX">Inversiones financieras en el extranjero</option>
+                        </select>
+                    </div>
+                    <div class="col-md-5 inputGroupContainer" id="contenedorOrganizaciones" style="display: none">
+                        <label class="dato_publico" id="label_organizaciones">Organizaciones privadas y/o mercantiles</label>
+                        <select name="selectOrganizaciones" id="selectOrganizaciones" class="selectpicker form-control">
+                            <option value="ACCI">Acciones</option>
+                            <option value="CSAH">Cajas de ahorro</option>
+                        </select>
+                    </div>
+                    <div class="col-md-5 inputGroupContainer" id="contenedorPosesion" style="display: none">
+                        <label class="dato_publico" id="label_posesion">Posesión de monedas y/o metales</label>
+                        <select name="selectPosesion" id="selectPosesion" class="selectpicker form-control">
+                            <option value="CENT">Centenarios</option>
+                            <option value="DIVS">Divisas</option>
+                            <option value="MONN">Moneda nacional</option>
+                            <option value="ONZT">Onzas troy</option>
+                            <option value="CRIP">Criptomonedas</option>
+                        </select>
+                    </div>
+                    <div class="col-md-5 inputGroupContainer" id="contenedorSeguros" style="display: none">
+                        <label class="dato_publico" id="label_seguros">Seguros</label>
+                        <select name="selectSeguros" id="selectSeguros" class="selectpicker form-control">
+                            <option value="SSIN">Seguro de separación individualizado</option>
+                            <option value="SEGI">Seguro de inversión</option>
+                            <option value="SEGV">Seguro de vida</option>
+                        </select>
+                    </div>
+                    <div class="col-md-5 inputGroupContainer" id="contenedorValores" style="display: none">
+                        <label class="dato_publico" id="label_valores">Valores Bursátiles</label>
+                        <select name="selectValores" id="selectValores" class="selectpicker form-control">
+                            <option value="ADER">Acciones y derivados</option>
+                            <option value="ABAN">Aceptaciones bancarias</option>
+                            <option value="BGUB">Bonos gubernamentales</option>
+                            <option value="PCOM">Papel comercial</option>
+                        </select>
+                    </div>
+                    <div class="col-md-5 inputGroupContainer" id="contenedorAfores" style="display: none">
+                        <label class="dato_publico" id="label_afores">Afores y otros</label>
+                        <select name="selectAfores" id="selectAfores" class="selectpicker form-control">
+                            <option value="AFOR">Afores</option>
+                            <option value="FIDE">Fideicomisos</option>
+                            <option value="CTES">Certificados de la tesorería</option>
+                            <option value="PFTE">Préstamos a favor de un tercero</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4 inputGroupContainer">
+                        <label>Número de cuenta, contrato o póliza</label>
+                        <input name="numeroCuenta" id="numeroCuenta"  class="form-control" type="number"  required>
+                    </div>
+                </div>
+                <div class="form-group">
+                        <div class="col-md-6 inputGroupContainer">
+                        <label class="dato_publico" id="label_titular">Titular de la inversión</label>
+                        <select name="titular" id="titular" class="selectpicker form-control" onchange="mostrarTerceros()">
+                            <option value="DECLARANTE">Declarante</option>
+                            <option value="DECLARANTE Y CONYUGE">Declarante y cónyuge</option>
+                            <option value="DECLARANTE EN COPROPIEDAD CON TERCEROS">Declarante en copropiedad con terceros</option>
+                            <option value="DECLARANTE Y CONYUGE EN COPROPIEDAD CON TERCEROS">Declarante y cónyuge en copropiedad con terceros</option>
+                            <option value="DECLARANTE Y CONCUBINA O CONCUBINARIO">Declarante y concubina o concubinario</option>
+                            <option value="DECLARANTE Y CONCUBINA O CONCUBINARIO EN COPROPIEDAD CON TERCEROS">Declarante y concubina o concubinario en copropiedad con terceros</option>
+                            <option value="CONYUGE">Cónyuge</option>
+                            <option value="CONYUGE EN COPROPIEDAD CON TERCEROS">Cónyuge en copropiedad con terceros</option>
+                            <option value="CONCUBINA O CONCUBINARIO">Concubina o concubinario</option>
+                            <option value="CONCUBINA O CONCUBINARIO EN COPROPIEDAD CON TERCEROS">Concubina o concubinario en copropiedad con terceros</option>
+                            <option value="CONVIVIENTE">Conviviente</option>
+                            <option value="DECLARANTE Y CONVIVIENTE">Declarante y conviviente</option>
+                            <option value="DECLARANTE Y CONVIVIENTE EN COPROPIEDAD CON TERCEROS">Declarante y conviviente en copropiedad con terceros</option>
+                            <option value="CONVIVIENTE Y DEPENDIENTE ECONOMICO">Conviviente y dependiente económico</option>
+                            <option value="CONVIVIENTE Y DEPENDIENTE ECONOMICO EN COPROPIEDAD CON TERCEROS">Conviviente y dependiente económico en copropiedad con terceros</option>
+                            <option value="DEPENDIENTE ECONOMICO">Dependiente económico</option>
+                            <option value="DECLARANTE Y DEPENDIENTE ECONOMICO">Declarante y dependiente económico</option>
+                            <option value="DECLARANTE Y DEPENDIENTE ECONOMICO EN COPROPIEDAD CON TERCEROS">Declarante y dependiente económico en copropiedad con terceros</option>
+                            <option value="DEPENDIENTE ECONOMICO Y TERCEROS">Dependiente económico y terceros</option>
+                            <option value="DECLARANTE, CONYUGE Y DEPENDIENTE ECONOMICO">Declarante, cónyuge y dependiente económico</option>
+                            <option value="DECLARANTE, CONCUBINA O CONCUBINARIO Y DEPENDIENTE ECONOMICO">Declarante, concubina o concubinario y dependiente económico</option>
+                            <option value="CONYUGE Y DEPENDIENTE ECONOMICO">Cónyuge y dependiente económico</option>
+                            <option value="CONCUBINA O CONCUBINARIO Y DEPENDIENTE ECONOMICO">Concubina o concubinario y dependiente económico</option>
+                            <option value="CONYUGE, DEPENDIENTE ECONOMICO EN COPROPIEDAD CON TERCEROS">Cónyuge, dependiente económico en copropiedad con terceros</option>
+                            <option value="CONCUBINA O CONCUBINARIO Y DEPENDIENTE ECONOMICO EN COPROPIEDAD CON TERCEROS">Concubina o concubinario y dependiente económico en copropiedad con terceros</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="tercero" style="display: none"><hr>
+                    <div class="form-group">
+                        <div class="col-md-3 inputGroupConteiner">
+                            <label class="dato_publico" id="label_tipoTercero">Tercero</label>
+                        </div>
+                        <div class="col-md-2 inputGroupConteiner">
+                            <input class="tercero" type="radio" name="tercero" id="terceroFisico" value="fisica" onclick="tipoPersona()">Persona física
+                        </div>
+                        <div class="col-md-2 inputGroupConteiner">
+                            <input class="tercero" type="radio" name="tercero" id="terceroMoral" value="moral" checked onclick="tipoPersona()">Persona moral
+                        </div>
+                    </div>
+                    <div class="form-group" id="terceroDatos" style="display: none">
+                        <div class="col-md-8 inputGroupConteiner">
+                            <label class="dato_publico" id="label_nombreTercero">Nombre del tercero o terceros</label>
+                            <input name="nombreTercero" id="nombreTercero"  class="form-control" type="text" pattern="[0-9-_.,&A-ZÑ\x26a-zñ\x26\s]{0,250}" maxlength="250">
+                        </div>
+                        <div class="col-md-4 inputGroupConteiner">
+                            <label class="dato_publico" id="label_rfcTercero">RFC</label>
+                            <input name="rfcTercero" id="rfcTercero" maxlength="13" placeholder="RFC" pattern="([A-ZÑ\x26a-zñ\x26]{3}([0-9]{2})(0[1-9]|1[0-2])(0[1-9]|1[0-9]|2[0-9]|3[0-1]))([A-Za-z0-9]{3})" class="form-control" type="text"  >
+                        </div>
+                    </div>
+                    <div class="form-group" id="botonTerceros" style="display: none">
+                        <div class="col-md-3 inputGroupConteiner">
+                            <a class="terceroB" onclick="guardarTerceros()">Agregar Tercero</a>
+                        </div>
+                        <div class="col-md-2 inputGroupConteiner"></div>
+                        <div class="col-md-3 inputGroupConteiner">
+                            <a href="#cuerpo" class="terceroB" data-toggle="modal" data-target="#modalTerceros">Ver Terceros</a>
+                        </div>
+                    </div><hr>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-3 inputGroupConteiner">
+                        <br>
+                        <label class="dato_publico" id="label_lugar">¿Dónde se localiza la inversión, cuenta y otro tipo de valores?</label>
+                    </div>
+                    <div class="col-md-2 inputGroupConteiner">
+                        <br>
+                        <input class="ext" type="radio" name="lugar" id="lugar" value="146" onclick="mostrarPais()" checked>México
+                    </div>
+                    <div class="col-md-2 inputGroupConteiner">
+                        <br>
+                        <input class="ext" type="radio" name="lugar" id="lugarE" value="extranjero"  onclick="mostrarPais()">Extranjero
+                    </div>
+                    <div id="paisE" class="col-md-5 inputGroupConteiner" style="display:none;">
+                        <br>
+                        <select name="pais" id="pais" class="selectpicker form-control"></select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-7 inputGroupConteiner">
+                        <label class="dato_publico" id="label_institucion">Institución o razón social</label>
+                        <input name="institucion" id="institucion" placeholder="Institución" class="form-control" type="text" pattern="[0-9-_.,&A-ZÑ\x26a-zñ\x26\s]{0,250}" maxlength="250" required>
+                    </div>
+                    <div class="col-md-5 inputGroupConteiner">
+                        <label class="dato_publico" id="label_rfcInstitucion">RFC</label>
+                        <input name="rfc" id="rfc" placeholder="RFC" maxlength="13" pattern="([A-ZÑ\x26a-zñ\x26]{3,4}([0-9]{2})(0[1-9]|1[0-2])(0[1-9]|1[0-9]|2[0-9]|3[0-1]))([A-Za-z0-9]{3})" class="form-control" type="text"  required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-6 inputGroupConteiner">
+                        <label id="labelSaldo">Saldo a la fecha</label>
+                        <input name="saldo" id="saldo"  class="form-control" type="number" required>
+                    </div>
+                    <div class="col-md-3 inputGroupConteiner">
+                        <label class="dato_publico" id="label_moneda">Tipo de moneda</label>
+                        <select name="tipoMoneda" id="tipoMoneda" class="selectpicker form-control">
+                            <option value="MXN">MXN</option>
+                            <option value="USD">USD</option>
+                            <option value="EUR">EUR</option>
+                            <option value="CAD">CAD</option>
+                        </select>
+                    </div>
+                </div>
+               <div class="form-group">
+                    <div class="col-md-12 inputGroupConteiner">
+                        <label>Observaciones y comentarios</label>
+                        <input name="obsComentarios" id="obsComentarios" placeholder="Observaciones" class="form-control" type="text" pattern="[0-9-_.,&A-ZÑ\x26a-zñ\x26\s]{0,254}" maxlength="254">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-7 control-label"></label>
+                    <div class="col-md-2 inputGroupContainer">
+                        <input class="botonEnviar" type="submit" value="Guardar" >
+                    </div>
+                    <div class="col-md-2 inputGroupContainer">
+                        <button class="botonCancelar" onclick="window.location.href='#tituloD';window.location.reload()">Cancelar</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <button class="botonActualizar" onclick="selectInversiones()" id="bEditar">Editar</button>
+        <button class="botonEliminar" onclick="deleteInversiones()" id="bEliminar">Eliminar</button>
+        <button id="guardar_np" class="botonActualizar" onclick="invercionesAplica(false)" style="display: none">Guardar</button>
+        <table class="table" id="tablaCurriculares">
+            <thead class="thead-dark" id="contenido">
+                
+            </thead>
+        </table>
+    </div>
+
+    <!-- Modal Terceros -->
+	<div class="modal fade" id="modalTerceros" role="dialog">
+		<div class="modal-dialog" id="modalTamanio">
+		
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">Terceros</h4>
+				</div>
+				<div class="modal-body">
+					
+                    <table id="tablaTercero" class="table">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th>Nombre</th>
+                                <th>RFC</th>
+                                <th>Tipo Persona</th>
+                                <th>Eliminar Tercero</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tablaprueba"></tbody>
+                    </table>
+							
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="cerrarModal" data-dismiss="modal">Cerrar</button>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+<!-- Final Modal Terceros -->
+
+    <script src="../jsResize/iframeResizer.contentWindow.min.js"></script>
+</body>
+</html>

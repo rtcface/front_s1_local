@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/estilos.css">
+    <link rel="stylesheet" href="../css/datepicker.css">
+
+	<script src="../js/jquery-3.3.1.min.js"></script>
+	<script src="../js/tether.min.js"></script>
+	<script src="../js/popper.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/moment.js"></script>
+    <script src="../js/bootstrap-datepicker.js"></script>
+    <script src="../js/insert.js"></script>
+    <script src="../js/update.js"></script>
+    <script src="../js/selectById.js"></script>
+    <script src="../js/selectAll.js"></script>
+    <script src="../js/delete.js"></script>
+    <script src="../js/insertOrUpdate.js"></script>
+    <script src="../js/scripts.js"></script>
+    <script src="../js/extras.js"></script>
+    <script src="../js/noAplica.js"></script>
+    <script src="../js/datosIngresos.js"></script>
+    
+</head>
+<body oncontextmenu="return false" id="cuerpo"  onload="selectServidorPublico();">
+    <div class="container-fluid">
+        <br>
+        <label class="ruta">Declaración patrimonial<i class="icono glyphicon glyphicon-chevron-right"></i>
+        Declaración de situación patrimonial<i class="icono glyphicon glyphicon-chevron-right"></i>
+        ¿Te desempeñaste como servidor público en el año inmediato anterior?</label>
+        <h3>I. Declaración de situación patrimonial</h3>
+        <form class="well form-horizontal" onsubmit="insertUpdate(9);return false;">
+            <h4>9. ¿Te desempeñaste como servidor público en el año inmediato anterior?</h4><br>
+             <div class="form-group"> 
+                <div class="col-md-3 inputGroupConteiner">
+                    <label>No aplica</label>
+                    <input  type="checkbox" name="completo" id="completo" value="true" onclick="formularioCompleto2()">
+                </div>
+            </div>
+            <div class="form-group"  id="formCompleto">
+               <div class="form-group">
+                    <div class="col-md-6 inputGroupConteiner">
+                        <label class="dato_publico">Fecha de ingreso</label>
+                        <div class='input-group date'>
+                            <input name="fecIngreso" id="fecIngreso" type='text' class="form-control datepicker"  placeholder="dd/mm/aaaa"  />
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-md-6 inputGroupConteiner">
+                        <label class="dato_publico">Fecha de salida</label>
+                        <div class='input-group date'>
+                            <input name="fecSalida" id="fecSalida" type='text' class="form-control datepicker"  placeholder="dd/mm/aaaa"  />
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-12 inputGroupConteiner">
+                        <h4>Capturar cantidades libres de impuestos, sin comas, sin puntos, sin centavos y sin ceros a la izquierda.</h4>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-4 inputGroupConteiner">
+                        <label class="dato_publico">Ingresos netos, recibidos durante el tiempo en el que se desempeñó como servidor público en el año inmediato anterior</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-4 inputGroupConteiner">
+                        <label class="dato_publico">I.- Remuneración neta del declarante, recibida durante el tiempo en el que se desempeñocomo servidor público en el año inmediato anterior (Por concepto de sueldos, honorarios, compensaciones, bonos y otras prestaciones)</label>
+                    </div>
+                    <div class="col-md-7 inputGroupConteiner">
+                        <input name="remuneracion_neta" id="remuneracion_neta" class="form-control" type="number"  value=0   min="0" step="any" onchange="sumaIngresosDeclarante();sumaIngresosNetos()">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-4 inputGroupConteiner">
+                        <label class="dato_publico">II.- Otros ingresos del declarante, recibida durante el tiempo en el que se desempeñocomo servidor público en el año inmediato anterior</label>
+                    </div>
+                    <div class="col-md-7 inputGroupConteiner">
+                        <input name="otros_ingresos" id="otros_ingresos" class="form-control" type="number"  value=0   min="0" step="any" disabled>
+                    </div>
+                </div><hr>
+                <div class="form-group">
+                    <div class="col-md-4 inputGroupConteiner">
+                        <label class="dato_publico">II.1- Total por actividad industrial, comercial y/o empresarial</label>
+                    </div>
+                    <div class="col-md-7 inputGroupConteiner">
+                        <input name="total_ingresos_industrial" id="total_ingresos_industrial" class="form-control" type="number"  value=0   min="0" step="any"  onchange="obligarNegocio()" disabled>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-4 inputGroupConteiner">
+                        <label class="dato_publico" id="campo3">Por actividad industrial, comercial y/o empresarial</label>
+                    </div>
+                    <div class="col-md-7 inputGroupConteiner">
+                        <input name="ingresos_industrial" id="ingresos_industrial" class="form-control" type="number"  value=0   min="0" step="any">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-4 inputGroupConteiner">
+                        <label class="dato_publico" id="campo4">Nombre, razón social o tipo de negocio</label>
+                    </div>
+                    <div class="col-md-3 inputGroupConteiner">
+                        <input name="nombre_industria" id="nombre_industria" class="form-control" type="text" pattern="[0-9-_.,&A-ZÑ\x26a-zñ\x26\s]{0,250}" maxlength="250">
+                    </div>
+                    <div class="col-md-2 inputGroupConteiner">
+                        <label class="dato_publico" id="campo4">Tipo de negocio</label>
+                    </div>
+                    <div class="col-md-3 inputGroupConteiner">
+                        <input name="tipoNegocio" id="tipoNegocio" class="form-control" type="text" pattern="[0-9-_.,&A-ZÑ\x26a-zñ\x26\s]{0,250}" maxlength="250">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-6 inputGroupConteiner"></div>
+                    <div class="col-md-3 inputGroupConteiner">
+                        <a class="terceroB" onclick="guardarActIndustrial()">Agregar Ingreso</a>
+                    </div>
+                    <div class="col-md-3 inputGroupConteiner">
+                        <a href="#cuerpo" class="terceroB" data-toggle="modal" data-target="#modalActividadInsdustrial">Ver Ingresos</a>
+                    </div>
+                </div><hr>
+                <div class="form-group">
+                    <div class="col-md-4 inputGroupConteiner">
+                        <label class="dato_publico" id="campo5">II.2- Total por actividad Financiera (Rendimientos o ganancias)</label>
+                    </div>
+                    <div class="col-md-7 inputGroupConteiner">
+                        <input name="total_ingresos_financiera" id="total_ingresos_financiera" class="form-control" type="number"  value=0   min="0" step="any"  onchange="obligarTipoInstrumento()" disabled>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-4 inputGroupConteiner">
+                        <label class="dato_publico" id="campo5">Por actividad Financiera (Rendimientos o ganancias)</label>
+                    </div>
+                    <div class="col-md-7 inputGroupConteiner">
+                        <input name="ingresos_financiera" id="ingresos_financiera" class="form-control" type="number"  value=0   min="0" step="any">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-3 inputGroupConteiner">
+                        <label class="dato_publico" id="campo6">Tipo de instrumento que generó el rendiento o ganancia</label>
+                    </div>
+                    <div class="col-md-3 inputGroupConteiner">
+                        <input type="radio" class="tipoInst" name="tipoInstrumento" id="capital" value="CAPITAL">Capital<br>
+                        <input type="radio" class="tipoInst" name="tipoInstrumento" id="fondo" value="FONDOS DE INVERSION">Fondos de inversión<br>
+                        <input type="radio" class="tipoInst" name="tipoInstrumento" id="organizacion" value="ORGANIZACIONES PRIVADAS">Organizaciones privadas
+                    </div>
+                    <div class="col-md-3 inputGroupConteiner">
+                        <input type="radio" class="tipoInst" name="tipoInstrumento" id="seguro" value="SEGURO DE SEPARACION INDIVIDUALIZADO">Seguros de separación individualizado<br>
+                        <input type="radio" class="tipoInst" name="tipoInstrumento" id="valores" value="VALORES BURSATILES">Valores burátiles<br>
+                        <input type="radio" class="tipoInst" name="tipoInstrumento" id="bono" value="BONOS">Bonos
+                    </div>
+                    <div class="col-md-3 inputGroupConteiner">
+                        <input type="radio" class="tipoInst" name="tipoInstrumento" id="otro" value="OTRO" onclick="otroInstrumento()">Otro<br>
+                        <input name="otroInst" id="otroInst" placeholder="Especificar" class="form-control" pattern="[0-9-_.,&A-ZÑ\x26a-zñ\x26\s]{0,250}" maxlength="250" type="text" style="display: none">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-6 inputGroupConteiner"></div>
+                    <div class="col-md-3 inputGroupConteiner">
+                        <a class="terceroB" onclick="guardarActFinanciera()">Agregar Ingreso</a>
+                    </div>
+                    <div class="col-md-3 inputGroupConteiner">
+                        <a href="#cuerpo" class="terceroB" data-toggle="modal" data-target="#modalActividadFinanciera">Ver Ingresos</a>
+                    </div>
+                </div><hr>
+                <div class="form-group">
+                    <div class="col-md-4 inputGroupConteiner">
+                        <label class="dato_publico" id="campo7">II.3- Total por servicios profesionales, consejos, consultorías y/o asesorías </label>
+                    </div>
+                    <div class="col-md-7 inputGroupConteiner">
+                        <input name="total_ingresos_servicios" id="total_ingresos_servicios" class="form-control" type="number"  value=0   min="0" step="any"  onchange="obligarServicioPrestado()" disabled>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-4 inputGroupConteiner">
+                        <label class="dato_publico" id="campo7">Por servicios profesionales, consejos, consultorías y/o asesorías </label>
+                    </div>
+                    <div class="col-md-7 inputGroupConteiner">
+                        <input name="ingresos_servicios" id="ingresos_servicios" class="form-control" type="number"  value=0   min="0" step="any">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-4 inputGroupConteiner">
+                        <label class="dato_publico" id="campo8">Tipo de servicio prestado</label>
+                    </div>
+                    <div class="col-md-7 inputGroupConteiner">
+                        <input name="tipo_servicio" id="tipo_servicio" class="form-control" type="text" pattern="[0-9-_.,&A-ZÑ\x26a-zñ\x26\s]{0,250}" maxlength="250">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-6 inputGroupConteiner"></div>
+                    <div class="col-md-3 inputGroupConteiner">
+                        <a class="terceroB" onclick="guardarServiciosProf()">Agregar Ingreso</a>
+                    </div>
+                    <div class="col-md-3 inputGroupConteiner">
+                        <a href="#cuerpo" class="terceroB" data-toggle="modal" data-target="#modalServicioProf">Ver Ingresos</a>
+                    </div>
+                </div><hr>
+                <div class="form-group">
+                    <div class="col-md-4 inputGroupConteiner">
+                        <label class="dato_publico" id="campo9">II.4- Total por otros ingresos no considerados a los anteriores</label>
+                    </div>
+                    <div class="col-md-7 inputGroupConteiner">
+                        <input name="total_ingresos_varios" id="total_ingresos_varios" class="form-control" type="number"  value=0   min="0" step="any"  onchange="obligarOtroIngreso()" disabled>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-4 inputGroupConteiner">
+                        <label class="dato_publico" id="campo9">Otros ingresos no considerados a los anteriores</label>
+                    </div>
+                    <div class="col-md-7 inputGroupConteiner">
+                        <input name="ingresos_varios" id="ingresos_varios" class="form-control" type="number"  value=0   min="0" step="any">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-4 inputGroupConteiner">
+                        <label class="dato_publico" id="campo10">Especificar tipo de ingreso (Arrendamiento, regalía, seguro de vida, etc.)</label>
+                    </div>
+                    <div class="col-md-7 inputGroupConteiner">
+                        <input name="especificar_varios" id="especificar_varios" class="form-control" type="text" pattern="[0-9-_.,&A-ZÑ\x26a-zñ\x26\s]{0,250}" maxlength="250">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-6 inputGroupConteiner"></div>
+                    <div class="col-md-3 inputGroupConteiner">
+                        <a class="terceroB" onclick="guardarOtrosIngresos()">Agregar Ingreso</a>
+                    </div>
+                    <div class="col-md-3 inputGroupConteiner">
+                        <a href="#cuerpo" class="terceroB" data-toggle="modal" data-target="#modalOtrosIngresos">Ver Ingresos</a>
+                    </div>
+                </div><hr>
+                <div id="enajenacion">
+                    <div class="form-group">
+                        <div class="col-md-4 inputGroupConteiner">
+                            <label class="dato_publico" id="campo11">II.5- Total por enajenación de bienes</label>
+                        </div>
+                        <div class="col-md-7 inputGroupConteiner">
+                            <input name="total_ingresos_enajenacion" id="total_ingresos_enajenacion" class="form-control" type="number"  value=0   min="0" step="any"  onchange="obligarTipoEnajenacion()" disabled>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-4 inputGroupConteiner">
+                            <label class="dato_publico" id="campo11">Por enajenación de bienes</label>
+                        </div>
+                        <div class="col-md-7 inputGroupConteiner">
+                            <input name="ingresos_enajenacion" id="ingresos_enajenacion" class="form-control" type="number"  value=0   min="0" step="any">
+                        </div>
+                    </div>
+                    <div class="form-group" id="tipoEnajenacion">
+                        <div class="col-md-3 inputGroupConteiner">
+                            <label class="dato_publico" id="campo12">Tipo de bien enajenado</label>
+                        </div>
+                        <div class="col-md-2 inputGroupConteiner">
+                            <input type="radio" name="tipoBienEnajenado" id="bienMueble" value="MUEBLE">Mueble
+                        </div>
+                        <div class="col-md-2 inputGroupConteiner">
+                            <input type="radio" name="tipoBienEnajenado" id="bienInmueble" value="INMUEBLE">Inmueble
+                        </div>
+                        <div class="col-md-2 inputGroupConteiner">
+                            <input type="radio" name="tipoBienEnajenado" id="bienVehiculo" value="VEHICULO">Vehículo
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-6 inputGroupConteiner"></div>
+                        <div class="col-md-3 inputGroupConteiner">
+                            <a class="terceroB" onclick="guardarEnajenacion(false)">Agregar Ingreso</a>
+                        </div>
+                        <div class="col-md-3 inputGroupConteiner">
+                            <a href="#cuerpo" class="terceroB" data-toggle="modal" data-target="#modalEnajenacion">Ver Ingresos</a>
+                        </div>
+                    </div><hr>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-4 inputGroupConteiner">
+                        <label class="dato_publico">A.- Ingreso neto del declarante, recibida durante el año inmediato anterior</label>
+                    </div>
+                    <div class="col-md-7 inputGroupConteiner">
+                        <input name="ingresos_declarante" id="ingresos_declarante" class="form-control" type="number"  value=0   min="0" step="any" disabled>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-4 inputGroupConteiner">
+                        <label>Ingreso neto de la pareja y/o dependientes económicos, recibidos durante el año inmediato anterior</label>
+                    </div>
+                    <div class="col-md-7 inputGroupConteiner">
+                        <input name="ingresos_pareja" id="ingresos_pareja" class="form-control" type="number"  value=0   min="0" step="any" onchange="sumaIngresosNetos()">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-4 inputGroupConteiner">
+                        <label class="dato_publico">Total de ingresos netos percibidos por el declarante, pareja y/o dependientes económicos, recibidos durante el año inmediato anterior</label>
+                    </div>
+                    <div class="col-md-7 inputGroupConteiner">
+                        <input name="ingresos_total" id="ingresos_total" class="form-control" type="number"  value=0   min="0" step="any" disabled>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-12 inputGroupConteiner">
+                        <label>Observaciones y comentarios</label>
+                        <input name="obsComentarios" id="obsComentarios" placeholder="Observaciones" class="form-control" type="text" pattern="[0-9-_.,&A-ZÑ\x26a-zñ\x26\s]{0,254}" maxlength="254">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-7 control-label"></label>
+                    <div class="col-md-2 inputGroupContainer">
+                        <input class="botonEnviar" type="submit" value="Guardar" >
+                    </div>
+                    <div class="col-md-2 inputGroupContainer">
+                        <button class="botonCancelar" onclick="window.location.href='#tituloD';window.location.reload()">Cancelar</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <button id="guardar_np" class="botonActualizar" onclick="anteriorServidorAplica(false)" style="display: none">Guardar</button>
+    </div>
+
+<!--//////////////////////////////////////////// Modales ////////////////////////////////////////////////////-->
+
+<!-- Modal Actividad Insdustrial -->
+<div class="modal fade" id="modalActividadInsdustrial" role="dialog">
+    <div class="modal-dialog" id="modalTamanio">
+    
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Actividad Industrial</h4>
+            </div>
+            <div class="modal-body">
+                
+                <table id="tablaActInsdustrial" class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Tipo de Negocio</th>
+                            <th>Monto</th>
+                            <th>Eliminar</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tablaActividadInsdustrial"></tbody>
+                </table>
+                        
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="cerrarModal" data-dismiss="modal" onclick="sumarActIndustrial()">Cerrar</button>
+            </div>
+        </div>
+        
+    </div>
+</div>
+<!-- Final Modal Actividad Insdustrial -->
+
+<!-- Modal Actividad Financiera -->
+<div class="modal fade" id="modalActividadFinanciera" role="dialog">
+    <div class="modal-dialog" id="modalTamanio">
+    
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Actividad Financiera</h4>
+            </div>
+            <div class="modal-body">
+                
+                <table id="tablaActFinanciera" class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Actividad Financiera</th>
+                            <th>Monto</th>
+                            <th>Eliminar</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tablaActividadFinanciera"></tbody>
+                </table>
+                        
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="cerrarModal" data-dismiss="modal" onclick="sumarActFinanciera()">Cerrar</button>
+            </div>
+        </div>
+        
+    </div>
+</div>
+<!-- Final Modal Actividad Financiera -->
+
+<!-- Modal Servicio Profesional -->
+<div class="modal fade" id="modalServicioProf" role="dialog">
+    <div class="modal-dialog" id="modalTamanio">
+    
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Servicio Profesional</h4>
+            </div>
+            <div class="modal-body">
+                
+                <table id="tablaServicioProfecional" class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Servicio Profesional</th>
+                            <th>Monto</th>
+                            <th>Eliminar</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tablaServicioProf"></tbody>
+                </table>
+                        
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="cerrarModal" data-dismiss="modal" onclick="sumarServiciosProf()">Cerrar</button>
+            </div>
+        </div>
+        
+    </div>
+</div>
+<!-- Final Modal Servicio Profesional -->
+
+<!-- Modal Otros Ingresos -->
+<div class="modal fade" id="modalOtrosIngresos" role="dialog">
+    <div class="modal-dialog" id="modalTamanio">
+    
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Otros Ingresos</h4>
+            </div>
+            <div class="modal-body">
+                
+                <table id="tablaIngresosVarios" class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Otros Ingresos</th>
+                            <th>Monto</th>
+                            <th>Eliminar</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tablaOtrosIngresos"></tbody>
+                </table>
+                        
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="cerrarModal" data-dismiss="modal" onclick="sumarOtrosIngresos()">Cerrar</button>
+            </div>
+        </div>
+        
+    </div>
+</div>
+<!-- Final Modal Otros Ingresos -->
+
+<!-- Modal Enajenacion de Bienes -->
+<div class="modal fade" id="modalEnajenacion" role="dialog">
+    <div class="modal-dialog" id="modalTamanio">
+    
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Enajenación de Bienes</h4>
+            </div>
+            <div class="modal-body">
+                
+                <table id="tablaEnajenacionBienes" class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Tipo Enajenación</th>
+                            <th>Monto</th>
+                            <th>Eliminar</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tablaEnajenacion"></tbody>
+                </table>
+                        
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="cerrarModal" data-dismiss="modal" onclick="sumarEnajenacion()">Cerrar</button>
+            </div>
+        </div>
+        
+    </div>
+</div>
+<!-- Final Modal Enajenacion de Bienes -->
+
+
+
+    <script src="../jsResize/iframeResizer.contentWindow.min.js"></script>
+</body>
+</html>

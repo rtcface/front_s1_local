@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/estilos.css">
+    <link rel="stylesheet" href="../css/datepicker.css">
+
+	<script src="../js/jquery-3.3.1.min.js"></script>
+	<script src="../js/tether.min.js"></script>
+	<script src="../js/popper.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/moment.js"></script>
+    <script src="../js/bootstrap-datepicker.js"></script>
+    <script src="../js/extras.js"></script>
+    <script src="../js/insert.js"></script>
+    <script src="../js/update.js"></script>
+    <script src="../js/selectById.js"></script>
+    <script src="../js/selectAll.js"></script>
+    <script src="../js/delete.js"></script>
+    <script src="../js/insertOrUpdate.js"></script>
+    <script src="../js/scripts.js"></script>
+    
+    
+    
+</head>
+<body oncontextmenu="return false" id="cuerpo"  onload="selectDomicilio();desEstados();">
+    <div class="container-fluid">
+        <br>
+        <label class="ruta">Declaración patrimonial<i class="icono glyphicon glyphicon-chevron-right"></i>
+        Declaración de situación patrimonial<i class="icono glyphicon glyphicon-chevron-right"></i>
+        Domicilio del declarante</label>
+        <h3>I. Declaración de situación patrimonial</h3>
+        <form class="well form-horizontal" onsubmit="insertUpdate(2);return false">
+            <h4>2. Domicilio del declarante</h4><br>
+            <div class="form-group">
+                <div class="col-md-3 inputGroupConteiner">
+                    <br>
+                    <label>Lugar en el que se encuentra:</label>
+                </div>
+                <div class="col-md-2 inputGroupConteiner">
+                    <br>
+                    <input class="ext" type="radio" name="lugar" id="lugar" value="146" onclick="mostrarPais();desEstados();" checked>México
+                </div>
+                <div class="col-md-2 inputGroupConteiner">
+                    <br>
+                    <input class="ext" type="radio" name="lugar" id="lugarE" value="extranjero"  onclick="mostrarPais()">Extranjero
+                </div>
+                <div id="paisE" class="col-md-5 inputGroupConteiner" style="display:none;">
+                    <br>
+                    <select name="pais" id="pais" class="selectpicker form-control"></select>
+                </div>
+            </div>
+            <div id="nacional">
+                <div class="form-group">
+                    <div class="col-md-12 inputGroupConteiner">
+                        <label>Entidad Federativa</label>
+                        <select name="entidadFed" id="entidadFed" class="selectpicker form-control" onchange="desMunicipios()" disabled >
+                            <option></option>
+                        </select>
+                        <br>
+                        <label>Municipio</label>
+                        <select name="municipio" id="municipio" class="selectpicker form-control" disabled ></select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-4 inputGroupConteiner">
+                        <label>Código Postal</label>
+                        <div class="input-group">
+                            <input name="cp" id="cp" placeholder="Código Postal" class="form-control" type="number"   min = "0" onchange="desColonia()">
+                            <span class="input-group-addon">
+                                <i class="glyphicon glyphicon-question-sign" data-toggle="popover" data-placement="top" title="Código Postal" data-content="En caso de que el fraccionamiento no aparezca en el desplegable, seleccionar el más cercano. "></i>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-md-8 inputGroupConteiner">
+                        <label>Colonia</label>
+                        <select name="colonia" id="colonia" class="selectpicker form-control" ></select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-4 inputGroupConteiner">
+                        <label>Tipo de vía</label>
+                        <select name="tipoVia" id="tipoVia" class="selectpicker form-control">
+                            <option value="AMPLIACION">AMPLIACION</option>
+                            <option value="ANDADOR">ANDADOR</option>
+                            <option value="AVENIDA">AVENIDA</option>
+                            <option value="BOULEVARD">BOULEVARD</option>
+                            <option value="CALLE">CALLE</option>
+                            <option value="CALLEJON">CALLEJON</option>
+                            <option value="CALZADA">CALZADA</option>
+                            <option value="CERRADA">CERRADA</option>
+                            <option value="CIRCUITO">CIRCUITO</option>
+                            <option value="CIRCUNVALACION">CIRCUNVALACION</option>
+                            <option value="CONTINUACION">CONTINUACION</option>
+                            <option value="CORREDOR">CORREDOR</option>
+                            <option value="DIAGONAL">DIAGONAL</option>
+                            <option value="PERIFERICO">PERIFERICO</option>
+                            <option value="PRIVADA">PRIVADA</option>
+                            <option value="PROLONGACION">PROLONGACION</option>
+                            <option value="RETORNO">RETORNO</option>
+                            <option value="VIADUCTO">VIADUCTO</option>
+                            </select>
+                    </div>
+                    <div class="col-md-4 inputGroupConteiner">
+                        <label>Nombre de la vía</label>
+                        <input name="nombreVia" id="nombreVia" placeholder="Nombre de la vía" class="form-control" type="text" pattern="[0-9-_.,&A-ZÑ\x26a-zñ\x26\s]{0,250}" maxlength="250">
+                    </div>
+                    <div class="col-md-2 inputGroupConteiner">
+                        <label>Número Exterior</label>
+                        <input name="numExterior" id="numExterior" placeholder="Exterior" class="form-control" type="text" pattern="[A-Za-z-0-9]{0,10}">
+                    </div>
+                    <div class="col-md-2 inputGroupConteiner">
+                        <label>Número Interior</label>
+                        <input name="numInterior" id="numInterior" placeholder="Interior" class="form-control" type="text" pattern="[A-Za-z-0-9]{0,10}" >
+                    </div>
+                </div>
+            </div>
+            <div id="extranjero" style="display: none">
+                <div class="form-group">
+                    <div class="col-md-12 inputGroupConteiner">
+                        <label>Estado</label>
+                        <input name="entidadExt" id="entidadExt" class="form-control" type="text" pattern="[A-ZÑ\x26a-zñ\x26\s]{0,50}" maxlength="50"></input>
+                        <br>
+                        <label>Municipio/Ciudad</label>
+                        <input name="municipioExt" id="municipioExt" class="form-control" type="text" pattern="[A-ZÑ\x26a-zñ\x26\s]{0,50}" maxlength="50"></input>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-4 inputGroupConteiner">
+                        <label>Código Postal</label>
+                        <input name="cpExt" id="cpExt" placeholder="Código Postal" class="form-control" type="number"   min = "0">
+                    </div>
+                    <div class="col-md-8 inputGroupConteiner">
+                        <label>Colonia</label>
+                        <input name="coloniaExt" id="coloniaExt" class="form-control" type="text" pattern="[0-9-_.,&A-ZÑ\x26a-zñ\x26\s]{0,250}" maxlength="250"></input>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-4 inputGroupConteiner">
+                        <label>Tipo de vía</label>
+                        <select name="tipoViaExt" id="tipoViaExt" class="selectpicker form-control">
+                            <option value="AMPLIACION">AMPLIACION</option>
+                            <option value="ANDADOR">ANDADOR</option>
+                            <option value="AVENIDA">AVENIDA</option>
+                            <option value="BOULEVARD">BOULEVARD</option>
+                            <option value="CALLE">CALLE</option>
+                            <option value="CALLEJON">CALLEJON</option>
+                            <option value="CALZADA">CALZADA</option>
+                            <option value="CERRADA">CERRADA</option>
+                            <option value="CIRCUITO">CIRCUITO</option>
+                            <option value="CIRCUNVALACION">CIRCUNVALACION</option>
+                            <option value="CONTINUACION">CONTINUACION</option>
+                            <option value="CORREDOR">CORREDOR</option>
+                            <option value="DIAGONAL">DIAGONAL</option>
+                            <option value="PERIFERICO">PERIFERICO</option>
+                            <option value="PRIVADA">PRIVADA</option>
+                            <option value="PROLONGACION">PROLONGACION</option>
+                            <option value="RETORNO">RETORNO</option>
+                            <option value="VIADUCTO">VIADUCTO</option>
+                            </select>
+                    </div>
+                    <div class="col-md-4 inputGroupConteiner">
+                        <label>Nombre de la vía</label>
+                        <input name="nombreViaExt" id="nombreViaExt" placeholder="Nombre de la vía" class="form-control" type="text" pattern="[0-9-_.,&A-ZÑ\x26a-zñ\x26\s]{0,250}" maxlength="250">
+                    </div>
+                    <div class="col-md-2 inputGroupConteiner">
+                        <label>Número Exterior</label>
+                        <input name="numExteriorExt" id="numExteriorExt" placeholder="Exterior" class="form-control" type="text" pattern="[A-Za-z-0-9]{0,10}" >
+                    </div>
+                    <div class="col-md-2 inputGroupConteiner">
+                        <label>Número Interior</label>
+                        <input name="numInteriorExt" id="numInteriorExt" placeholder="Interior" class="form-control" type="text" pattern="[A-Za-z-0-9]{0,10}" >
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-12 inputGroupConteiner">
+                    <label>Observaciones y comentarios</label>
+                    <input name="obsComentarios" id="obsComentarios" placeholder="Observaciones" class="form-control" type="text" pattern="[0-9-_.,&A-ZÑ\x26a-zñ\x26\s]{0,254}" maxlength="254">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-7 control-label"></label>
+                <div class="col-md-2 inputGroupContainer">
+                    <input class="botonEnviar" type="submit" value="Guardar" >
+                </div>
+                <div class="col-md-2 inputGroupContainer">
+                    <button class="botonCancelar" onclick="window.location.href='#tituloD';window.location.reload()">Cancelar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <script src="../jsResize/iframeResizer.contentWindow.min.js"></script>
+</body>
+</html>

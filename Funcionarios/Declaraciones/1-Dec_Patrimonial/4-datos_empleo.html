@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/estilos.css">
+    <link rel="stylesheet" href="../css/datepicker.css">
+
+	<script src="../js/jquery-3.3.1.min.js"></script>
+	<script src="../js/tether.min.js"></script>
+	<script src="../js/popper.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/moment.js"></script>
+    <script src="../js/bootstrap-datepicker.js"></script>
+    <script src="../js/extras.js"></script>
+    <script src="../js/insert.js"></script>
+    <script src="../js/update.js"></script>
+    <script src="../js/selectById.js"></script>
+    <script src="../js/selectAll.js"></script>
+    <script src="../js/delete.js"></script>
+    <script src="../js/insertOrUpdate.js"></script>
+    <script src="../js/scripts.js"></script>
+    
+    
+</head>
+<body oncontextmenu="return false" id="cuerpo"  onload="selectEmpleo();titulos(4);getEnte();">
+    <div class="container-fluid">
+        <br>
+        <label class="ruta">Declaración patrimonial<i class="icono glyphicon glyphicon-chevron-right"></i>
+        Declaración de situación patrimonial<i class="icono glyphicon glyphicon-chevron-right"></i>
+        <label class="tituloRuta"> </label></label>
+        <h3>I. Declaración de situación patrimonial</h3>
+        <form class="well form-horizontal" onsubmit="insertUpdate(4);return false;">
+            <h4 class="titulo"> </h4><br>
+            <div class="form-group">
+                <div class="form-group">
+                    <div class="col-md-4 inputGroupConteiner">
+                        <label  class="dato_publico">Nivel / orden de gobierno</label>
+                        <select disabled name="nivelGob" id="nivelGob" class="selectpicker form-control" onchange="mostrarAmbito()"> 
+                            <option value="ESTATAL">Estatal</option>
+                            <option value="MUNICIPAL_ALCALDIA">Municipal</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4 inputGroupConteiner" id="ambitoPublico">
+                        <label  class="dato_publico">Ámbito público</label>
+                        <select disabled name="poder" id="poder" class="selectpicker form-control">
+                            <option value="EJECUTIVO">Ejecutivo</option>
+                            <option value="JUDICIAL">Judicial</option>
+                            <option value="LEGISLATIVO">Legislativo</option>
+                            <option value="ORGANO AUTONOMO">Órgano autónomo</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-12 input disabledGroupContainer">
+                        <label  class="dato_publico">Ente Público</label>
+                        <input disabled name="entePublico" id="entePublico" placeholder="Ente Público" class="form-control" type="text" pattern="[0-9-_.,&A-ZÑ\x26a-zñ\x26\s]{0,250}" maxlength="250" required disabled>
+                        <br>
+                        <label  class="dato_publico">Nombre del empleo, cargo o comisión</label>
+                        <input disabled name="nombreEmpleo" id="nombreEmpleo" placeholder="Nombre del empleo" class="form-control" type="text" pattern="[0-9-_.,&A-ZÑ\x26a-zñ\x26\s]{0,100}" maxlength="100" required>
+                    </div>
+                </div>
+                 <div class="form-group">
+                    <div class="col-md-3 inputGroupConteiner">
+                        <label  class="dato_publico">Contrato por honorarios</label><br>
+                        <input disabled class="tipoCont" type="radio" name="contrato" id="contratoS" value="true" checked>Si
+                        <input disabled class="tipoCont" type="radio" name="contrato" id="contratoN" value="false">No
+                    </div>
+                    <div class="col-md-5 inputGroupConteiner">
+                        <label  class="dato_publico">Nivel de encargo</label>
+                        <input disabled name="nivelEncargo" id="nivelEncargo" placeholder="Nivel de encargo" class="form-control" type="text" pattern="[0-9-_.,&A-ZÑ\x26a-zñ\x26\s]{0,250}" maxlength="250" required >
+                    </div>
+                    <div class="col-md-4 inputGroupConteiner">
+                        <label  class="dato_publico">Área de adscripción</label>
+                        <input disabled name="areaAds" id="areaAds" placeholder="Área de adscipción" class="form-control" type="text" pattern="[0-9-_.,&A-ZÑ\x26a-zñ\x26\s]{0,250}" maxlength="250" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-5 inputGroupConteiner">
+                        <label  class="dato_publico">Funciones principales</label>
+                        <input disabled name="funciones" id="funciones" placeholder="Funciones" class="form-control" type="text" pattern="[0-9-_.,&A-ZÑ\x26a-zñ\x26\s]{0,250}" maxlength="250" required >
+                    </div>
+                    <div class="col-md-3 inputGroupConteiner">
+                        <label  class="dato_publico">Fecha de toma de posesión</label>
+                        <div class='input disabled-group date'>
+                            <input disabled name="fecPos" id="fecPos" type='text' class="form-control datepicker"  placeholder="dd/mm/aaaa"  />
+                        </div>
+                    </div>
+                    <div class="col-md-2 inputGroupConteiner">
+                        <label  class="dato_publico">Teléfono de oficina</label>
+                        <input disabled name="telOficina" id="telOficina" type="tel" pattern="[0-9]{10}" class="form-control" required>
+                    </div>
+                    <div class="col-md-2 inputGroupConteiner">
+                        <label  class="dato_publico">Extensión</label>
+                        <input disabled name="extencion" id="extencion" type="tel" pattern="[0-9]{0,5}" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                <div class="col-md-3 inputGroupConteiner">
+                    <br>
+                    <label  class="dato_publico">Lugar en el que se encuentra:</label>
+                </div>
+                <div class="col-md-2 inputGroupConteiner">
+                    <br>
+                    <input disabled class="ext" type="radio" name="lugar" id="lugar" value="146" onclick="mostrarPais();desEstados()">México
+                </div>
+                <div class="col-md-2 inputGroupConteiner">
+                    <br>
+                    <input disabled class="ext" type="radio" name="lugar" id="lugarE" value="extranjero"  onclick="mostrarPais()">Extranjero
+                </div>
+                <div id="paisE" class="col-md-5 inputGroupConteiner" style="display:none;">
+                    <br>
+                    <select disabled name="pais" id="pais" class="selectpicker form-control"></select>
+                </div>
+                </div>
+                <div id="nacional" style="display: none">
+                    <div class="form-group">
+                        <div class="col-md-12 inputGroupConteiner">
+                            <label  class="dato_publico">Entidad Federativa</label>
+                            <select disabled name="entidadFed" id="entidadFed" class="selectpicker form-control" onchange="desMunicipios()" disabled >
+                                <option></option>
+                            </select>
+                            <br>
+                            <label  class="dato_publico">Municipio</label>
+                            <select disabled name="municipio" id="municipio" class="selectpicker form-control" disabled ></select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-4 inputGroupConteiner">
+                            <label  class="dato_publico">Código Postal</label>
+                            <input disabled name="cp" id="cp" placeholder="Código Postal" class="form-control" type="number" min = "0" onchange="desColonia()">
+                        </div>
+                        <div class="col-md-8 inputGroupConteiner">
+                            <label  class="dato_publico">Colonia</label>
+                            <select disabled name="colonia" id="colonia" class="selectpicker form-control" ></select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-4 inputGroupConteiner">
+                            <label  class="dato_publico">Tipo de vía</label>
+                            <select disabled name="tipoVia" id="tipoVia" class="selectpicker form-control">
+                                <option value="AMPLIACION">AMPLIACION</option>
+                                <option value="ANDADOR">ANDADOR</option>
+                                <option value="AVENIDA">AVENIDA</option>
+                                <option value="BOULEVARD">BOULEVARD</option>
+                                <option value="CALLE">CALLE</option>
+                                <option value="CALLEJON">CALLEJON</option>
+                                <option value="CALZADA">CALZADA</option>
+                                <option value="CERRADA">CERRADA</option>
+                                <option value="CIRCUITO">CIRCUITO</option>
+                                <option value="CIRCUNVALACION">CIRCUNVALACION</option>
+                                <option value="CONTINUACION">CONTINUACION</option>
+                                <option value="CORREDOR">CORREDOR</option>
+                                <option value="DIAGONAL">DIAGONAL</option>
+                                <option value="PERIFERICO">PERIFERICO</option>
+                                <option value="PRIVADA">PRIVADA</option>
+                                <option value="PROLONGACION">PROLONGACION</option>
+                                <option value="RETORNO">RETORNO</option>
+                                <option value="VIADUCTO">VIADUCTO</option>
+                                </select>
+                        </div>
+                        <div class="col-md-4 inputGroupConteiner">
+                            <label  class="dato_publico">Nombre de la vía</label>
+                            <input disabled name="nombreVia" id="nombreVia" placeholder="Nombre de la vía" class="form-control" type="text" pattern="[0-9-_.,&A-ZÑ\x26a-zñ\x26\s]{0,250}" maxlength="250">
+                        </div>
+                        <div class="col-md-2 inputGroupConteiner">
+                            <label  class="dato_publico">Número Exterior</label>
+                            <input disabled name="numExterior" id="numExterior" placeholder="Exterior" class="form-control" type="text" pattern="[A-Za-z-0-9]{0,10}">
+                        </div>
+                        <div class="col-md-2 inputGroupConteiner">
+                            <label  class="dato_publico">Número Interior</label>
+                            <input disabled name="numInterior" id="numInterior" placeholder="Interior" class="form-control" type="text" pattern="[A-Za-z-0-9]{0,10}" >
+                        </div>
+                    </div>
+                </div>
+                <div id="extranjero" style="display: none">
+                    <div class="form-group">
+                        <div class="col-md-12 inputGroupConteiner">
+                            <label  class="dato_publico">Estado</label>
+                            <input disabled name="entidadExt" id="entidadExt" class="form-control" type="text" pattern="[A-ZÑ\x26a-zñ\x26\s]{0,50}" maxlength="50"></input disabled>
+                            <br>
+                            <label  class="dato_publico">Municipio/Ciudad</label>
+                            <input disabled name="municipioExt" id="municipioExt" class="form-control" type="text"  pattern="[A-ZÑ\x26a-zñ\x26\s]{0,50}" maxlength="50"></input disabled>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-4 inputGroupConteiner">
+                            <label  class="dato_publico">Código Postal</label>
+                            <input disabled name="cpExt" id="cpExt"  placeholder="Código Postal" class="form-control" type="number" min = "0">
+                        </div>
+                        <div class="col-md-8 inputGroupConteiner">
+                            <label  class="dato_publico">Colonia</label>
+                            <input disabled name="coloniaExt" id="coloniaExt" class="form-control" type="text" pattern="[0-9-_.,&A-ZÑ\x26a-zñ\x26\s]{0,250}" maxlength="250"></input disabled>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-4 inputGroupConteiner">
+                            <label  class="dato_publico">Tipo de vía</label>
+                            <select disabled name="tipoViaExt" id="tipoViaExt" class="selectpicker form-control">
+                                <option value="AMPLIACION">AMPLIACION</option>
+                                                <option value="ANDADOR">ANDADOR</option>
+                                                <option value="AVENIDA">AVENIDA</option>
+                                                <option value="BOULEVARD">BOULEVARD</option>
+                                                <option value="CALLE">CALLE</option>
+                                                <option value="CALLEJON">CALLEJON</option>
+                                                <option value="CALZADA">CALZADA</option>
+                                                <option value="CERRADA">CERRADA</option>
+                                                <option value="CIRCUITO">CIRCUITO</option>
+                                                <option value="CIRCUNVALACION">CIRCUNVALACION</option>
+                                                <option value="CONTINUACION">CONTINUACION</option>
+                                                <option value="CORREDOR">CORREDOR</option>
+                                                <option value="DIAGONAL">DIAGONAL</option>
+                                                <option value="PERIFERICO">PERIFERICO</option>
+                                                <option value="PRIVADA">PRIVADA</option>
+                                                <option value="PROLONGACION">PROLONGACION</option>
+                                                <option value="RETORNO">RETORNO</option>
+                                                <option value="VIADUCTO">VIADUCTO</option>
+                                </select>
+                        </div>
+                        <div class="col-md-4 inputGroupConteiner">
+                            <label  class="dato_publico">Nombre de la vía</label>
+                            <input disabled name="nombreViaExt" id="nombreViaExt" placeholder="Nombre de la vía" class="form-control" type="text" pattern="[0-9-_.,&A-ZÑ\x26a-zñ\x26\s]{0,250}" maxlength="250" >
+                        </div>
+                        <div class="col-md-2 inputGroupConteiner">
+                            <label  class="dato_publico">Número Exterior</label>
+                            <input disabled name="numExteriorExt" id="numExteriorExt" placeholder="Exterior" class="form-control" type="text" pattern="[A-Za-z-0-9]{0,10}" >
+                        </div>
+                        <div class="col-md-2 inputGroupConteiner">
+                            <label  class="dato_publico">Número Interior</label>
+                            <input disabled name="numInteriorExt" id="numInteriorExt" placeholder="Interior" class="form-control" type="text" pattern="[A-Za-z-0-9]{0,10}" >
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <script src="../jsResize/iframeResizer.contentWindow.min.js"></script>
+</body>
+</html>

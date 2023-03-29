@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/estilos.css">
+    <link rel="stylesheet" href="../css/datepicker.css">
+
+	<script src="../js/jquery-3.3.1.min.js"></script>
+	<script src="../js/tether.min.js"></script>
+	<script src="../js/popper.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/moment.js"></script>
+    <script src="../js/bootstrap-datepicker.js"></script>
+    <script src="../js/extras.js"></script>
+    <script src="../js/insert.js"></script>
+    <script src="../js/update.js"></script>
+    <script src="../js/selectById.js"></script>
+    <script src="../js/selectAll.js"></script>
+    <script src="../js/delete.js"></script>
+    <script src="../js/insertOrUpdate.js"></script>
+    <script src="../js/scripts.js"></script>
+    <script src="../js/noAplica.js"></script>   
+    
+    
+</head>
+<body oncontextmenu="return false" id="cuerpo"  onload="selectAllDatosCurriculo();">
+    <div class="container-fluid">
+        <br>
+        <label class="ruta">Declaración patrimonial<i class="icono glyphicon glyphicon-chevron-right"></i>
+        Declaración de situación patrimonial<i class="icono glyphicon glyphicon-chevron-right"></i>
+        Datos curriculares del declarante</label>
+        <h3>I. Declaración de situación patrimonial</h3>
+        <form class="well form-horizontal" onsubmit="insertUpdate(3);return false;">
+            <h4>3. Datos curriculares del declarante</h4><br>
+            <div class="form-group"> 
+                <div class="col-md-3 inputGroupConteiner">
+                    <label>No aplica</label>
+                    <input  type="checkbox" name="completo" id="completo" value="true" onclick="formularioCompleto()">
+                </div>
+                <div class="col-md-3 inputGroupConteiner">
+                    <button id="agregar_nuevo" class="botonEnviar" onclick="nuevoCurriculo()">Agregar Nuevo</button>
+                </div>
+            </div>
+            <div class="form-group" id="formCompleto" style="display: none">
+                <div class="form-group">
+                    <div class="col-md-4 inputGroupContainer">
+                        <label id="nivelMax" class="dato_publico">Nivel Curricular</label>
+                        <select name="nivelCurriculo" id="nivelCurriculo" class="form-selectpicker form-control" onchange="mostrarCarrera()">
+                            <option value="PRIMARIA">Primaria</option> 
+                            <option value="SECUNDARIA">Secundaria</option>
+                            <option value="BACHILLERATO">Bachillerato</option>
+                            <option value="CARRERA TECNICA O COMERCIAL">Carrera técnica o comercial</option>
+                            <option value="LICENCIATURA">Licenciatura</option>
+                            <option value="ESPECIALIDAD">Especialidad</option>
+                            <option value="MAESTRIA">Maestría</option>
+                            <option value="DOCTORADO">Doctorado</option>  
+                        </select>
+                    </div>
+                    <div class="col-md-4 inputGroupContainer" id="checkUltimoGrado">
+                        <br>
+                        <label class="dato_publico">Último grado de estudios</label>
+                        <input  type="checkbox" name="ultimoGrado" id="ultimoGrado">
+                    </div>
+                </div>
+                <div class="form-group">
+                     <div class="col-md-6 inputGroupContainer">
+                        <label class="dato_publico">Institución educativa</label>
+                        <input name="institucionEducativa" id="institucionEducativa" placeholder="Institución Educativa" class="form-control" type="text" pattern="[0-9-_.,&A-ZÑ\x26a-zñ\x26\s]{0,250}" maxlength="250" required>
+                    </div>
+                    <div class="col-md-6 inputGroupContainer" id="contCarrera" style="display: none;">
+                        <label class="dato_publico">Carrera o área de conocimiento</label>
+                        <input name="carrera" id="carrera" placeholder="Carrera o área de conocimiento" class="form-control" type="text" pattern="[0-9-_.,&A-ZÑ\x26a-zñ\x26\s]{0,250}" maxlength="250">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-3 inputGroupConteiner">
+                        <br>
+                        <label class="dato_publico">Lugar donde se ubica la institución:</label>
+                    </div>
+                    <div class="col-md-2 inputGroupConteiner">
+                        <br>
+                        <input class="ext" type="radio" name="lugar" id="lugar" value="146" onclick="mostrarPais()" checked>México
+                    </div>
+                    <div class="col-md-2 inputGroupConteiner">
+                        <br>
+                        <input class="ext" type="radio" name="lugar" id="lugarE" value="extranjero"  onclick="mostrarPais()">Extranjero
+                    </div>
+                    <div id="paisE" class="col-md-5 inputGroupConteiner" style="display:none;">
+                        <br>
+                        <select name="pais" id="pais" class="selectpicker form-control"></select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-4 inputGroupConteiner">
+                        <label class="dato_publico">Estatus</label>
+                        <select name="estatus" id="estatus" class="selectpicker form-control">
+                            <option value="CURSANDO">Cursando</option>
+                            <option value="FINALIZADO">Finalizado</option>
+                            <option value="TRUNCO">Trunco</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4 inputGroupConteiner">
+                        <label class="dato_publico">Documento Obtenido</label>
+                        <select name="docObtenido" id="docObtenido" class="selectpicker form-control">
+                            <option value="BOLETA">Boleta</option>
+                            <option value="CERTIFICADO">Certificado</option>
+                            <option value="CONSTANCIA">Constancia</option>
+                            <option value="TITULO">Titulo</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4 inputGroupConteiner">
+                        <label class="dato_publico">Fecha de obtención</label>
+                        <div class='input-group date'>
+                            <input name="finalizado" id="finalizado" type='text' class="form-control datepicker" placeholder="dd/mm/aaaa" />
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-12 inputGroupConteiner">
+                        <label>Observaciones y comentarios</label>
+                        <input name="obsComentarios" id="obsComentarios" placeholder="Observaciones" class="form-control" type="text" pattern="[0-9-_.,&A-ZÑ\x26a-zñ\x26\s]{0,254}" maxlength="254">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-7 control-label"></label>
+                    <div class="col-md-2 inputGroupContainer">
+                        <input class="botonEnviar" type="submit" value="Guardar" >
+                    </div>
+                    <div class="col-md-2 inputGroupContainer">
+                        <button class="botonCancelar" onclick="window.location.href='#tituloD';window.location.reload()">Cancelar</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <button class="botonActualizar" onclick="selectDatosCurriculo()" id="bEditar">Editar</button>
+        <button class="botonEliminar" onclick="deleteDatosCurriculo()" id="bEliminar">Eliminar</button>
+        <button id="guardar_np" class="botonActualizar" onclick="curriculoAplica(false)" style="display: none">Guardar</button>
+        <table class="table" id="tablaCurriculares">
+            <thead class="thead-dark" id="contenido">
+                
+            </thead>
+        </table>
+    </div>
+    <script src="../jsResize/iframeResizer.contentWindow.min.js"></script>
+</body>
+</html>

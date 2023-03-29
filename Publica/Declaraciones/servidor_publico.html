@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+
+    <title>PDE Tlaxcala</title>
+    <link rel="icon" type="image/ico" href="../../Img/icono_pde1.ico" />
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/estilos.css">
+
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/tether.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/scripts.js"></script>
+    <script src="js/declarante.js"></script>
+    <script src="../../host/host.js"></script>
+
+</head>
+
+<body oncontextmenu="return false" class="cuerpo" style="background: rgb(248, 248, 248);" onload="datosGenerales();">
+
+    <div>
+
+        <nav class="navbar navbar-color">
+            <div class="container-fluid">
+                <div class="col-md-3">
+                    <a href="#"><img style="height: 40%;width: 55%;" src="Img/logo-16.png"></a>
+                </div>
+            </div>
+        </nav>
+
+        <div class="ruta2">
+            <label><a href="../index.html">Plataforma Digital Estatal</a><i class="glyphicon glyphicon-chevron-right"></i>
+                <a href="index.html">Declaraciones</a><i class="glyphicon glyphicon-chevron-right"></i>Servidor Público</label>
+        </div>
+
+        <div class="container-fluid encabezado">
+            <div class="col-md-3" style="padding-top:3%;padding-left:3%">
+                <img src="Img/logo_plataforma-11.png" style="float:left;">
+            </div>
+            <div class="col-md-2">
+                <img src="Img/patrimonial_icon.png">
+            </div>
+            <div class="col-md-7">
+                <h2>Declaraciones</h2>
+            </div>
+        </div>
+
+        <div class="container-fluid tab encabezado">
+            <div class="col-md-2"></div>
+            <div class="col-md-4">
+                <button class="tablinks" onclick="location.href='index.html'">Busqueda de Servidores Públicos</button>
+            </div>
+            <div class="col-md-4">
+                <button class="tablinks" onclick="location.href='estadisticas.html'">Estadísticas</button>
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+
+        <br>
+
+        <div class="container">
+            <div class="col-md-2">
+                <img src="Img/icon_user_log in.png">
+            </div>
+            <div class="col-md-7">
+                <h3 style="margin: 0;color: #686868" id="nombre_completo"> Nombre Completo</h3>
+                <h4 id="correo"> Correo electronico</h4>
+                <br>
+                <label>Encargo Actual</label><br>
+                <h4 style="margin: 0" id="encargo"> empleo </h4>
+            </div>
+          
+        <!---->  
+          </div>
+
+        <div class="container-fluid tab" style="padding-left: 4%;padding-right: 4%;">
+            <div class="col-md-6 bordes" id="b1" style="background: #ad7655;color: white">
+                <button class="tablinks" onclick="cambiarColor(1);formularioDatoCurricular()">
+                    <i class="glyphicon glyphicon-info-sign"></i>
+                </button>
+            </div>
+        <!--   -->
+        </div>
+
+    <!---->
+    <div class="container-fluid" style="padding-left: 4%;padding-right: 4%;">
+            <div id="menu_lista" name="menu_lista" class="col-md-2" style="background: #ad7655;" id="menuList">
+                <ol id="m1" class="lista"  type="1">
+                    <li><a onclick="formularioDatoEncargoAct()">Datos del empleo, cargo o comisón</a></li>
+                </ol>
+
+                <ol id="m2" class="lista" type="1" style="display: none">
+                </ol>
+            </div>
+            <div class="col-md-10" style="background: #E4E4E4;">
+                <iframe id="vista" name="vista" src="situacionPatrimonial/2-datosCurriculares.html" frameborder="0"
+                    width="100%" allowfullscreen></iframe>
+            </div>
+        <!---->
+        </div>
+    </div>
+    <script src="../../Funcionarios/Declaraciones/jsResize/iframeResizer.min.js"></script>
+    <script type="text/javascript">
+        iFrameResize({ log: true, inPageLinks: true }, '#vista');
+    </script>
+</body>
+
+</html>

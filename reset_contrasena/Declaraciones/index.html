@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport"
+		content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+
+	<title>PDE Tlaxcala</title>
+	<link rel="icon" type="image/ico" href="../../Img/icono_pde1.ico" />
+	<link rel="stylesheet" href="../../Funcionarios/Declaraciones/css/bootstrap.css">
+	<link rel="stylesheet" href="../../Funcionarios/Declaraciones/css/estilos.css">
+	<link rel="stylesheet" href="../css/estilo.css">
+    <!-- Data table -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.css">
+
+	<script src="../../Funcionarios/Declaraciones/js/jquery-3.3.1.min.js"></script>
+	<script src="../../Funcionarios/Declaraciones/js/tether.min.js"></script>
+	<script src="../../Funcionarios/Declaraciones/js/popper.min.js"></script>
+	<script src="../../Funcionarios/Declaraciones/js/bootstrap.min.js"></script>
+	<script src="../../host/host.js"></script>
+	<script src="../js/scripts.js"></script>
+    <script src="../js/login.js"></script>
+    <!-- Data table -->
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.js"></script>
+
+</head>
+
+<body oncontextmenu="return false" id="cuerpo" style="background: rgb(248, 248, 248);" >
+
+	<div>
+        <nav class="navbar navbar-color">
+			<div class="container-fluid">
+				<div class="col-md-3">
+					<a href="#"><img style="height: 40%;width: 55%;" src="../../Funcionarios/Declaraciones/Img/logo-16.png"></a>
+				</div>
+				<div class="col-md-9">
+					<ul class="nav navbar-nav navbar-right" style="padding:1%">
+						<li><a onclick="salir()" href="#"><b>Salir</b></a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+
+        <div class="ruta2">
+			<label><a href="../index.html">Inicio</a><i
+					class="glyphicon glyphicon-chevron-right"></i>Declaraciones. Módulo de reinicio de contraseñas</label>
+		</div>
+
+		<div class="container encabezado">
+			<div class="col-md-3" style="padding-top:3%;padding-left:3%">
+				<img src="../../Funcionarios/Declaraciones/Img/logo_plataforma-11.png" style="float:left; width: 64%;">
+			</div>
+			<div class="col-md-2">
+				<img src="../../Funcionarios/Declaraciones/Img/patrimonial_icon.png">
+			</div>
+			<div class="col-md-7">
+				<h2>Declaraciones. Módulo de reinicio de contraseñas</h2>
+			</div>
+		</div>
+
+		<br>
+		<h3 style="text-align: left; margin-left: 2%">Buscar a Servidores Públicos</h3>
+		<br>
+
+		<div class="ruta3">
+			<div class="container-fluid" style="padding-top: 1%">
+				<div class="form-group">
+                    <div class="col-md-3"></div>
+					<div class="col-md-4">
+						<label>RFC: </label>
+						<input name="rfc" id="rfc" placeholder="RFC" class="form-control" type="text">
+                        <br>
+					</div>
+					<div class="col-md-2">
+						<br><br>
+						<button class="botonEnviar" onclick="buscar()">Buscar</button>
+					</div>
+                    <div class="col-md-4"></div>
+				</div>
+			</div>
+		</div>
+		<br><br>
+		<div class="container">
+			<table class="table" id="tablaDeclarantes">
+				<thead class="thead-dark" id="contenido">
+                       
+				</thead>
+			</table>
+		</div>
+
+	</div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Resetear contraseña</h4>
+                </div>
+                <div class="modal-body">
+                    <p>¿Está seguro que desea resetear la contraseña del servidor público?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="botonEliminar2" data-dismiss="modal">Cancelar</button>
+                    <button type="button" class="botonActualizar2" onclick="resetearContraseña()">Si</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- Final Modal -->
+
+</body>
+
+</html>

@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/estilos.css">
+    <link rel="stylesheet" href="../css/datepicker.css">
+
+	<script src="../js/jquery-3.3.1.min.js"></script>
+	<script src="../js/tether.min.js"></script>
+	<script src="../js/popper.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/moment.js"></script>
+    <script src="../js/bootstrap-datepicker.js"></script>
+    <script src="../js/extras.js"></script>
+    <script src="../js/insert.js"></script>
+    <script src="../js/update.js"></script>
+    <script src="../js/selectById.js"></script>
+    <script src="../js/selectAll.js"></script>
+    <script src="../js/delete.js"></script>
+    <script src="../js/insertOrUpdate.js"></script>
+    <script src="../js/scripts.js"></script>
+    <script src="../js/scripts.js"></script>
+    <script src="../js/noAplica.js"></script>
+    <script src="../js/datosBienes.js"></script>
+    
+</head>
+<body oncontextmenu="return false" id="cuerpo"  onload="selectAllBienesMuebles();titulos(12);">
+    <div class="container-fluid">
+        <br>
+        <label class="ruta">Declaración patrimonial<i class="icono glyphicon glyphicon-chevron-right"></i>
+        Declaración de situación patrimonial<i class="icono glyphicon glyphicon-chevron-right"></i>
+        <label class="tituloRuta">Bienes muebles </label></label>
+        <h3>I. Declaración de situación patrimonial</h3>
+        <form class="well form-horizontal" onsubmit="verificarTerceroTransmisor(12);return false;">
+            <h4 class="titulo">12. Bienes muebles (Situación actual)</h4>
+            <h4>Bienes del declarante, pareja y/o dependientes económicos</h4><br>
+             <div class="form-group"> 
+                <div class="col-md-3 inputGroupConteiner">
+                    <label>No aplica</label>
+                    <input  type="checkbox" name="completo" id="completo" value="true" onclick="formularioCompleto()">
+                </div>
+                <div class="col-md-3 inputGroupConteiner">
+                    <button id="agregar_nuevo" class="botonEnviar" onclick="nuevoRegistro()">Agregar Nuevo</button>
+                </div>
+            </div>
+            <div class="form-group" id="formCompleto" style="display: none">
+                <div class="form-group">
+                    <div class="col-md-12 inputGroupConteiner">
+                        <h4>Todos los datos de bienes declarados a nombre de la pareja, dependientes económicos y/o terceros o que sea en copropiedad con el declarante no serán públicos.</h4>
+                    </div>
+                </div>
+                <div class="form-group">
+                     <div class="col-md-3 inputGroupContainer">
+                        <label class="dato_publico" id="label_tipoBien">Tipo de mueble</label>
+                        <select name="tipoBien" id="tipoBien" class="selectpicker form-control" onchange="otroTipoBien()" >
+                            <option value="MENAJE DE CASA">Menaje de casa (Muebles y accesorios)</option>
+                            <option value="APARATOS ELECTRONICOS Y ELECTRODOMESTICOS">Aparatos electrónicos y electródomésticos</option>
+                            <option value="JOYAS">Joyas</option>
+                            <option value="COLECCIONES">Coleccionables</option>
+                            <option value="OBRAS DE ARTE">Obras de arte</option>
+                            <option value="OTRO">Otros</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3 inputGroupContainer">
+                            <br>
+                        <input type="text" name="otroBien" id="otroBien" class="form-control" placeholder="Especificar" style="display:none;" pattern="[0-9-_.,&A-ZÑ\x26a-zñ\x26\s]{0,250}" maxlength="250">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-12 inputGroupContainer">
+                        <label class="dato_publico" id="label_descripcionMueble">Descripción general del mueble</label>
+                        <input name="descBien" id="descBien" placeholder="Descripción" class="form-control" type="text" required pattern="[0-9-_.,&A-ZÑ\x26a-zñ\x26\s]{0,250}" maxlength="250">
+                    </div>
+                </div>
+                <div class="form-group">
+                     <div class="col-md-6 inputGroupContainer">
+                        <label class="dato_publico" id="label_titular">Titular del mueble</label>
+                        <select name="titular" id="titular" class="selectpicker form-control" onchange="mostrarTerceros()">
+                            <option value="DECLARANTE">Declarante</option>
+                            <option value="DECLARANTE Y CONYUGE">Declarante y cónyuge</option>
+                            <option value="DECLARANTE EN COPROPIEDAD CON TERCEROS">Declarante en copropiedad con terceros</option>
+                            <option value="DECLARANTE Y CONYUGE EN COPROPIEDAD CON TERCEROS">Declarante y cónyuge en copropiedad con terceros</option>
+                            <option value="DECLARANTE Y CONCUBINA O CONCUBINARIO">Declarante y concubina o concubinario</option>
+                            <option value="DECLARANTE Y CONCUBINA O CONCUBINARIO EN COPROPIEDAD CON TERCEROS">Declarante y concubina o concubinario en copropiedad con terceros</option>
+                            <option value="CONYUGE">Cónyuge</option>
+                            <option value="CONYUGE EN COPROPIEDAD CON TERCEROS">Cónyuge en copropiedad con terceros</option>
+                            <option value="CONCUBINA O CONCUBINARIO">Concubina o concubinario</option>
+                            <option value="CONCUBINA O CONCUBINARIO EN COPROPIEDAD CON TERCEROS">Concubina o concubinario en copropiedad con terceros</option>
+                            <option value="CONVIVIENTE">Conviviente</option>
+                            <option value="DECLARANTE Y CONVIVIENTE">Declarante y conviviente</option>
+                            <option value="DECLARANTE Y CONVIVIENTE EN COPROPIEDAD CON TERCEROS">Declarante y conviviente en copropiedad con terceros</option>
+                            <option value="CONVIVIENTE Y DEPENDIENTE ECONOMICO">Conviviente y dependiente económico</option>
+                            <option value="CONVIVIENTE Y DEPENDIENTE ECONOMICO EN COPROPIEDAD CON TERCEROS">Conviviente y dependiente económico en copropiedad con terceros</option>
+                            <option value="DEPENDIENTE ECONOMICO">Dependiente económico</option>
+                            <option value="DECLARANTE Y DEPENDIENTE ECONOMICO">Declarante y dependiente económico</option>
+                            <option value="DECLARANTE Y DEPENDIENTE ECONOMICO EN COPROPIEDAD CON TERCEROS">Declarante y dependiente económico en copropiedad con terceros</option>
+                            <option value="DEPENDIENTE ECONOMICO Y TERCEROS">Dependiente económico y terceros</option>
+                            <option value="DECLARANTE, CONYUGE Y DEPENDIENTE ECONOMICO">Declarante, cónyuge y dependiente económico</option>
+                            <option value="DECLARANTE, CONCUBINA O CONCUBINARIO Y DEPENDIENTE ECONOMICO">Declarante, concubina o concubinario y dependiente económico</option>
+                            <option value="CONYUGE Y DEPENDIENTE ECONOMICO">Cónyuge y dependiente económico</option>
+                            <option value="CONCUBINA O CONCUBINARIO Y DEPENDIENTE ECONOMICO">Concubina o concubinario y dependiente económico</option>
+                            <option value="CONYUGE, DEPENDIENTE ECONOMICO EN COPROPIEDAD CON TERCEROS">Cónyuge, dependiente económico en copropiedad con terceros</option>
+                            <option value="CONCUBINA O CONCUBINARIO Y DEPENDIENTE ECONOMICO EN COPROPIEDAD CON TERCEROS">Concubina o concubinario y dependiente económico en copropiedad con terceros</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="tercero" style="display: none"><hr>
+                    <div class="form-group">
+                        <div class="col-md-3 inputGroupConteiner">
+                            <label class="dato_publico" id="label_tipoTercero">Tercero</label>
+                        </div>
+                        <div class="col-md-2 inputGroupConteiner">
+                            <input class="tercero" type="radio" name="tercero" id="terceroFisico" value="fisica" onclick="tipoPersona()">Persona física
+                        </div>
+                        <div class="col-md-2 inputGroupConteiner">
+                            <input class="tercero" type="radio" name="tercero" id="terceroMoral" value="moral" checked onclick="tipoPersona()">Persona moral
+                        </div>
+                    </div>
+                    <div class="form-group" id="terceroDatos" style="display: none">
+                        <div class="col-md-8 inputGroupConteiner">
+                            <label class="dato_publico" id="label_nombreTercero">Nombre del tercero o terceros</label>
+                            <input name="nombreTercero" id="nombreTercero"  class="form-control" type="text" pattern="[0-9-_.,&A-ZÑ\x26a-zñ\x26\s]{0,250}" maxlength="250">
+                        </div>
+                        <div class="col-md-4 inputGroupConteiner">
+                            <label class="dato_publico" id="label_rfcTercero">RFC</label>
+                            <input name="rfcTercero" id="rfcTercero" placeholder="RFC" maxlength="13" pattern="([A-ZÑ\x26a-zñ\x26]{3}([0-9]{2})(0[1-9]|1[0-2])(0[1-9]|1[0-9]|2[0-9]|3[0-1]))([A-Za-z0-9]{3})" class="form-control" type="text"  >
+                        </div>
+                    </div>
+                    <div class="form-group" id="botonTerceros" style="display: none">
+                        <div class="col-md-3 inputGroupConteiner">
+                            <a class="terceroB" onclick="guardarTerceros()">Agregar Tercero</a>
+                        </div>
+                        <div class="col-md-2 inputGroupConteiner"></div>
+                        <div class="col-md-3 inputGroupConteiner">
+                            <a href="#cuerpo" class="terceroB" data-toggle="modal" data-target="#modalTerceros">Ver Terceros</a>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="form-group">
+                    <div class="col-md-3 inputGroupConteiner">
+                        <label class="dato_publico" id="label_tipoTransmisor">Transmisor</label>
+                    </div>
+                    <div class="col-md-2 inputGroupConteiner">
+                        <input class="transmisor" type="radio" name="transmisor" id="transmisorFisico" value="fisica" onclick="tipoTransmisor()">Persona física
+                    </div>
+                    <div class="col-md-2 inputGroupConteiner">
+                        <input class="transmisor" type="radio" name="transmisor" id="transmisorMoral" value="moral" onclick="tipoTransmisor()" checked>Persona moral
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-8 inputGroupConteiner">
+                        <label class="dato_publico" id="label_nombreTransmisor">Nombre o razón social del transmisor de la propiedad</label>
+                        <input name="nombreRazon" id="nombreRazon" class="form-control" type="text" pattern="[0-9-_.,&A-ZÑ\x26a-zñ\x26\s]{0,250}" maxlength="250">
+                    </div>
+                    <div class="col-md-4 inputGroupConteiner">
+                        <label class="dato_publico" id="label_rfcTransmisor">RFC</label>
+                        <input name="rfc" id="rfc" placeholder="RFC" maxlength="13" pattern="([A-ZÑ\x26a-zñ\x26]{3}([0-9]{2})(0[1-9]|1[0-2])(0[1-9]|1[0-9]|2[0-9]|3[0-1]))([A-Za-z0-9]{3})" class="form-control" type="text">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-4 inputGroupContainer">
+                        <label class="dato_publico" id="label_relacionTransmisor">Tipo de relación con el transmisor</label>
+                       <select name="tipoRelacion" id="tipoRelacion" class="selectpicker form-control" onchange="otroFamiliar()">
+                            <option value="ABUELO (A)">Abuelo (a)</option>
+                            <option value="AHIJADO (A)">Ahijado (a)</option>
+                            <option value="BISABUELO (A)">Bisabuelo (a)</option>
+                            <option value="BISNIETO (A)">Bisnieto (a)</option>
+                            <option value="CONCUBINA O CONCUBINARIO">Concubina o concubinario</option>
+                            <option value="CONCUNO (A)">Concuño (a)</option>
+                            <option value="CONYUGE">Cónyuge</option>
+                            <option value="CUNADO (A)">Cuñado (a)</option>
+                            <option value="HERMANO (A)">Hermano (a)</option>
+                            <option value="HIJO (A)">Hijo (a)</option>
+                            <option value="MADRE">Madre</option>
+                            <option value="NIETO (A)">Nieto (a)</option>
+                            <option value="NINGUNO">Ninguno</option>
+                            <option value="NUERA">Nuera</option>
+                            <option value="PADRE">Padre</option>
+                            <option value="PRIMO (A)">Primo (a)</option>
+                            <option value="SOBRINO (A)">Sobrino (a)</option>
+                            <option value="SUEGRO (A)">Suegro (a)</option>
+                            <option value="TATARABUELO (A)">Tatarabuelo (a)</option>
+                            <option value="TATARANIETO (A)">Tataranieto (a)</option>
+                            <option value="TIO (A)">Tio (a)</option>
+                            <option value="YERNO">YERNO</option>
+                            <option value="OTRO">Otro</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3 inputGroupContainer">
+                        <br>
+                        <input name="otroFam" id="otroFam" placeholder="Especifique" class="form-control" type="text" pattern="[0-9-_.,&A-ZÑ\x26a-zñ\x26\s]{0,250}" maxlength="250" style="display:none;">
+                    </div>
+                    <div class="col-md-3 inputGroupConteiner">
+                        <br>
+                        <a class="terceroB" onclick="guardarTransmisor()">Agregar Transmisor</a>
+                    </div>
+                    <div class="col-md-2 inputGroupConteiner">
+                        <br>
+                        <a href="#cuerpo" class="terceroB" data-toggle="modal" data-target="#modalTransmisor">Ver Transmisor</a href="#cuerpo">
+                    </div>
+                </div>
+                <hr>
+                <div class="form-group">
+                    <div class="col-md-3 inputGroupContainer">
+                        <label class="dato_publico" id="label_formaAdquisicion">Forma de adquisición</label>
+                        <select name="formaAdquirio" id="formaAdquirio" class="selectpicker form-control">
+                            <option value="COMPRAVENTA">Compraventa</option>
+                            <option value="CESION">Cesión</option>
+                            <option value="DONACION">Donación</option>
+                            <option value="HERENCIA">Herencia</option>
+                            <option value="PERMUTA">Permuta</option>
+                            <option value="RIFA O SORTEO">Rifa o sorteo</option>
+                            <option value="SENTENCIA">Sentencia</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3 inputGroupContainer">
+                        <label class="dato_publico" id="label_formaPago">Forma de pago</label>
+                        <select name="formaPago" id="formaPago" class="selectpicker form-control">
+                            <option value="CRÉDITO">Crédito</option>
+                            <option value="CONTADO">Contado</option>
+                            <option value="NO APLICA">No aplica</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4 inputGroupContainer">
+                        <label class="dato_publico" id="label_valor">Valor de Adquisición</label>
+                        <input name="valor" id="valor" class="form-control" type="number">
+                    </div>
+                    <div class="col-md-2 inputGroupContainer">
+                        <label class="dato_publico" id="label_moneda">Tipo de moneda</label>
+                        <select name="tipoMoneda" id="tipoMoneda" class="selectpicker form-control">
+                            <option value="MXN">MXN</option>
+                            <option value="USD">USD</option>
+                            <option value="EUR">EUR</option>
+                            <option value="CAD">CAD</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-6 inputGroupContainer"><br>
+                        <label class="dato_publico" id="label_fecha">Fecha de adqusición</label>
+                        <div class='input-group date'>
+                            <input name="fechaAdquirio" id="fechaAdquirio" type='text' class="form-control datepicker"  placeholder="dd/mm/aaaa" />
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-4 inputGroupConteiner">
+                        <label class="dato_publico" id="label_motivoBaja">En caso de baja del mueble incluir motivo:</label>
+                        <select name="motivoBaja" id="motivoBaja" class="selectpicker form-control" onchange="bajaBienes()">
+                            <option value="NO APLICA">No aplica</option>
+                            <option value="VENTA">Venta</option>
+                            <option value="DONACION">Donación</option>
+                            <option value="SINIESTRO">Siniestro</option>
+                            <option value="OTRO">Otro</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4 inputGroupContainer">
+                        <br>
+                        <input name="otroBaja" id="otroBaja" placeholder="Especifique" class="form-control" type="text" style="display:none;" pattern="[0-9-_.,&A-ZÑ\x26a-zñ\x26\s]{0,250}" maxlength="250">
+                    </div>
+                </div>
+               
+                <div class="form-group">
+                    <div class="col-md-12 inputGroupConteiner">
+                        <label>Observaciones y comentarios</label>
+                        <input name="obsComentarios" id="obsComentarios" placeholder="Observaciones" class="form-control" type="text" pattern="[0-9-_.,&A-ZÑ\x26a-zñ\x26\s]{0,254}" maxlength="254">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-7 control-label"></label>
+                    <div class="col-md-2 inputGroupContainer">
+                        <input class="botonEnviar" type="submit" value="Guardar" >
+                    </div>
+                    <div class="col-md-2 inputGroupContainer">
+                        <button class="botonCancelar" onclick="window.location.href='#tituloD';window.location.reload()">Cancelar</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <button class="botonActualizar" onclick="selectBienesMuebles()" id="bEditar">Editar</button>
+        <button class="botonEliminar" onclick="deleteBienesMuebles()" id="bEliminar">Eliminar</button>
+        <button id="guardar_np" class="botonActualizar" onclick="bienMuebleAplica(false)" style="display: none">Guardar</button>
+        <table class="table" id="tablaCurriculares">
+            <thead class="thead-dark" id="contenido">
+                
+            </thead>
+        </table>
+    </div>
+
+    <!-- Modal Terceros -->
+	<div class="modal fade" id="modalTerceros" role="dialog">
+		<div class="modal-dialog" id="modalTamanio">
+		
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">Terceros</h4>
+				</div>
+				<div class="modal-body">
+					
+                    <table id="tablaTercero" class="table">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th>Nombre</th>
+                                <th>RFC</th>
+                                <th>Tipo Persona</th>
+                                <th>Eliminar Tercero</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tablaprueba"></tbody>
+                    </table>
+							
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="cerrarModal" data-dismiss="modal">Cerrar</button>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+<!-- Final Modal Terceros -->
+
+<!-- Modal Transmisor -->
+    <div class="modal fade" id="modalTransmisor" role="dialog">
+        <div class="modal-dialog" id="modalTamanio">
+        
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Transmisor</h4>
+                </div>
+                <div class="modal-body">
+                    
+                    <table id="tablaTransmisores" class="table">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th>Nombre</th>
+                                <th>RFC</th>
+                                <th>Tipo Relación</th>
+                                <th>Tipo Persona</th>
+                                <th>Eliminar Transmisor</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tablaTransmisor"></tbody>
+                    </table>
+                            
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="cerrarModal" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+<!-- Final Modal Transmisor -->
+
+    <script src="../jsResize/iframeResizer.contentWindow.min.js"></script>
+</body>
+</html>

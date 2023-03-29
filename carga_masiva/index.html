@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport"
+		content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+
+	<title>PDE Tlaxcala</title>
+    <link rel="icon" type="image/ico" href="../Img/icono_pde1.ico" />
+    <link rel="stylesheet" href="../Funcionarios/Declaraciones/css/bootstrap.css">
+    <link rel="stylesheet" href="../Funcionarios/Declaraciones/css/login.css">
+
+    
+    <script src="../Funcionarios/Declaraciones/js/jquery-3.3.1.min.js"></script>
+	<script src="../Funcionarios/Declaraciones/js/tether.min.js"></script>
+	<script src="../Funcionarios/Declaraciones/js/popper.min.js"></script>
+    <script src="../Funcionarios/Declaraciones/js/bootstrap.min.js"></script>
+    <script src="../host/host.js"></script>
+    <script src="js/login.js"></script>
+    <script src="../Funcionarios/Declaraciones/js/md5.js"></script>
+	
+	
+</head>
+
+<body oncontextmenu="return false" id="cuerpo"  style="background:url(../Funcionarios/Declaraciones/Img/background_log.png)" >
+<!-----------------------Login---------------------------------> 
+    <div class="login-form">
+        <div class="formulario" id="acceso">
+            <div class="avatar">
+                <img src="../Funcionarios/Declaraciones/Img/icon_user_log in.png" alt="Avatar">
+            </div>
+            <h2 class="text-center">USUARIO</h2>   
+            <div class="form-group">
+                <input type="text" class="form-control" name="userName" id="userName" placeholder="Usuario" >
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" name="password" id="password" placeholder="Contraseña" >
+            </div>        
+            <div class="form-group">
+                <button class="btn btn-primary btn-lg btn-block" onclick="login()">Aceptar</button>
+            </div>
+            <br>
+            <h4 class="text-center">En caso de perder su contraseña debera ponerse en contacto con su Órgano Interno de Control</h4>
+        </div>
+<!-------------------Nueva contraseña-------------------------->
+        <form class="formulario" id="nuevaContraseña" style="display: none" onsubmit="passwordNew();return false">
+            <div class="avatar">
+                <img src="../Funcionarios/Declaraciones/Img/icon_user_log in.png" alt="Avatar">
+            </div>
+            <h2 class="text-center">Nueva Contraseña</h2>   
+            <div class="form-group">
+                <input type="password" class="form-control" name="oldPassword" id="oldPassword" placeholder="Contraseña" >
+                <br>
+                <h4 class="text-center">La contraseña debe contener al menos 8 caracteres alfa númericos y maximo 13.<br>Sin signos ni caracteres especiales.</h4>
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" name="newPassword1" id="newPassword1" placeholder="Nueva Contraseña" pattern="[A-Za-z-0-9]{8,13}" title="La contraseña debe contener al menos 8 caracteres alfa númericos y maximo 13.">
+            </div>   
+            <div class="form-group">
+                <input type="password" class="form-control" name="newPassword2" id="newPassword2" placeholder="Confirmar Contraseña" pattern="[A-Za-z-0-9]{8,13}" title="La contraseña debe contener al menos 8 caracteres alfa númericos y maximo 13.">
+            </div>     
+            <div class="form-group">
+                <input type="submit" value="Aceptar" class="btn btn-primary btn-lg btn-block">
+            </div>
+        </form>
+    </div>
+
+</body>
+</html>

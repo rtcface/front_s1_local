@@ -1,0 +1,440 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    height: 80% !important;
+}
+
+.navbar-color {
+    background: rgba(240, 237, 240, 1);
+    background: -moz-linear-gradient(left, rgba(240, 237, 240, 1) 0%, rgba(219, 219, 219, 1) 66%, rgba(158, 158, 158, 1) 100%);
+    background: -webkit-gradient(left top, right top, color-stop(0%, rgba(240, 237, 240, 1)), color-stop(66%, rgba(219, 219, 219, 1)), color-stop(100%, rgba(158, 158, 158, 1)));
+    background: -webkit-linear-gradient(left, rgba(240, 237, 240, 1) 0%, rgba(219, 219, 219, 1) 66%, rgba(158, 158, 158, 1) 100%);
+    background: -o-linear-gradient(left, rgba(240, 237, 240, 1) 0%, rgba(219, 219, 219, 1) 66%, rgba(158, 158, 158, 1) 100%);
+    background: -ms-linear-gradient(left, rgba(240, 237, 240, 1) 0%, rgba(219, 219, 219, 1) 66%, rgba(158, 158, 158, 1) 100%);
+    background: linear-gradient(to right, rgba(240, 237, 240, 1) 0%, rgba(219, 219, 219, 1) 66%, rgba(158, 158, 158, 1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f0edf0', endColorstr='#9e9e9e', GradientType=1);
+}
+.navbar-dark .navbar-toggler {
+    color: #ad7655;
+    border-color: #ad7655;
+    background-color: #ad7655;
+}
+
+.nav-bar-ul{
+    list-style: none; 
+    width: 100%;
+    height: 100%;    
+}
+.navbar-right .nav-item {
+    text-align: center;
+    font-size: large;
+    padding-left: 1%;
+    padding-right: 1%;
+    height: 100%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+}
+.navbar-right .nav-item:hover {
+    background-color: #ffffff;
+}
+
+.navbar-right .nav-item .nav-link {
+    color: #ad7655;
+    text-align: center;
+    font-size: medium;
+    height: 100%;
+    padding-top: 10% !important;
+    padding-bottom: 10% !important;
+}
+.navbar-nav li a{
+    color: #ad7655;
+    font-size: medium;
+}
+.dropdown-menu{
+    background-color: #EFECEF;
+}
+.dropdown-menu li:hover{
+    background-color: #A0A0A0;
+}
+.dropdown-menu li a{
+    color: #ad7655;
+}
+.dropdown-menu li a:hover{
+    color: #ffffff;
+    background-color: #A0A0A0;
+}
+
+.open > a{
+    background-color: transparent !important;
+}
+
+.cuerpo {
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+    margin: 0px !important;
+    padding: 0px !important;
+    top: 0;
+    bottom: 0;
+}
+
+.vertical-menu {
+    width: 18%;
+    height: 100%;
+    min-width: 250px;
+    display: inline-block;
+}
+
+.vertical-menu .panel-heading{
+    width: 100%;
+    background: #744b32;
+}
+.vertical-menu .panel{
+    width: 100%;
+    background: #744b32;
+}
+
+.vertical-menu ul {
+    list-style: none;
+}
+
+.vertical-menu .panel-title a {
+    color: #fff;
+    display: block;
+    padding: 15px 20px;
+}
+
+.vertical-menu .panel-title a:hover {
+    color: #fff;
+    background: #ad7655;
+}
+
+.vertical-menu .panel-body a {
+    color: #fff;
+    display: block;
+    padding: 15px 20px;
+    cursor: pointer;
+    cursor: hand;
+}
+
+.vertical-menu .panel-body a:hover {
+    color: #fff;
+    background: #ad7655;
+}
+.active {
+    color: #fff;
+    background: #ad7655;
+}
+
+.activa {
+    background-color: lightblue;
+}
+
+.vertical-menu .panel-heading .icono {
+    font-size: 12px;
+    line-height: 18px;
+    float: right;
+    margin-left: 10px;
+}
+
+.vertical-menu .menu ul {
+    display: none;
+}
+
+.embed-container {
+    height: 100%;
+    overflow: hidden;
+}
+
+.embed-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+iframe{
+    min-height: 1070px;
+}
+
+.navigation {
+    backdrop-filter: silver;
+    background-color: darkgray;
+}
+
+h2{
+    color: #ad7655;
+    text-align: center; 
+    padding-top: 2%;
+    padding-bottom: 2%;
+    margin-bottom: 0 !important;
+    margin-top: 0 !important;
+}
+h4{
+    color: #744b32;
+}
+h3{
+    color: #ad7655;
+}
+
+.botonEnviar{
+    text-align: center;
+    border-radius: 8px;
+    height: 40px;
+    width: 93%;
+    color: #fff;
+    background-color: #1395e0;
+    border: 0;
+}
+.botonCancelar{
+    border-radius: 8px;
+    height: 40px;
+    width: 90%;
+    color: #fff;
+    background-color: red;
+    border: 0;
+}
+.botonActualizar{
+    border-radius: 8px;
+    height: 30px;
+    width: 10%;
+    min-width: 100px;
+    color: #fff;
+    background-color: #1395e0;
+    border: 0;
+    margin-right: 3%;
+}
+.botonEliminar{
+    border-radius: 8px;
+    height: 30px;
+    width: 10%;
+    min-width: 100px;
+    color: #fff;
+    background-color: red;
+    border: 0;
+}
+.botonActivar{
+    border-radius: 8px;
+    height: 30px;
+    width: 10%;
+    min-width: 100px;
+    color: #fff;
+    background-color: #ad7655;
+    border: 0;
+    margin-left: 3%;
+}
+.botonActualizar2{
+    border-radius: 8px;
+    height: 30px;
+    width: 15%;
+    color: #fff;
+    background-color: #1395e0;
+    border: 0;
+    margin-right: 3%;
+}
+.botonEliminar2{
+    border-radius: 8px;
+    height: 30px;
+    width: 15%;
+    color: #fff;
+    background-color: red;
+    border: 0;
+}
+.botonDescargar{
+    border-radius: 8px;
+    height: 40px;
+    width: 45%;
+    min-width: 100px;
+    color: #fff;
+    background-color: #1395e0;
+    border: 0;
+    margin-right: 3%;
+}
+.ruta{
+    width: 100%;
+    text-align: right;
+    font-size: 90%;
+    color: silver;
+}
+.ruta a{
+    color: gray;
+}
+
+form label{
+    color: silver;
+}
+
+.card-body-rounded-black {
+    align-content: center;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    background-color: white;
+    border-radius: 30px;
+    border: 1px solid #969696;
+    -webkit-box-shadow: 10px 10px 26px -6px rgba(0, 0, 0, 0.59);
+    -moz-box-shadow: 10px 10px 26px -6px rgba(0, 0, 0, 0.59);
+    box-shadow: 10px 10px 26px -6px rgba(0, 0, 0, 0.59);
+}
+
+.margen{
+    margin-bottom: 10px;
+    margin-top: 10px;
+    position: flex !important;
+}
+.marco{
+    margin-bottom: 5%;
+    margin-top: 5%;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+.ruta2{
+    background-color:rgb(219, 219, 219);
+    text-align: right;
+}
+.ruta2 label{
+    color: #ad7655;
+    padding: 1%;
+    padding-right: 3%;
+    font-size: 120%;
+}
+.ruta2 a{
+    color: gray;
+}
+.ruta3{
+    background-color:rgb(219, 219, 219);
+   
+}
+.ruta3 label{
+    color: #ad7655;
+    padding: 1%;
+    padding-right: 1%;
+    font-size: 120%;
+}
+
+.ruta3 select{
+    padding: 0.5%;
+    border-radius: 5px;
+    width: 100%;
+}
+.container h2{
+    padding: 10%;
+    text-align: left;
+    color: #686868;
+}
+.encabezado{
+    width: 100%;
+    margin-bottom: 1%;
+    padding: 0px;
+    -webkit-box-shadow: 0px 8px 11px 0px rgba(0,0,0,0.2);
+    -moz-box-shadow: 0px 8px 11px 0px rgba(0,0,0,0.2);
+    box-shadow: 0px 8px 11px 0px rgba(0,0,0,0.2);
+}
+
+.encabezado img{
+    float: right;
+    padding-top: 4%;
+    padding-bottom: 4%;
+}
+.tab{
+    background: #fff;
+    overflow: hidden;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    text-align: center;
+    font-size: 120%;
+    color: #969696;
+}
+.tab button {
+    background-color: inherit;
+    width: 100%;
+    border: none;
+    padding-bottom: 3%;
+    padding-top: 3%;
+}
+
+.tab div:hover {
+    background-color: #ad7655;
+    color: #fff;
+  }
+
+
+#modalTamanio{
+    width: 80% !important;
+    height: 80% !important;
+}
+
+input[type=text]{
+    text-transform:uppercase;
+} 
+
+select{
+    text-transform:uppercase;
+}
+
+td{
+    text-transform:uppercase;
+}
+
+.col-lg-9{
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+
+
+.terceroB{
+    text-align: center;
+    border-radius: 8px;
+    height: 30px;
+    width: 93%;
+    color: #fff;
+    background-color: #1395e0;
+    border: 0;
+    padding: 10px;
+}
+.terceroB:hover {
+    color: #fff;
+    background-color: #1395e0;
+    cursor:pointer; 
+    cursor: hand;
+}
+.botonMenos{
+    color: #fff;
+    background: rgb(253, 0, 0);
+    height: 30px;
+    width: 70%;
+    border: 0;
+    border-radius: 5px;
+}
+.cerrarModal{
+    border-radius: 8px;
+    height: 30px;
+    width: 15%;
+    color: #fff;
+    background-color: rgb(253, 0, 0);
+    border: 0;
+    margin-right: 3%;
+}
+
+hr{
+    border-top: 1px solid grey;
+}
+
+.dato_publico{
+    color: black !important;
+}
+
+.ml-auto, .mx-auto {
+    margin-left: auto !important;
+  }
+
+  @media only screen and (min-width: 250px) and (max-width: 736px) {
+    .link-inicio img { width: 80% !important; }
+    .titulo_barra { font-size: 100%; }
+  }

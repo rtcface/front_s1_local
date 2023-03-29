@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/estilos.css">
+    <link rel="stylesheet" href="../css/datepicker.css">
+
+	<script src="../js/jquery-3.3.1.min.js"></script>
+	<script src="../js/tether.min.js"></script>
+	<script src="../js/popper.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/moment.js"></script>
+    <script src="../js/bootstrap-datepicker.js"></script>
+    <script src="../js/insert.js"></script>
+    <script src="../js/update.js"></script>
+    <script src="../js/selectById.js"></script>
+    <script src="../js/selectAll.js"></script>
+    <script src="../js/delete.js"></script>
+    <script src="../js/insertOrUpdate.js"></script>
+    <script src="../js/scripts.js"></script>
+    <script src="../js/extras.js"></script>
+    <script src="../js/noAplica.js"></script>
+    
+</head>
+<body oncontextmenu="return false" id="cuerpo"  onload="selectAllApoyosBeneficios();">
+    <div class="container-fluid">
+        <br>
+        <label  id="label_titulo" class="ruta">Declaración patrimonial<i class="icono glyphicon glyphicon-chevron-right"></i>
+        Declaración de intereses<i class="icono glyphicon glyphicon-chevron-right"></i>
+        Apoyos o beneficios públicos</label>
+        <h3>II. Declaración de Intereses</h3>
+        <form class="well form-horizontal" onsubmit="insertUpdate(18);return false;insertUpdate(18)">
+            <h4>3. Apoyos o beneficios públicos (Hasta los 2 últimos años)</h4>
+            <p>Es la contribución monetaria o en especie que otorga un Ente Público al Declarante, cónyuge o Pareja y/o dependiente económico. El apoyo en especie refiere a cualquier contribución, utilizando bienes, servicios o beneficios de naturaleza diferente al dinero. Deberá reportar hasta los últimos dos años.</p><br>
+             <div class="form-group"> 
+                <div class="col-md-3 inputGroupConteiner">
+                    <label id="label_noAplica">No aplica</label>
+                    <input  type="checkbox" name="completo" id="completo" value="true" onclick="formularioCompleto()">
+                </div>
+                <div class="col-md-3 inputGroupConteiner">
+                    <button id="agregar_nuevo" class="botonEnviar" onclick="nuevoRegistro()">Agregar Nuevo</button>
+                </div>
+            </div>
+            <div class="form-group" id="formCompleto" style="display: none">
+               <div class="form-group">
+                    <div class="col-md-4 inputGroupContainer">
+                        <label>Beneficiario de algún programa público</label>
+                        <select name="beneficiario" id="beneficiario" class="selectpicker form-control" onchange="otroFamiliar2();declarante()">
+                            <option value="ABUELO (A)">Abuelo (a)</option>
+                            <option value="AHIJADO (A)">Ahijado (a)</option>
+                            <option value="CONCUBINA O CONCUBINARIO">Concubina o Concubinario</option>
+                            <option value="CONVIVIENTE">CONVIVIENTE</option>
+                            <option value="CONYUGE">Cónyuge</option>
+                            <option value="CUNADO (A)">Cuñado (a)</option>
+                            <option value="DECLARANTE">Declarante</option>
+                            <option value="HERMANO (A)">Hermano (a)</option>
+                            <option value="HIJO (A)">Hijo (a)</option>
+                            <option value="MADRE">Madre</option>
+                            <option value="NIETO (A)">Nieto (a)</option>
+                            <option value="NUERA">NUERA</option>
+                            <option value="PADRE">Padre</option>
+                            <option value="PRIMO (A)">Primo (a)</option>
+                            <option value="SOBRINO (A)">Sobrino (a)</option>
+                            <option value="SUEGRO (A)">Suegro (a)</option>
+                            <option value="TIO (A)">Tio (a)</option>
+                            <option value="YERNO">YERNO</option>
+                            <option value="OTRO">Otro</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4 inputGroupContainer">
+                        <br>
+                        <input name="otroFam" id="otroFam" placeholder="Especifique" class="form-control" type="text" pattern="[0-9-_.,&A-ZÑ\x26a-zñ\x26\s]{0,250}" maxlength="250" style="display:none;">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-4 inputGroupContainer">
+                        <label>Nombre del programa</label>
+                        <input name="nombrePrograma" id="nombrePrograma" placeholder="Nombre" class="form-control" type="text" pattern="[0-9-_.,&A-ZÑ\x26a-zñ\x26\s]{0,250}" maxlength="250" required>
+                    </div>
+                    <div class="col-md-4 inputGroupConteiner">
+                        <label>Institución que otorga el apoyo</label>
+                        <input name="institucion" id="institucion" placeholder="Nombre" class="form-control" type="text" pattern="[0-9-_.,&A-ZÑ\x26a-zñ\x26\s]{0,250}" maxlength="250" required>
+                    </div>
+                    <div class="col-md-4 inputGroupConteiner">
+                        <label>Nivel / orden de gobierno</label>
+                        <select name="nivelGob" id="nivelGob" class="selectpicker form-control">
+                            <option value="FEDERAL">Federal</option>
+                            <option value="ESTATAL">Estatal</option>
+                            <option value="MUNICIPAL_ALCALDIA">Municipal</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-4 inputGroupConteiner">
+                        <label>Tipo de apoyo</label>
+                        <select name="tipoApoyo" id="tipoApoyo" class="selectpicker form-control"  onchange="mostrarOtroApoyo()">
+                            <option value="SUBSIDIO">Subsidio</option>
+                            <option value="SERVICIO">Servicio</option>
+                            <option value="OBRA">Obra</option>
+                            <option value="OTRO">Otro</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4 inputGroupContainer">
+                        <br>
+                        <input name="otroApoyo" id="otroApoyo" placeholder="Especifique" class="form-control" type="text" pattern="[0-9-_.,&A-ZÑ\x26a-zñ\x26\s]{0,250}" maxlength="250" style="display:none;">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-3 inputGroupConteiner">
+                        <label>Forma de recepción del apoyo</label><br>
+                        <input type="radio" name="recepcion" class="recepcion" id="recepcionM" value="MONETARIO" onclick="mostrarApoyoEspecifico()" checked>Monetario
+                        <input type="radio" name="recepcion" class="recepcion" id="recepcionE" value="ESPECIE" onclick="mostrarApoyoEspecifico()">Especie
+                    </div>
+                    <div class="col-md-4 inputGroupConteiner">
+                        <label>Monto aproximado mensual</label>
+                        <input name="monto" id="monto" class="form-control" type="number" required>
+                    </div>
+                     <div class="col-md-4 inputGroupConteiner" id="apoyoEspecifico" style="display: none">
+                        <label>Especifique el apoyo</label>
+                        <input name="espApoyo" id="espApoyo" placeholder="Especificación" pattern="[0-9-_.,&A-ZÑ\x26a-zñ\x26\s]{0,250}" maxlength="250" class="form-control" type="text">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-12 inputGroupConteiner">
+                        <label id="label_observaciones">Observaciones y comentarios</label>
+                        <input name="obsComentarios" id="obsComentarios" placeholder="Observaciones" class="form-control" type="text" pattern="[0-9-_.,&A-ZÑ\x26a-zñ\x26\s]{0,254}" maxlength="254">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label id="label_final" class="col-md-7 control-label"></label>
+                    <div class="col-md-2 inputGroupContainer">
+                        <input class="botonEnviar" type="submit" value="Guardar" >
+                    </div>
+                    <div class="col-md-2 inputGroupContainer">
+                        <button class="botonCancelar" onclick="window.location.href='#tituloD';window.location.reload()">Cancelar</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <button class="botonActualizar" onclick="selectApoyosBeneficios()" id="bEditar">Editar</button>
+        <button class="botonEliminar" onclick="deleteApoyosBeneficios()" id="bEliminar">Eliminar</button>
+        <button id="guardar_np" class="botonActualizar" onclick="beneficiosPublicosAplica(false)" style="display: none">Guardar</button>
+        <table class="table" id="tablaCurriculares">
+            <thead class="thead-dark" id="contenido">
+                
+            </thead>
+        </table>
+    </div>
+    <script src="../jsResize/iframeResizer.contentWindow.min.js"></script>
+</body>
+</html>
