@@ -1,0 +1,115 @@
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+/* Globales */
+a {
+    text-decoration: none;
+    text-decoration-color: #000;
+}
+
+body {
+ background-image: url("../Img/back_sesaet.jpg") ;
+ background-color: #EFEFEF;
+ background-repeat: no-repeat;
+ background-position: bottom;
+ background-size: cover;
+ width: 100%;
+ height: 100vh;
+}
+
+
+.logo-header{
+    background-image: url("../Img/logo_plataforma-11.png");
+    height: 10rem;
+    width: 25rem;
+    margin-bottom: 8rem;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.caja-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    margin: 5rem;   
+}
+/* #D59577 */
+h1 {
+    color: #a3594b ;
+    font-weight: bold;
+    text-shadow:#D8BAAB 0.3rem 0.5rem 0.2rem
+    /* text-shadow: 1px 1px 2px black, 0.1em 0.1em 0.2em #D8BAAB, 0.1em 0.1em 0.2em #D8BAAB; */
+}
+.titulo{
+    text-align: center;
+    margin: 3rem;
+}
+.principal-menu{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    justify-content: center;       
+}
+.item-menu{
+    display: flex;
+    flex-direction: column;
+    width: 28rem;
+    height: 13rem;   
+    margin-right: 3rem;
+}
+
+.item-menu a{
+    display: block;
+    width: 100%;
+}
+.item-menu a:hover {      
+    background-color: #e1e1e1;  
+    box-shadow: #D8BAAB 1rem 1rem 0.3rem    
+    }
+img{
+    width: 100%;    
+}
+p{
+    font-size: 10px;
+}
+
+@media( min-width: 700px ) {
+    .logo-header {
+        margin-bottom: 7rem;
+        height: 15rem;
+        width: 35rem;
+    }
+
+    h1{
+        font-size: 4rem;
+        margin: 0;
+    }
+}
+@media( min-width: 960px ) {
+    .logo-header {
+        display: none;       
+    }
+    h1{
+        font-size: 4rem;
+        margin: 0;
+    }
+
+    p{
+        font-size: 1.8rem;
+    }
+
+    .fondo-body{
+        background-position: bottom-left;
+       
+    }
+
+    .caja-menu{
+        flex-direction: row;
+    }
+}
