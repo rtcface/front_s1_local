@@ -3,9 +3,9 @@
     padding: 0;
 }
 
-body {
+/* body {
     height: 80% !important;
-}
+} */
 
 .navbar-color {
     background: rgba(240, 237, 240, 1);
@@ -287,8 +287,8 @@ form label{
     position: flex !important;
 }
 .marco{
-    margin-bottom: 5%;
-    margin-top: 5%;
+    margin-bottom: 0.2rem;
+    margin-top: 0.2rem;
     margin-left: 20%;
     margin-right: 20%;
 }
