@@ -1,34 +1,181 @@
+/* #region Inician Variables Globales */
 html {
     box-sizing: border-box;
-}
-*, *:before, *:after {
+  }
+  *,
+  *:before,
+  *:after {
     box-sizing: inherit;
-}
-/* Globales */
-a {
+  }
+  
+  a {
     text-decoration: none;
     text-decoration-color: #000;
-}
+  }
+  
+  img {
+    max-width: 100%;
+    display: block;
+  }
+  /* #endregion */
 
+/* #region Inicio Fondo de la pagina */
 body {
- background-image: url("../Img/back_sesaet.jpg") ;
- background-color: #EFEFEF;
- background-repeat: no-repeat;
- background-position: bottom;
- background-size: cover;
- width: 100%;
- height: 100vh;
-}
+    background-image: url("../Img/back_sesaet.jpg");
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-color: #efefef;
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+  }
+  @media (min-width: 385px) {
+    body {
+      background-image: url("../Img/white.jpg");
+      background-repeat: repeat-y;
+    }
+  }
+  @media (min-width: 768px) {
+    body {
+      background-position: right;
+      background-image: url("../Img/back_sesaet.jpg");
+      background-repeat: no-repeat;
+    }
+  }
+  @media (min-width: 1024px) { 
+    body {
+      background-size: cover;
+    }   
 
-
-.logo-header{
-    background-image: url("../Img/logo_plataforma-11.png");
+  }
+  /* #endregion */
+  
+  /* #region Inicio Contenedor Principal */
+  .container-saet {
+    padding-top: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    margin: 0 auto;
+    height: 100vh;
+  }
+  @media (min-width: 385px) {
+    .container-saet {
+      width: 30rem;
+    }
+  }
+  @media (min-width: 576px) {
+    .container-saet {
+      width: 45rem;
+    }
+  }
+  @media (min-width: 768px) {
+    .container-saet {
+      width: 75rem;
+    }
+  }
+  @media (min-width: 1200px) {
+    .container-saet {
+      width: 80rem;
+      height: auto;
+    }
+  }
+  @media (min-width: 1600px) {
+    .container-saet {
+      width: 85rem;
+    }
+  }
+  /* #endregion */
+  
+  /* #region Logo de la cabezera */
+  
+  .logo-header {
     height: 10rem;
     width: 25rem;
     margin-bottom: 8rem;
     background-repeat: no-repeat;
     background-size: cover;
+  }
+  
+  /* #endregion */
+  
+  /* #region Inicio Menu */
+  .container-menu {
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    gap: 2rem;
+    width: 55%;
+    height: auto;
+  }
+  
+  @media (min-width: 385px) {
+    .container-menu {
+      width: 85%;
+      row-gap: 2rem;
+      margin-bottom: 3rem;
+    }
+  }
+  
+  @media (min-width: 576px) {
+    .container-menu {
+      width: 75%;
+      row-gap: 4rem;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .container-menu {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      width: 90%;
+      height: auto;
+      column-gap: 2rem;
+    }
+  }
+  
+  @media (min-width: 1200px) { 
+    .container-menu {
+      width: 85%;
+    }
+  }
+  @media (min-width: 1400px) { 
+    .container-menu {
+      width: 93%;
+    }
+  }
+  
+  /* #endregion */
+  
+  /* #region Inicio del footer */
+
+/* #region  buttom */
+.box-buttom {
+  display: flex;
+  align-items: center;
+  width: 10rem;
+  height: 4rem;
+  margin-bottom: 2rem;
 }
+.box-buttom a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.atras {
+  background-color: #d8baab;
+  color: black;
+  padding: 10px 16px;
+  display: inline-block;  
+}
+
+.round {
+  border-radius: 1rem;
+}
+
+/* #endregion */
+
+
 .caja-menu {
     display: flex;
     flex-direction: column;
@@ -56,6 +203,17 @@ h1 {
     align-items: center;
     justify-content: center;       
 }
+
+@media (min-width: 1024px) { 
+  .principal-menu{
+    height: auto;
+  }
+
+  .titulo {
+    margin: 4rem;
+  }
+}
+
 .item-menu{
     display: flex;
     flex-direction: column;
@@ -80,21 +238,14 @@ p{
 }
 
 @media( min-width: 700px ) {
-    .logo-header {
-        margin-bottom: 7rem;
-        height: 15rem;
-        width: 35rem;
-    }
-
-    h1{
+  
+  h1{
         font-size: 4rem;
         margin: 0;
     }
 }
 @media( min-width: 960px ) {
-    .logo-header {
-        display: none;       
-    }
+   
     h1{
         font-size: 4rem;
         margin: 0;
@@ -102,11 +253,6 @@ p{
 
     p{
         font-size: 1.8rem;
-    }
-
-    .fondo-body{
-        background-position: bottom-left;
-       
     }
 
     .caja-menu{

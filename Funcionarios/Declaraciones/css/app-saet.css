@@ -17,6 +17,7 @@ img {
   max-width: 100%;
   display: block;
 }
+
 /* #endregion */
 
 /* #region Inicio Fondo de la pagina */
@@ -42,7 +43,7 @@ body {
     background-repeat: no-repeat;
   }
 }
-@media (min-width: 1024px) { 
+@media (min-width: 1024px) {
   body {
     background-size: auto;
   }
@@ -133,12 +134,12 @@ body {
   }
 }
 
-@media (min-width: 1200px) { 
+@media (min-width: 1200px) {
   .container-menu {
     width: 85%;
   }
 }
-@media (min-width: 1400px) { 
+@media (min-width: 1400px) {
   .container-menu {
     width: 93%;
   }
@@ -151,8 +152,8 @@ body {
   font-size: 2rem;
 }
 
-@media (min-width: 385px) { 
-  .footer-saet{
+@media (min-width: 385px) {
+  .footer-saet {
     font-size: 1.5rem;
     text-align: center;
     height: 4rem;
@@ -162,351 +163,51 @@ body {
   border-top: 1px solid #e1e1e1;
   width: 100%;
   height: 4rem;
-  color: #d59577;   
+  color: #d59577;
 }
-@media (min-width: 767px) { 
-  .footer-container{
+@media (min-width: 767px) {
+  .footer-container {
     margin-top: 10rem;
     position: fixed-end;
   }
 }
-@media (min-width: 1024px) { 
-  .footer-container{
+@media (min-width: 1024px) {
+  .footer-container {
     margin-top: 6rem;
     height: 2rem;
-    
   }
 }
-@media (min-width: 1200px) { 
-  .footer-container{
-    margin-top: 0rem;    
+@media (min-width: 1200px) {
+  .footer-container {
+    margin-top: 0rem;
   }
 }
 
 /* #endregion */
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* 
-@media (min-width: 385px) {    
-
-    .container-saet{
-        padding-top: 3rem ;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        align-content: flex-start;        
-        width: 100%;        
-        height: auto;    
-    }
-    body {
-        background-image: url("../Img/white.jpg") ;
-        background-repeat: repeat-y;
-        background-position: bottom;
-        background-color: #EFEFEF;
-        background-size: cover;
-        width: 100%;
-        height: 100vh; 
-    }
-    .container-menu {
-        display: grid;
-        grid-template-rows: repeat(3,1fr);
-        row-gap: 2rem;
-        width: 55%;
-        height: auto;
-    }
-
-    .footer-saet{       
-        display: flex;         
-        justify-content: center;           
-        margin: 2rem;
-        padding: 1rem;
-        width: 31.5rem;
-        height: 4rem;
-        color: #d59577;
-        font-size: 1.3rem;           
-    }
-
-    
-
-    
+/* #region  buttom */
+.box-buttom {
+  display: flex;
+  align-items: center;
+  width: 10rem;
+  height: 4rem;
+  margin-bottom: 2rem;
+}
+.box-buttom a:hover {
+  background-color: #ddd;
+  color: black;
 }
 
-@media (min-width: 576px) {  
-
-    .container-saet{
-        padding-top: 3rem ;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        align-content: flex-start;        
-        width: 100%;        
-        height: auto;    
-    }
-    body {
-        background-image: url("../Img/white.jpg") ;
-        background-repeat: repeat-y;
-        background-position: bottom;
-        background-color: #EFEFEF;
-        background-size: cover;
-        width: 100%;
-        height: 100vh; 
-    }
-    .container-menu {
-        display: grid;
-        grid-template-rows: repeat(3,1fr);
-        row-gap: 2rem;
-        width: 55%;
-        height: auto;
-    }
-
-    .footer-saet{       
-        display: flex;         
-        justify-content: center;           
-        margin: 2rem;
-        width: 50rem;
-        height: 4rem;
-        color: #d59577; 
-        font-size: 2rem;          
-    }
-
-    
-
-    
+.atras {
+  background-color: #d8baab;
+  color: black;
+  padding: 10px 16px;
+  display: inline-block;  
 }
 
-@media (min-width: 768px) {    
-
-    .logo-header{
-        height: 10rem;
-        width: 25rem;
-        margin-bottom: 2rem;
-        position: inherit;
-        background-repeat: no-repeat;
-        background-size: cover;
-    }
-
-    .container-saet{
-        margin-top: 4rem ;
-        display: flex;        
-        flex-direction: column;
-        align-items: center;
-        justify-items: center;            
-        width: 100%;        
-        height: 100vh;    
-    }
-    
-    .container-menu {
-        display: grid;
-        grid-template-columns: repeat(2,1fr);
-        column-gap: 2rem;
-        width: 60%;
-        height: auto;
-        margin-bottom: 10rem;
-        margin-top: 10rem;
-    }
-
-    .footer-saet{       
-        display: flex;         
-        justify-content: center;        
-        margin: 0 auto;
-        width: 75rem;
-        height: 5rem;
-        color: #d59577;     
-    
-}
+.round {
+  border-radius: 1rem;
 }
 
-@media (min-width: 1024px) { 
+/* #endregion */
 
-     .logo-header{
-        height: 10rem;
-        width: 25rem;
-        margin-bottom: 2rem;       
-    }
-
-    .container-menu {
-        display: grid;
-        grid-template-columns: repeat(3,1fr);
-        column-gap: 2rem;
-        width: 65%;
-        height: auto;
-        margin-bottom: 1rem;
-        margin-top: 1rem;
-    }
-    body {
-        background-image: url("../Img/back_sesaet.jpg") ;
-        background-repeat: no-repeat;
-        background-position: right;
-        background-color: #EFEFEF;
-        background-size: cover;
-        width: 100%;
-        height: 100vh; 
-    }
-
-    .container-saet{
-        padding-top: 3rem ;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: flex-start;      
-        width: 100%;        
-        height: 100vh;    
-    }
-
- 
-
-    .footer-saet{       
-        display: flex;         
-        justify-content: center;        
-        margin: 0rem 0rem;
-        max-width: 100rem;
-        width: 120rem;
-        height: 4rem;
-        color: #d59577;
-    }  
-    
-}
-
-@media (min-width: 1200px) { 
-    
-   
-    .logo-header{
-        height: 10rem;
-        width: 25rem;
-        margin-bottom: 1rem;         
-    }
-    .container-menu {      
-        display: grid;
-        grid-template-columns: repeat(3,1fr);
-        column-gap: 2rem;
-        width: 45%;
-        height: auto;        
-    }
-    body {
-        background-image: url("../Img/back_sesaet.jpg") ;
-        background-repeat: no-repeat;
-        background-position: right;
-        background-color: #EFEFEF;
-        background-size: cover;
-        width: 100%;       
-        height: 100vh; 
-    }   
-    .container-saet{
-        padding-top: 1rem ;
-        display: flex;
-        flex-direction: column;  
-        justify-content: flex-start;    
-        width:100%;        
-        height: auto;           
-    }
-    .footer-saet{       
-        display: flex;         
-        justify-content: center;        
-        margin: 0rem 0rem;
-        width: 95%;
-        height: 4rem;
-        color: #d59577;
-    }     
-}
-
-@media (min-width: 1600px) { 
-    .logo-header{
-        height: 10rem;
-        width: 25rem;
-        margin-bottom: 2rem;
-        position: inherit;
-        background-repeat: no-repeat;
-        background-size: cover;
-    }
-    .container-menu {
-        display: grid;
-        grid-template-columns: repeat(3,1fr);
-        column-gap: 2rem;
-        width: 45%;
-        height: 50%;
-    }
-    body {
-        background-image: url("../Img/back_sesaet.jpg") ;
-        background-repeat: no-repeat;
-        background-position: bottom;
-        background-color: #EFEFEF;
-        background-size: cover;
-        width: 100%;
-        height: 100vh; 
-    }
-    .footer-saet{       
-        display: flex;         
-        justify-content: center;        
-        margin: 0rem 0rem;
-        width: 200rem;
-        max-width: 190rem;
-        height: 4rem;
-        color: #d59577;
-    }  
-    
-}
- */
-
-/* 
-
-@media( min-width: 700px ) {
-    .logo-header {
-        margin-bottom: 7rem;
-        height: 15rem;
-        width: 35rem;
-    }
-
-    h1{
-        font-size: 4rem;
-        margin: 0;
-    }
-}
-@media( min-width: 960px ) {
-    .logo-header {
-        display: none;       
-    }
-    h1{
-        font-size: 4rem;
-        margin: 0;
-    }
-
-    p{
-        font-size: 1.8rem;
-    }
-
-    .fondo-body{
-        background-position: bottom-left;
-       
-    }
-
-    .caja-menu{
-        flex-direction: row;
-    }
-} */
