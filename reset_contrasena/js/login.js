@@ -2,7 +2,7 @@ function login() {
   idUser = $("#userName").val();
   password = hex_md5($("#password").val());
   $.ajax({
-    url: ip + "/declaraciones-desarrollo/data/login",
+    url: ip + "/declaraciones/data/login",
     type: "POST",
     contentType: "application/json",
     data: JSON.stringify({
@@ -20,7 +20,7 @@ function login() {
         sessionStorage.setItem("token", token);
         if (sessionStorage.getItem("rol") == "entadmin") {
           $.ajax({
-            url: ip + "/declaraciones-desarrollo/control/needChangePassword",
+            url: ip + "/declaraciones/control/needChangePassword",
             type: "GET",
             dataType: "json",
             headers: {
@@ -58,7 +58,7 @@ function sesionI() {
 
 function salir() {
   $.ajax({
-    url: ip + "/declaraciones-desarrollo/data/logout ",
+    url: ip + "/declaraciones/data/logout ",
     type: "GET",
     dataType: "json",
     headers: {
@@ -85,10 +85,7 @@ function passwordNew() {
     var passwordN = hex_md5($("#newPassword1").val());
     sessionStorage.removeItem("pass");
     $.ajax({
-      url:
-        ip +
-        "/declaraciones-desarrollo/control/updatePassword?psn=" +
-        passwordN,
+      url: ip + "/declaraciones/control/updatePassword?psn=" + passwordN,
       type: "GET",
       dataType: "json",
       headers: {
@@ -165,10 +162,7 @@ function recuperarPassword() {
     var enlace = window.location.href;
     var tempToken = enlace.substring(enlace.indexOf("#") + 1);
     $.ajax({
-      url:
-        ip +
-        "/declaraciones-desarrollo/control/updatePassword?psn=" +
-        passwordN,
+      url: ip + "/declaraciones/control/updatePassword?psn=" + passwordN,
       type: "GET",
       dataType: "json",
       headers: {
@@ -178,8 +172,7 @@ function recuperarPassword() {
       .done(function (datos) {
         if (datos.status) {
           alert("Recuerde guardar su contraseña antes de continuar.");
-          window.location.href =
-            "../Funcionarios/declaraciones-desarrollo/index.html";
+          window.location.href = "../Funcionarios/declaraciones/index.html";
         } else {
           alert("Algo salio mal intentelo de nuevo.");
         }

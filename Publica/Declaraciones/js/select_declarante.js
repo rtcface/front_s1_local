@@ -1,9 +1,6 @@
 function selectDeclarante() {
   $.ajax({
-    url:
-      ip +
-      "/declaraciones-desarrollo/public/selectDeclarante?id_declarador=" +
-      id,
+    url: ip + "/declaraciones/public/selectDeclarante?id_declarador=" + id,
     type: "GET",
     dataType: "json",
   })
@@ -33,7 +30,7 @@ function selectDatosConyuge() {
   $.ajax({
     url:
       ip +
-      "/declaraciones-desarrollo/public/selectDeclaranteConyuge?tipo_declaracion=" +
+      "/declaraciones/public/selectDeclaranteConyuge?tipo_declaracion=" +
       td +
       "&id_declarador=" +
       id,
@@ -93,7 +90,7 @@ function selectDatosDependiente() {
   $.ajax({
     url:
       ip +
-      "/declaraciones-desarrollo/public/selectDeclaranteDependiente?tipo_declaracion=" +
+      "/declaraciones/public/selectDeclaranteDependiente?tipo_declaracion=" +
       td +
       "&id_declarador=" +
       id,
@@ -145,7 +142,7 @@ function selectDatosCurriculares() {
   $.ajax({
     url:
       ip +
-      "/declaraciones-desarrollo/public/selectDeclaranteCurriculo?tipo_declaracion=" +
+      "/declaraciones/public/selectDeclaranteCurriculo?tipo_declaracion=" +
       td +
       "&id_declarador=" +
       id,
@@ -236,7 +233,7 @@ function selectCargoActual() {
   $.ajax({
     url:
       ip +
-      "/declaraciones-desarrollo/public/selectDeclaranteEncargoActual?tipo_declaracion=" +
+      "/declaraciones/public/selectDeclaranteEncargoActual?tipo_declaracion=" +
       td +
       "&id_declarador=" +
       id,
@@ -416,7 +413,7 @@ function selectExperienciaLaboral() {
   $.ajax({
     url:
       ip +
-      "/declaraciones-desarrollo/public/selectDeclaranteExperienciaLaboral?tipo_declaracion=" +
+      "/declaraciones/public/selectDeclaranteExperienciaLaboral?tipo_declaracion=" +
       td +
       "&id_declarador=" +
       id,

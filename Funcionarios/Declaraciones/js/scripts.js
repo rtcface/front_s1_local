@@ -233,7 +233,7 @@ function revisarHabilitar() {
   $.ajax({
     url:
       ip +
-      "/declaraciones-desarrollo/aplicaControl/selectControlAplica?tipo_declaracion=" +
+      "/declaraciones/aplicaControl/selectControlAplica?tipo_declaracion=" +
       tipo_declaracion,
     type: "GET",
     dataType: "json",
@@ -255,7 +255,7 @@ function habilitarEnvio(objeto) {
   $.ajax({
     url:
       ip +
-      "/declaraciones-desarrollo/declarante/findGlobalSemaphore?tipo_declaracion=" +
+      "/declaraciones/declarante/findGlobalSemaphore?tipo_declaracion=" +
       tipo_declaracion,
     type: "GET",
     dataType: "json",
@@ -430,7 +430,7 @@ function habilitarEnvio(objeto) {
 //////////////// Get Ente Publico ////////////////
 function entesPub() {
   $.ajax({
-    url: ip + "/declaraciones-desarrollo/ente/getEntePublico",
+    url: ip + "/declaraciones/ente/getEntePublico",
     type: "GET",
     dataType: "json",
     headers: {

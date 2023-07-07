@@ -292,8 +292,7 @@ function insertarIngresosNetos() {
     tipoInstrumento = $("#otroInst").val();
   }
   $.ajax({
-    url:
-      ip + "/declaraciones-desarrollo/declarante/insertDeclaranteIngresosNetos",
+    url: ip + "/declaraciones/declarante/insertDeclaranteIngresosNetos",
     type: "POST",
     contentType: "application/json",
     headers: {
@@ -347,8 +346,7 @@ function actualizarIngresosNetos() {
     tipoInstrumento = $("#otroInst").val();
   }
   $.ajax({
-    url:
-      ip + "/declaraciones-desarrollo/declarante/updateDeclaranteIngresosNetos",
+    url: ip + "/declaraciones/declarante/updateDeclaranteIngresosNetos",
     type: "POST",
     contentType: "application/json",
     headers: {
@@ -401,7 +399,7 @@ function selectIngresosNetos() {
   $.ajax({
     url:
       ip +
-      "/declaraciones-desarrollo/declarante/selectDeclaranteIngresosNetos?tipo_declaracion=" +
+      "/declaraciones/declarante/selectDeclaranteIngresosNetos?tipo_declaracion=" +
       tipoDeclaracion,
     type: "GET",
     dataType: "json",
@@ -545,9 +543,7 @@ function insertarServidorPublico() {
     tipoInstrumento = $("#otroInst").val();
   }
   $.ajax({
-    url:
-      ip +
-      "/declaraciones-desarrollo/declarante/insertDeclaranteServidorAnterior",
+    url: ip + "/declaraciones/declarante/insertDeclaranteServidorAnterior",
     type: "POST",
     contentType: "application/json",
     headers: {
@@ -608,9 +604,7 @@ function actualizarServidorPublico() {
     tipoInstrumento = $("#otroInst").val();
   }
   $.ajax({
-    url:
-      ip +
-      "/declaraciones-desarrollo/declarante/updateDeclaranteServidorAnterior",
+    url: ip + "/declaraciones/declarante/updateDeclaranteServidorAnterior",
     type: "POST",
     contentType: "application/json",
     headers: {
@@ -670,7 +664,7 @@ function selectServidorPublico() {
   $.ajax({
     url:
       ip +
-      "/declaraciones-desarrollo/declarante/selectDeclaranteServidorAnterior?tipo_declaracion=" +
+      "/declaraciones/declarante/selectDeclaranteServidorAnterior?tipo_declaracion=" +
       tipoDeclaracion,
     type: "GET",
     dataType: "json",
@@ -866,7 +860,7 @@ function deleteIngresos(id, tBien) {
   $.ajax({
     url:
       ip +
-      "/declaraciones-desarrollo/declarante/" +
+      "/declaraciones/declarante/" +
       borrar +
       "?tipo_declaracion=" +
       tipoDeclaracion +

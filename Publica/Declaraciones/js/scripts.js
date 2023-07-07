@@ -113,11 +113,11 @@ var ip = sessionStorage.getItem("ip");
 
 function descarga() {
   var xhr = new XMLHttpRequest();
-  //xhr.open('GET', ip + '/declaraciones-desarrollo/public/publicDeclaracionReport?id_declarante=' + sessionStorage.getItem("id") + '&tipo_declaracion=' +  sessionStorage.getItem("tipo_declaracion") , true);
+  //xhr.open('GET', ip + '/declaraciones/public/publicDeclaracionReport?id_declarante=' + sessionStorage.getItem("id") + '&tipo_declaracion=' +  sessionStorage.getItem("tipo_declaracion") , true);
   xhr.open(
     "GET",
     ip +
-      "/declaraciones-desarrollo/public/publicViewDeclaracionReport?id_declarante=" +
+      "/declaraciones/public/publicViewDeclaracionReport?id_declarante=" +
       sessionStorage.getItem("id") +
       "&tipo_declaracion=" +
       sessionStorage.getItem("tipo_declaracion") +
@@ -142,7 +142,7 @@ function descarga() {
 ////////////////////////////// Get entes publicos //////////////////////////////
 function entes() {
   $.ajax({
-    url: ip + "/declaraciones-desarrollo/public/getEntePublico",
+    url: ip + "/declaraciones/public/getEntePublico",
     type: "GET",
     dataType: "json",
   })
@@ -184,7 +184,7 @@ function buscar() {
     ente_publico = null;
   }
   $.ajax({
-    url: ip + "/declaraciones-desarrollo/public/findPublicDeclarant",
+    url: ip + "/declaraciones/public/findPublicDeclarant",
     type: "POST",
     contentType: "application/json",
     data: JSON.stringify({
@@ -239,7 +239,7 @@ function cargarSesea() {
   var ente_publico = "";
 
   $.ajax({
-    url: ip + "/declaraciones-desarrollo/public/findPublicDeclarant",
+    url: ip + "/declaraciones/public/findPublicDeclarant",
     type: "POST",
     contentType: "application/json",
     data: JSON.stringify({
@@ -296,7 +296,7 @@ function getFuncionario() {
   $.ajax({
     url:
       ip +
-      "/declaraciones-desarrollo/public/selectPublicJsonSNA?id_ente=" +
+      "/declaraciones/public/selectPublicJsonSNA?id_ente=" +
       sessionStorage.getItem("ente") +
       "&id_busqueda=" +
       sessionStorage.getItem("id") +
@@ -318,7 +318,7 @@ function servidorPublico() {
   $.ajax({
     url:
       ip +
-      "/declaraciones-desarrollo/public/selectPublicHeaderData?tipo_declaracion=" +
+      "/declaraciones/public/selectPublicHeaderData?tipo_declaracion=" +
       sessionStorage.getItem("tipo_declaracion") +
       "&id_declarador=" +
       sessionStorage.getItem("id"),

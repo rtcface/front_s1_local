@@ -2,7 +2,7 @@ function selectAllDatosCurriculo() {
   $.ajax({
     url:
       ip +
-      "/declaraciones-desarrollo/declarante/selectDeclaranteCurriculo?tipo_declaracion=" +
+      "/declaraciones/declarante/selectDeclaranteCurriculo?tipo_declaracion=" +
       tipoDeclaracion,
     type: "GET",
     dataType: "json",
@@ -53,7 +53,7 @@ function selectAllEmpleo() {
   $.ajax({
     url:
       ip +
-      "/declaraciones-desarrollo/declarante/selectDeclaranteEncargoActual?tipo_declaracion=" +
+      "/declaraciones/declarante/selectDeclaranteEncargoActual?tipo_declaracion=" +
       tipoDeclaracion +
       "&id_declarador=",
     type: "GET",
@@ -111,7 +111,7 @@ function selectAllExpLaboral() {
   $.ajax({
     url:
       ip +
-      "/declaraciones-desarrollo/declarante/selectDeclaranteExperienciaLaboral?tipo_declaracion=" +
+      "/declaraciones/declarante/selectDeclaranteExperienciaLaboral?tipo_declaracion=" +
       tipoDeclaracion,
     type: "GET",
     dataType: "json",
@@ -171,7 +171,7 @@ function selectAllDatosParejaDependiente(pareja) {
   $.ajax({
     url:
       ip +
-      "/declaraciones-desarrollo/declarante/selectDeclaranteConyugeDep?tipo_declaracion=" +
+      "/declaraciones/declarante/selectDeclaranteConyugeDep?tipo_declaracion=" +
       tipoDeclaracion +
       "&conyuge=" +
       pareja,
@@ -233,7 +233,7 @@ function selectAllBienesInmuebles() {
   $.ajax({
     url:
       ip +
-      "/declaraciones-desarrollo/activos/selectActivosBienesInmuebles?tipo_declaracion=" +
+      "/declaraciones/activos/selectActivosBienesInmuebles?tipo_declaracion=" +
       tipoDeclaracion,
     type: "GET",
     dataType: "json",
@@ -283,7 +283,7 @@ function selectAllVehiculos() {
   $.ajax({
     url:
       ip +
-      "/declaraciones-desarrollo/activos/selectActivosVehiculos?tipo_declaracion=" +
+      "/declaraciones/activos/selectActivosVehiculos?tipo_declaracion=" +
       tipoDeclaracion,
     type: "GET",
     dataType: "json",
@@ -335,7 +335,7 @@ function selectAllBienesMuebles() {
   $.ajax({
     url:
       ip +
-      "/declaraciones-desarrollo/activos/selectActivosBienesMueblesNR?tipo_declaracion=" +
+      "/declaraciones/activos/selectActivosBienesMueblesNR?tipo_declaracion=" +
       tipoDeclaracion,
     type: "GET",
     dataType: "json",
@@ -385,7 +385,7 @@ function selectAllInversiones() {
   $.ajax({
     url:
       ip +
-      "/declaraciones-desarrollo/activos/selectActivosInversionesCuentas?tipo_declaracion=" +
+      "/declaraciones/activos/selectActivosInversionesCuentas?tipo_declaracion=" +
       tipoDeclaracion,
     type: "GET",
     dataType: "json",
@@ -435,7 +435,7 @@ function selectAllAdeudos() {
   $.ajax({
     url:
       ip +
-      "/declaraciones-desarrollo/pasivos/selectPasivosAdeudos?tipo_declaracion=" +
+      "/declaraciones/pasivos/selectPasivosAdeudos?tipo_declaracion=" +
       tipoDeclaracion,
     type: "GET",
     dataType: "json",
@@ -485,7 +485,7 @@ function selectAllPrestamos() {
   $.ajax({
     url:
       ip +
-      "/declaraciones-desarrollo/pasivos/selectPasivosPrestamoComodato?tipo_declaracion=" +
+      "/declaraciones/pasivos/selectPasivosPrestamoComodato?tipo_declaracion=" +
       tipoDeclaracion,
     type: "GET",
     dataType: "json",
@@ -543,7 +543,7 @@ function selectAllEmpresasSociedades() {
   $.ajax({
     url:
       ip +
-      "/declaraciones-desarrollo/intereses/selectInteresesEmpSoc?tipo_declaracion=" +
+      "/declaraciones/intereses/selectInteresesEmpSoc?tipo_declaracion=" +
       tipoDeclaracion,
     type: "GET",
     dataType: "json",
@@ -595,7 +595,7 @@ function selectAllInstituciones() {
   $.ajax({
     url:
       ip +
-      "/declaraciones-desarrollo/intereses/selectInteresesInstituciones?tipo_declaracion=" +
+      "/declaraciones/intereses/selectInteresesInstituciones?tipo_declaracion=" +
       tipoDeclaracion,
     type: "GET",
     dataType: "json",
@@ -645,7 +645,7 @@ function selectAllApoyosBeneficios() {
   $.ajax({
     url:
       ip +
-      "/declaraciones-desarrollo/intereses/selectInteresesBeneficiosPublicos?tipo_declaracion=" +
+      "/declaraciones/intereses/selectInteresesBeneficiosPublicos?tipo_declaracion=" +
       tipoDeclaracion,
     type: "GET",
     dataType: "json",
@@ -697,7 +697,7 @@ function selectAllRepresentacion() {
   $.ajax({
     url:
       ip +
-      "/declaraciones-desarrollo/intereses/selectInteresesRepresentacionActiva?tipo_declaracion=" +
+      "/declaraciones/intereses/selectInteresesRepresentacionActiva?tipo_declaracion=" +
       tipoDeclaracion,
     type: "GET",
     dataType: "json",
@@ -749,7 +749,7 @@ function selectAllClientesPrincipales() {
   $.ajax({
     url:
       ip +
-      "/declaraciones-desarrollo/intereses/selectInteresesClientesPrincipales?tipo_declaracion=" +
+      "/declaraciones/intereses/selectInteresesClientesPrincipales?tipo_declaracion=" +
       tipoDeclaracion,
     type: "GET",
     dataType: "json",
@@ -801,7 +801,7 @@ function selectAllBeneficiosPrivados() {
   $.ajax({
     url:
       ip +
-      "/declaraciones-desarrollo/intereses/selectInteresesBeneficiosPrivados?tipo_declaracion=" +
+      "/declaraciones/intereses/selectInteresesBeneficiosPrivados?tipo_declaracion=" +
       tipoDeclaracion,
     type: "GET",
     dataType: "json",
@@ -853,7 +853,7 @@ function selectAllFideicomisos() {
   $.ajax({
     url:
       ip +
-      "/declaraciones-desarrollo/intereses/selectInteresesFideicomisos?tipo_declaracion=" +
+      "/declaraciones/intereses/selectInteresesFideicomisos?tipo_declaracion=" +
       tipoDeclaracion,
     type: "GET",
     dataType: "json",

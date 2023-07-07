@@ -2,7 +2,7 @@ function curriculoAplica(estatus) {
   $.ajax({
     url:
       ip +
-      "/declaraciones-desarrollo/aplicaControl/aplica_curriculo_declarante?tipo_declaracion=" +
+      "/declaraciones/aplicaControl/aplica_curriculo_declarante?tipo_declaracion=" +
       tipoDeclaracion +
       "&value=" +
       estatus,
@@ -26,7 +26,7 @@ function expLabAplica(estatus) {
   $.ajax({
     url:
       ip +
-      "/declaraciones-desarrollo/aplicaControl/aplica_exp_laboral?tipo_declaracion=" +
+      "/declaraciones/aplicaControl/aplica_exp_laboral?tipo_declaracion=" +
       tipoDeclaracion +
       "&value=" +
       estatus,
@@ -50,7 +50,7 @@ function parejaAplica(estatus) {
   $.ajax({
     url:
       ip +
-      "/declaraciones-desarrollo/aplicaControl/aplica_conyuge?tipo_declaracion=" +
+      "/declaraciones/aplicaControl/aplica_conyuge?tipo_declaracion=" +
       tipoDeclaracion +
       "&value=" +
       estatus,
@@ -74,7 +74,7 @@ function dependienteAplica(estatus) {
   $.ajax({
     url:
       ip +
-      "/declaraciones-desarrollo/aplicaControl/aplica_dependiente?tipo_declaracion=" +
+      "/declaraciones/aplicaControl/aplica_dependiente?tipo_declaracion=" +
       tipoDeclaracion +
       "&value=" +
       estatus,
@@ -98,7 +98,7 @@ function anteriorServidorAplica(estatus) {
   $.ajax({
     url:
       ip +
-      "/declaraciones-desarrollo/aplicaControl/aplica_anterior_servidor?tipo_declaracion=" +
+      "/declaraciones/aplicaControl/aplica_anterior_servidor?tipo_declaracion=" +
       tipoDeclaracion +
       "&value=" +
       estatus,
@@ -122,7 +122,7 @@ function bienInmuebleAplica(estatus) {
   $.ajax({
     url:
       ip +
-      "/declaraciones-desarrollo/aplicaControl/aplica_bienes_inmuebles?tipo_declaracion=" +
+      "/declaraciones/aplicaControl/aplica_bienes_inmuebles?tipo_declaracion=" +
       tipoDeclaracion +
       "&value=" +
       estatus,
@@ -146,7 +146,7 @@ function vehiculoAplica(estatus) {
   $.ajax({
     url:
       ip +
-      "/declaraciones-desarrollo/aplicaControl/aplica_bienes_muebles?tipo_declaracion=" +
+      "/declaraciones/aplicaControl/aplica_bienes_muebles?tipo_declaracion=" +
       tipoDeclaracion +
       "&value=" +
       estatus,
@@ -170,7 +170,7 @@ function bienMuebleAplica(estatus) {
   $.ajax({
     url:
       ip +
-      "/declaraciones-desarrollo/aplicaControl/aplica_bienes_muebles_nr?tipo_declaracion=" +
+      "/declaraciones/aplicaControl/aplica_bienes_muebles_nr?tipo_declaracion=" +
       tipoDeclaracion +
       "&value=" +
       estatus,
@@ -194,7 +194,7 @@ function invercionesAplica(estatus) {
   $.ajax({
     url:
       ip +
-      "/declaraciones-desarrollo/aplicaControl/aplica_inversiones_cuentas?tipo_declaracion=" +
+      "/declaraciones/aplicaControl/aplica_inversiones_cuentas?tipo_declaracion=" +
       tipoDeclaracion +
       "&value=" +
       estatus,
@@ -218,7 +218,7 @@ function pasivosAplica(estatus) {
   $.ajax({
     url:
       ip +
-      "/declaraciones-desarrollo/aplicaControl/aplica_adeudos?tipo_declaracion=" +
+      "/declaraciones/aplicaControl/aplica_adeudos?tipo_declaracion=" +
       tipoDeclaracion +
       "&value=" +
       estatus,
@@ -242,7 +242,7 @@ function prestamosAplica(estatus) {
   $.ajax({
     url:
       ip +
-      "/declaraciones-desarrollo/aplicaControl/aplica_prestamo_comodato?tipo_declaracion=" +
+      "/declaraciones/aplicaControl/aplica_prestamo_comodato?tipo_declaracion=" +
       tipoDeclaracion +
       "&value=" +
       estatus,
@@ -266,7 +266,7 @@ function empresasAplica(estatus) {
   $.ajax({
     url:
       ip +
-      "/declaraciones-desarrollo/aplicaControl/aplica_emp_soc?tipo_declaracion=" +
+      "/declaraciones/aplicaControl/aplica_emp_soc?tipo_declaracion=" +
       tipoDeclaracion +
       "&value=" +
       estatus,
@@ -290,7 +290,7 @@ function institucionesAplica(estatus) {
   $.ajax({
     url:
       ip +
-      "/declaraciones-desarrollo/aplicaControl/aplica_part_instituciones?tipo_declaracion=" +
+      "/declaraciones/aplicaControl/aplica_part_instituciones?tipo_declaracion=" +
       tipoDeclaracion +
       "&value=" +
       estatus,
@@ -314,7 +314,7 @@ function beneficiosPublicosAplica(estatus) {
   $.ajax({
     url:
       ip +
-      "/declaraciones-desarrollo/aplicaControl/aplica_beneficios_publicos?tipo_declaracion=" +
+      "/declaraciones/aplicaControl/aplica_beneficios_publicos?tipo_declaracion=" +
       tipoDeclaracion +
       "&value=" +
       estatus,
@@ -338,7 +338,7 @@ function representacionAplica(estatus) {
   $.ajax({
     url:
       ip +
-      "/declaraciones-desarrollo/aplicaControl/aplica_representacion?tipo_declaracion=" +
+      "/declaraciones/aplicaControl/aplica_representacion?tipo_declaracion=" +
       tipoDeclaracion +
       "&value=" +
       estatus,
@@ -362,7 +362,7 @@ function clientesAplica(estatus) {
   $.ajax({
     url:
       ip +
-      "/declaraciones-desarrollo/aplicaControl/aplica_clientes_principales?tipo_declaracion=" +
+      "/declaraciones/aplicaControl/aplica_clientes_principales?tipo_declaracion=" +
       tipoDeclaracion +
       "&value=" +
       estatus,
@@ -386,7 +386,7 @@ function beneficiosPrivadosAplica(estatus) {
   $.ajax({
     url:
       ip +
-      "/declaraciones-desarrollo/aplicaControl/aplica_beneficios_privados?tipo_declaracion=" +
+      "/declaraciones/aplicaControl/aplica_beneficios_privados?tipo_declaracion=" +
       tipoDeclaracion +
       "&value=" +
       estatus,
@@ -410,7 +410,7 @@ function fideicomisosAplica(estatus) {
   $.ajax({
     url:
       ip +
-      "/declaraciones-desarrollo/aplicaControl/aplica_fideicomisos?tipo_declaracion=" +
+      "/declaraciones/aplicaControl/aplica_fideicomisos?tipo_declaracion=" +
       tipoDeclaracion +
       "&value=" +
       estatus,
@@ -434,7 +434,7 @@ function constFiscalAplica(estatus) {
   $.ajax({
     url:
       ip +
-      "/declaraciones-desarrollo/aplicaControl/aplica_dec_fiscal?tipo_declaracion=" +
+      "/declaraciones/aplicaControl/aplica_dec_fiscal?tipo_declaracion=" +
       tipoDeclaracion +
       "&value=" +
       estatus,
@@ -461,7 +461,7 @@ function marcarAplica(index) {
   $.ajax({
     url:
       ip +
-      "/declaraciones-desarrollo/aplicaControl/selectControlAplica?tipo_declaracion=" +
+      "/declaraciones/aplicaControl/selectControlAplica?tipo_declaracion=" +
       tipoDeclaracion,
     type: "GET",
     dataType: "json",

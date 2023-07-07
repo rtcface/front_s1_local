@@ -2,7 +2,7 @@ function login() {
   idUser = $("#userName").val();
   password = hex_md5($("#password").val());
   $.ajax({
-    url: ip + "/declaraciones-desarrollo/data/login",
+    url: ip + "/declaraciones/data/login",
     type: "POST",
     contentType: "application/json",
     data: JSON.stringify({
@@ -21,7 +21,7 @@ function login() {
           sessionStorage.setItem("token", token);
 
           $.ajax({
-            url: ip + "/declaraciones-desarrollo/control/needChangePassword",
+            url: ip + "/declaraciones/control/needChangePassword",
             type: "GET",
             dataType: "json",
             headers: {
@@ -61,7 +61,7 @@ function sesionI() {
 
 function salir() {
   $.ajax({
-    url: ip + "/declaraciones-desarrollo/data/logout ",
+    url: ip + "/declaraciones/data/logout ",
     type: "GET",
     dataType: "json",
     headers: {
@@ -89,10 +89,7 @@ function passwordNew() {
     var passwordN = hex_md5($("#newPassword1").val());
     sessionStorage.removeItem("pass");
     $.ajax({
-      url:
-        ip +
-        "/declaraciones-desarrollo/control/updatePassword?psn=" +
-        passwordN,
+      url: ip + "/declaraciones/control/updatePassword?psn=" + passwordN,
       type: "GET",
       dataType: "json",
       headers: {
@@ -129,7 +126,7 @@ function cargarArchivo() {
   ) {
     $("#modalCargando").modal("show");
     $.ajax({
-      url: ip + "/declaraciones-desarrollo/masiveUpload/readExcelData",
+      url: ip + "/declaraciones/masiveUpload/readExcelData",
       type: "POST",
       data: paqueteDeDatos,
       cache: false,
@@ -169,7 +166,7 @@ function cargarArchivo() {
 function aprobarUsers() {
   $("#modalCargando").modal("show");
   $.ajax({
-    url: ip + "/declaraciones-desarrollo/masiveUpload/aprobarUserMU",
+    url: ip + "/declaraciones/masiveUpload/aprobarUserMU",
     type: "POST",
     headers: {
       "X-Auth-Token": token,
@@ -195,7 +192,7 @@ function aprobarUsers() {
 //---------------- Cargar Ente Publico Al Que Pertenece --------------------//
 function entes() {
   $.ajax({
-    url: ip + "/declaraciones-desarrollo/ente/getEntePublicoUserLogged",
+    url: ip + "/declaraciones/ente/getEntePublicoUserLogged",
     type: "GET",
     dataType: "json",
     headers: {
@@ -276,7 +273,7 @@ function desColonia() {
   }
   var cp = document.getElementById("cp").value;
   $.ajax({
-    url: ip + "/declaraciones-desarrollo/geoInfo/infoByCP?cp=" + cp,
+    url: ip + "/declaraciones/geoInfo/infoByCP?cp=" + cp,
     type: "GET",
     dataType: "json",
   })
@@ -300,7 +297,7 @@ function desColonia() {
 //---------------- Peticion de Lista de Paises --------------------//
 function pedirPaises(id) {
   $.ajax({
-    url: ip + "/declaraciones-desarrollo/geoInfo/allPaises",
+    url: ip + "/declaraciones/geoInfo/allPaises",
     type: "GET",
     dataType: "json",
   })
@@ -322,7 +319,7 @@ function pedirPaises(id) {
 //---------------- Desplegar Estados --------------------//
 function desEstados() {
   $.ajax({
-    url: ip + "/declaraciones-desarrollo/geoInfo/allEdos",
+    url: ip + "/declaraciones/geoInfo/allEdos",
     type: "GET",
     dataType: "json",
   })
@@ -344,8 +341,7 @@ function desEstados() {
 //---------------- Desplegar Municipio --------------------//
 function domMunicipio(indice, estado) {
   $.ajax({
-    url:
-      ip + "/declaraciones-desarrollo/geoInfo/munByCveEdo?id_estado=" + estado,
+    url: ip + "/declaraciones/geoInfo/munByCveEdo?id_estado=" + estado,
     type: "GET",
     dataType: "json",
   })

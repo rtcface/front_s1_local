@@ -1,7 +1,7 @@
 ///// Funciones Altas Declarantes //////
 function registros() {
   $.ajax({
-    url: ip + "/declaraciones-desarrollo/masiveUpload/getGeneratedUsersMU",
+    url: ip + "/declaraciones/masiveUpload/getGeneratedUsersMU",
     type: "GET",
     dataType: "json",
     headers: {
@@ -56,7 +56,7 @@ function selectDeclarante() {
   $.ajax({
     url:
       ip +
-      "/declaraciones-desarrollo/masiveUpload/getGeneratedUserByIdMU?id=" +
+      "/declaraciones/masiveUpload/getGeneratedUserByIdMU?id=" +
       idCurriculum,
     type: "GET",
     dataType: "json",
@@ -98,7 +98,7 @@ function selectEmpleo() {
   $.ajax({
     url:
       ip +
-      "/declaraciones-desarrollo/masiveUpload/selectDeclaranteEncargoActualByIDMU?id=" +
+      "/declaraciones/masiveUpload/selectDeclaranteEncargoActualByIDMU?id=" +
       idCurriculum,
     type: "GET",
     dataType: "json",
@@ -216,7 +216,7 @@ function updateDeclarante() {
 
   $.ajax({
     type: "POST",
-    url: ip + "/declaraciones-desarrollo/masiveUpload/updateGralUsersMU",
+    url: ip + "/declaraciones/masiveUpload/updateGralUsersMU",
     headers: {
       "X-Auth-Token": sessionStorage.getItem("token"),
     },
@@ -297,9 +297,7 @@ function actualizarEmpleo() {
   }
 
   $.ajax({
-    url:
-      ip +
-      "/declaraciones-desarrollo/masiveUpload/updateDeclaranteEncargoActualMU",
+    url: ip + "/declaraciones/masiveUpload/updateDeclaranteEncargoActualMU",
     type: "POST",
     contentType: "application/json",
     headers: {
@@ -362,9 +360,7 @@ function deleteDatosCurriculo() {
   }
   $.ajax({
     url:
-      ip +
-      "/declaraciones-desarrollo/masiveUpload/deleteGralUsersMU?id=" +
-      idDeclaracion,
+      ip + "/declaraciones/masiveUpload/deleteGralUsersMU?id=" + idDeclaracion,
     type: "GET",
     dataType: "json",
     headers: {
@@ -401,7 +397,7 @@ function selectEnte(indice) {
   }
 
   $.ajax({
-    url: ip + "/declaraciones-desarrollo/ente/getEntePublicoUserLogged",
+    url: ip + "/declaraciones/ente/getEntePublicoUserLogged",
     type: "GET",
     dataType: "json",
     headers: {
@@ -422,7 +418,7 @@ function selectEnte(indice) {
 }
 function estado(indice) {
   $.ajax({
-    url: ip + "/declaraciones-desarrollo/geoInfo/allEdos",
+    url: ip + "/declaraciones/geoInfo/allEdos",
     type: "GET",
     dataType: "json",
   })
@@ -445,8 +441,7 @@ function estado(indice) {
 }
 function domMunicipio(indice, estado) {
   $.ajax({
-    url:
-      ip + "/declaraciones-desarrollo/geoInfo/munByCveEdo?id_estado=" + estado,
+    url: ip + "/declaraciones/geoInfo/munByCveEdo?id_estado=" + estado,
     type: "GET",
     dataType: "json",
   })
@@ -469,7 +464,7 @@ function domMunicipio(indice, estado) {
 }
 function domColonia(indice, cp) {
   $.ajax({
-    url: ip + "/declaraciones-desarrollo/geoInfo/infoByCP?cp=" + cp,
+    url: ip + "/declaraciones/geoInfo/infoByCP?cp=" + cp,
     type: "GET",
     dataType: "json",
   })

@@ -2,7 +2,7 @@ function selectDatosGenerales() {
   $.ajax({
     url:
       ip +
-      "/declaraciones-desarrollo/declarante/selectDeclarante?id_declarante=" +
+      "/declaraciones/declarante/selectDeclarante?id_declarante=" +
       id_declarante +
       "&tipo_declaracion=" +
       tipoDeclaracion,
@@ -76,7 +76,7 @@ function selectDomicilio() {
   $.ajax({
     url:
       ip +
-      "/declaraciones-desarrollo/declarante/selectDeclaranteDomicilioByID?tipo_declaracion=" +
+      "/declaraciones/declarante/selectDeclaranteDomicilioByID?tipo_declaracion=" +
       tipoDeclaracion,
     type: "GET",
     dataType: "json",
@@ -174,7 +174,7 @@ function selectDomicilioDependiente() {
   $.ajax({
     url:
       ip +
-      "/declaraciones-desarrollo/declarante/selectDeclaranteDomicilioByID?tipo_declaracion=" +
+      "/declaraciones/declarante/selectDeclaranteDomicilioByID?tipo_declaracion=" +
       tipoDeclaracion,
     type: "GET",
     dataType: "json",
@@ -273,7 +273,7 @@ function selectDatosCurriculo() {
   $.ajax({
     url:
       ip +
-      "/declaraciones-desarrollo/declarante/selectDeclaranteCurriculoByID?tipo_declaracion=" +
+      "/declaraciones/declarante/selectDeclaranteCurriculoByID?tipo_declaracion=" +
       tipoDeclaracion +
       "&id=" +
       idDeclaracion,
@@ -356,7 +356,7 @@ function selectEmpleo() {
   $.ajax({
     url:
       ip +
-      "/declaraciones-desarrollo/declarante/selectDeclaranteEncargoActualByID?tipo_declaracion=" +
+      "/declaraciones/declarante/selectDeclaranteEncargoActualByID?tipo_declaracion=" +
       tipoDeclaracion +
       "&id_declarador=&id=",
     type: "GET",
@@ -473,7 +473,7 @@ function selectEmpleoOtro() {
   $.ajax({
     url:
       ip +
-      "/declaraciones-desarrollo/declarante/selectDeclaranteEncargoActualByID?tipo_declaracion=" +
+      "/declaraciones/declarante/selectDeclaranteEncargoActualByID?tipo_declaracion=" +
       tipoDeclaracion +
       "&id_declarador=" +
       id_declarante +
@@ -604,7 +604,7 @@ function selectExpLaboral() {
   $.ajax({
     url:
       ip +
-      "/declaraciones-desarrollo/declarante/selectDeclaranteExperienciaLaboralByID?tipo_declaracion=" +
+      "/declaraciones/declarante/selectDeclaranteExperienciaLaboralByID?tipo_declaracion=" +
       tipoDeclaracion +
       "&id=" +
       idDeclaracion,
@@ -734,7 +734,7 @@ function selectDatosParejaDependiente(pareja) {
   $.ajax({
     url:
       ip +
-      "/declaraciones-desarrollo/declarante/selectDeclaranteConyugeDepByID?tipo_declaracion=" +
+      "/declaraciones/declarante/selectDeclaranteConyugeDepByID?tipo_declaracion=" +
       tipoDeclaracion +
       "&id=" +
       idDeclaracion +
@@ -1083,7 +1083,7 @@ function selectPrestamos() {
   $.ajax({
     url:
       ip +
-      "/declaraciones-desarrollo/pasivos/selectPasivosPrestamoComodatoByID?tipo_declaracion=" +
+      "/declaraciones/pasivos/selectPasivosPrestamoComodatoByID?tipo_declaracion=" +
       tipoDeclaracion +
       "&id=" +
       idDeclaracion,
@@ -1298,7 +1298,7 @@ function selectEmpresasSociedades() {
   $.ajax({
     url:
       ip +
-      "/declaraciones-desarrollo/intereses/selectInteresesEmpSocByID?tipo_declaracion=" +
+      "/declaraciones/intereses/selectInteresesEmpSocByID?tipo_declaracion=" +
       tipoDeclaracion +
       "&id=" +
       idDeclaracion,
@@ -1396,7 +1396,7 @@ function selectInstituciones() {
   $.ajax({
     url:
       ip +
-      "/declaraciones-desarrollo/intereses/selectInteresesInstitucionesByID?tipo_declaracion=" +
+      "/declaraciones/intereses/selectInteresesInstitucionesByID?tipo_declaracion=" +
       tipoDeclaracion +
       "&id=" +
       idDeclaracion,
@@ -1488,7 +1488,7 @@ function selectApoyosBeneficios() {
   $.ajax({
     url:
       ip +
-      "/declaraciones-desarrollo/intereses/selectInteresesBeneficiosPublicosByID?tipo_declaracion=" +
+      "/declaraciones/intereses/selectInteresesBeneficiosPublicosByID?tipo_declaracion=" +
       tipoDeclaracion +
       "&id=" +
       idDeclaracion,
@@ -1581,7 +1581,7 @@ function selectRepresentacion() {
   $.ajax({
     url:
       ip +
-      "/declaraciones-desarrollo/intereses/selectInteresesRepresentacionActivaByID?tipo_declaracion=" +
+      "/declaraciones/intereses/selectInteresesRepresentacionActivaByID?tipo_declaracion=" +
       tipoDeclaracion +
       "&id=" +
       idDeclaracion,
@@ -1685,7 +1685,7 @@ function selectClientesPrincipales() {
   $.ajax({
     url:
       ip +
-      "/declaraciones-desarrollo/intereses/selectInteresesClientesPrincipalesByID?tipo_declaracion=" +
+      "/declaraciones/intereses/selectInteresesClientesPrincipalesByID?tipo_declaracion=" +
       tipoDeclaracion +
       "&id=" +
       idDeclaracion,
@@ -1771,7 +1771,7 @@ function selectBeneficiosPrivados() {
   $.ajax({
     url:
       ip +
-      "/declaraciones-desarrollo/intereses/selectInteresesBeneficiosPrivadosByID?tipo_declaracion=" +
+      "/declaraciones/intereses/selectInteresesBeneficiosPrivadosByID?tipo_declaracion=" +
       tipoDeclaracion +
       "&id=" +
       idDeclaracion,
@@ -1883,7 +1883,7 @@ function selectFideicomisos() {
   $.ajax({
     url:
       ip +
-      "/declaraciones-desarrollo/intereses/selectInteresesFideicomisosByID?tipo_declaracion=" +
+      "/declaraciones/intereses/selectInteresesFideicomisosByID?tipo_declaracion=" +
       tipoDeclaracion +
       "&id=" +
       idDeclaracion,
@@ -1997,7 +1997,7 @@ function paisNac(indice) {
   var selector = document.getElementById("paisNacimiento");
   selector.options[0] = null;
   $.ajax({
-    url: ip + "/declaraciones-desarrollo/geoInfo/allPaises",
+    url: ip + "/declaraciones/geoInfo/allPaises",
     type: "GET",
     dataType: "json",
   })
@@ -2023,7 +2023,7 @@ function pais(indice) {
   var selector = document.getElementById("pais");
   selector.options[0] = null;
   $.ajax({
-    url: ip + "/declaraciones-desarrollo/geoInfo/allPaises",
+    url: ip + "/declaraciones/geoInfo/allPaises",
     type: "GET",
     dataType: "json",
   })
@@ -2046,7 +2046,7 @@ function pais(indice) {
 }
 function estado(indice) {
   $.ajax({
-    url: ip + "/declaraciones-desarrollo/geoInfo/allEdos",
+    url: ip + "/declaraciones/geoInfo/allEdos",
     type: "GET",
     dataType: "json",
   })
@@ -2071,7 +2071,7 @@ function pais2(indice) {
   var selector = document.getElementById("pais2");
   selector.options[0] = null;
   $.ajax({
-    url: ip + "/declaraciones-desarrollo/geoInfo/allPaises",
+    url: ip + "/declaraciones/geoInfo/allPaises",
     type: "GET",
     dataType: "json",
   })
@@ -2094,7 +2094,7 @@ function pais2(indice) {
 }
 function estado2(indice) {
   $.ajax({
-    url: ip + "/declaraciones-desarrollo/geoInfo/allEdos",
+    url: ip + "/declaraciones/geoInfo/allEdos",
     type: "GET",
     dataType: "json",
   })
@@ -2118,8 +2118,7 @@ function estado2(indice) {
 
 function domMunicipio(indice, estado) {
   $.ajax({
-    url:
-      ip + "/declaraciones-desarrollo/geoInfo/munByCveEdo?id_estado=" + estado,
+    url: ip + "/declaraciones/geoInfo/munByCveEdo?id_estado=" + estado,
     type: "GET",
     dataType: "json",
   })
@@ -2143,7 +2142,7 @@ function domMunicipio(indice, estado) {
 
 function domColonia(indice, cp) {
   $.ajax({
-    url: ip + "/declaraciones-desarrollo/geoInfo/infoByCP?cp=" + cp,
+    url: ip + "/declaraciones/geoInfo/infoByCP?cp=" + cp,
     type: "GET",
     dataType: "json",
   })
@@ -2167,7 +2166,7 @@ function domColonia(indice, cp) {
 
 function getEnte() {
   $.ajax({
-    url: ip + "/declaraciones-desarrollo/ente/getEntePublicoUserLogged",
+    url: ip + "/declaraciones/ente/getEntePublicoUserLogged",
     type: "GET",
     dataType: "json",
     headers: {
@@ -2187,7 +2186,7 @@ function aplicaServidorAnt() {
   $.ajax({
     url:
       ip +
-      "/declaraciones-desarrollo/aplicaControl/selectControlAplica?tipo_declaracion=" +
+      "/declaraciones/aplicaControl/selectControlAplica?tipo_declaracion=" +
       tipo_declaracion,
     type: "GET",
     dataType: "json",

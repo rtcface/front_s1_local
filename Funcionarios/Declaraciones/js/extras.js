@@ -305,7 +305,7 @@ function allPaises() {
   selector.options[0] = null;
 
   $.ajax({
-    url: ip + "/declaraciones-desarrollo/geoInfo/allPaises",
+    url: ip + "/declaraciones/geoInfo/allPaises",
     type: "GET",
     dataType: "json",
   })
@@ -1017,7 +1017,7 @@ function formEmpleos() {
 ////////////////// Peticion de lista de paises ///////////////////////////
 function pedirPaises(id) {
   $.ajax({
-    url: ip + "/declaraciones-desarrollo/geoInfo/allPaises",
+    url: ip + "/declaraciones/geoInfo/allPaises",
     type: "GET",
     dataType: "json",
   })
@@ -1039,7 +1039,7 @@ function pedirPaises(id) {
 ////////////////////// Desplegar estados /////////////////
 function desEstados() {
   $.ajax({
-    url: ip + "/declaraciones-desarrollo/geoInfo/allEdos",
+    url: ip + "/declaraciones/geoInfo/allEdos",
     type: "GET",
     dataType: "json",
   })
@@ -1059,7 +1059,7 @@ function desEstados() {
 }
 function desEstados2() {
   $.ajax({
-    url: ip + "/declaraciones-desarrollo/geoInfo/allEdos",
+    url: ip + "/declaraciones/geoInfo/allEdos",
     type: "GET",
     dataType: "json",
   })
@@ -1087,8 +1087,7 @@ function desMunicipios() {
   }
   var estado = document.getElementById("entidadFed").value;
   $.ajax({
-    url:
-      ip + "/declaraciones-desarrollo/geoInfo/munByCveEdo?id_estado=" + estado,
+    url: ip + "/declaraciones/geoInfo/munByCveEdo?id_estado=" + estado,
     type: "GET",
     dataType: "json",
   })
@@ -1116,7 +1115,7 @@ function desColonia() {
   }
   var cp = document.getElementById("cp").value;
   $.ajax({
-    url: ip + "/declaraciones-desarrollo/geoInfo/infoByCP?cp=" + cp,
+    url: ip + "/declaraciones/geoInfo/infoByCP?cp=" + cp,
     type: "GET",
     dataType: "json",
   })
@@ -1294,7 +1293,7 @@ function actualizarSemaforo() {
   $.ajax({
     url:
       ip +
-      "/declaraciones-desarrollo/aplicaControl/selectControlAplica?tipo_declaracion=" +
+      "/declaraciones/aplicaControl/selectControlAplica?tipo_declaracion=" +
       tipo_declaracion,
     type: "GET",
     dataType: "json",
@@ -1314,7 +1313,7 @@ function semaforoNuevo(objeto) {
   $.ajax({
     url:
       ip +
-      "/declaraciones-desarrollo/declarante/findGlobalSemaphore?tipo_declaracion=" +
+      "/declaraciones/declarante/findGlobalSemaphore?tipo_declaracion=" +
       tipo_declaracion,
     type: "GET",
     dataType: "json",

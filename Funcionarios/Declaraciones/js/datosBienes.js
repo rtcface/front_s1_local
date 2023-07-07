@@ -216,7 +216,7 @@ function deleteTerceros(id, tBien) {
   $.ajax({
     url:
       ip +
-      "/declaraciones-desarrollo/activos/" +
+      "/declaraciones/activos/" +
       borrar +
       "?tipo_declaracion=" +
       tipoDeclaracion +
@@ -252,7 +252,7 @@ function deleteTransmisor(id, tBien) {
   $.ajax({
     url:
       ip +
-      "/declaraciones-desarrollo/activos/" +
+      "/declaraciones/activos/" +
       borrar +
       "?tipo_declaracion=" +
       tipoDeclaracion +
@@ -288,7 +288,7 @@ function selectBienesInmuebles() {
   $.ajax({
     url:
       ip +
-      "/declaraciones-desarrollo/activos/selectActivosBienesInmueblesByID?tipo_declaracion=" +
+      "/declaraciones/activos/selectActivosBienesInmueblesByID?tipo_declaracion=" +
       tipoDeclaracion +
       "&id=" +
       idDeclaracion,
@@ -530,7 +530,7 @@ function insertarBienesInmuebles() {
   }
 
   $.ajax({
-    url: ip + "/declaraciones-desarrollo/activos/insertActivosBienesInmuebles",
+    url: ip + "/declaraciones/activos/insertActivosBienesInmuebles",
     type: "POST",
     contentType: "application/json",
     headers: {
@@ -645,7 +645,7 @@ function actualizarBienesInmuebles() {
   }
 
   $.ajax({
-    url: ip + "/declaraciones-desarrollo/activos/updateActivosBienesInmuebles",
+    url: ip + "/declaraciones/activos/updateActivosBienesInmuebles",
     type: "POST",
     contentType: "application/json",
     headers: {
@@ -733,7 +733,7 @@ function selectVehiculos() {
   $.ajax({
     url:
       ip +
-      "/declaraciones-desarrollo/activos/selectActivosVehiculosByID?tipo_declaracion=" +
+      "/declaraciones/activos/selectActivosVehiculosByID?tipo_declaracion=" +
       tipoDeclaracion +
       "&id=" +
       idDeclaracion,
@@ -900,7 +900,7 @@ function insertarVehiculos() {
   }
 
   $.ajax({
-    url: ip + "/declaraciones-desarrollo/activos/insertActivosVehiculos",
+    url: ip + "/declaraciones/activos/insertActivosVehiculos",
     type: "POST",
     contentType: "application/json",
     headers: {
@@ -978,7 +978,7 @@ function actualizarVehiculos() {
     motivoBaja = $("#otroBaja").val();
   }
   $.ajax({
-    url: ip + "/declaraciones-desarrollo/activos/updateActivosVehiculos",
+    url: ip + "/declaraciones/activos/updateActivosVehiculos",
     type: "POST",
     contentType: "application/json",
     headers: {
@@ -1054,7 +1054,7 @@ function selectBienesMuebles() {
   $.ajax({
     url:
       ip +
-      "/declaraciones-desarrollo/activos/selectActivosBienesMueblesNRByID?tipo_declaracion=" +
+      "/declaraciones/activos/selectActivosBienesMueblesNRByID?tipo_declaracion=" +
       tipoDeclaracion +
       "&id=" +
       idDeclaracion,
@@ -1199,7 +1199,7 @@ function insertarBienesMuebles() {
     motivoBaja = $("#otroBaja").val();
   }
   $.ajax({
-    url: ip + "/declaraciones-desarrollo/activos/insertActivosBienesMueblesNR",
+    url: ip + "/declaraciones/activos/insertActivosBienesMueblesNR",
     type: "POST",
     contentType: "application/json",
     headers: {
@@ -1259,7 +1259,7 @@ function actualizarBienesMuebles() {
   }
 
   $.ajax({
-    url: ip + "/declaraciones-desarrollo/activos/updateActivosBienesMueblesNR",
+    url: ip + "/declaraciones/activos/updateActivosBienesMueblesNR",
     type: "POST",
     contentType: "application/json",
     headers: {
@@ -1322,7 +1322,7 @@ function selectInversiones() {
   $.ajax({
     url:
       ip +
-      "/declaraciones-desarrollo/activos/selectActivosInversionesCuentasByID?tipo_declaracion=" +
+      "/declaraciones/activos/selectActivosInversionesCuentasByID?tipo_declaracion=" +
       tipoDeclaracion +
       "&id=" +
       idDeclaracion,
@@ -1499,8 +1499,7 @@ function insertarInversiones() {
   }
 
   $.ajax({
-    url:
-      ip + "/declaraciones-desarrollo/activos/insertActivosInversionesCuentas",
+    url: ip + "/declaraciones/activos/insertActivosInversionesCuentas",
     type: "POST",
     contentType: "application/json",
     headers: {
@@ -1570,8 +1569,7 @@ function actualizarInversiones() {
   }
 
   $.ajax({
-    url:
-      ip + "/declaraciones-desarrollo/activos/updateActivosInversionesCuentas",
+    url: ip + "/declaraciones/activos/updateActivosInversionesCuentas",
     type: "POST",
     contentType: "application/json",
     headers: {
@@ -1631,7 +1629,7 @@ function selectAdeudos() {
   $.ajax({
     url:
       ip +
-      "/declaraciones-desarrollo/pasivos/selectPasivosAdeudosByID?tipo_declaracion=" +
+      "/declaraciones/pasivos/selectPasivosAdeudosByID?tipo_declaracion=" +
       tipoDeclaracion +
       "&id=" +
       idDeclaracion,
@@ -1765,7 +1763,7 @@ function insertarAdeudos() {
   }
 
   $.ajax({
-    url: ip + "/declaraciones-desarrollo/pasivos/insertPasivosAdeudos",
+    url: ip + "/declaraciones/pasivos/insertPasivosAdeudos",
     type: "POST",
     contentType: "application/json",
     headers: {
@@ -1834,7 +1832,7 @@ function actualizarAdeudos() {
   }
 
   $.ajax({
-    url: ip + "/declaraciones-desarrollo/pasivos/updatePasivosAdeudos",
+    url: ip + "/declaraciones/pasivos/updatePasivosAdeudos",
     type: "POST",
     contentType: "application/json",
     headers: {

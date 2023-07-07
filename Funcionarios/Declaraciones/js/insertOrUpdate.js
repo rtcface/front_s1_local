@@ -203,7 +203,7 @@ function obligarFinalizado() {
   $.ajax({
     url:
       ip +
-      "/declaraciones-desarrollo/declarante/findCurricularSemaphore?tipo_declaracion=" +
+      "/declaraciones/declarante/findCurricularSemaphore?tipo_declaracion=" +
       tipoDeclaracion,
     type: "GET",
     dataType: "json",

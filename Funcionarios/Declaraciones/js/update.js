@@ -11,7 +11,7 @@ function actualizarDatosGenerales() {
     amt = $("#segundoApellido").val();
   }
   $.ajax({
-    url: ip + "/declaraciones-desarrollo/declarante/updateDeclarante",
+    url: ip + "/declaraciones/declarante/updateDeclarante",
     type: "POST",
     contentType: "application/json",
     headers: {
@@ -96,7 +96,7 @@ function actualizarDomicilio() {
   }
 
   $.ajax({
-    url: ip + "/declaraciones-desarrollo/declarante/updateDeclaranteDomicilio",
+    url: ip + "/declaraciones/declarante/updateDeclaranteDomicilio",
     type: "POST",
     contentType: "application/json",
     headers: {
@@ -146,7 +146,7 @@ function actualizarDatosCurriculo() {
     lugar = $("#pais").val();
   }
   $.ajax({
-    url: ip + "/declaraciones-desarrollo/declarante/updateDeclaranteCurriculo",
+    url: ip + "/declaraciones/declarante/updateDeclaranteCurriculo",
     type: "POST",
     contentType: "application/json",
     headers: {
@@ -223,9 +223,7 @@ function actualizarEmpleo() {
   }
 
   $.ajax({
-    url:
-      ip +
-      "/declaraciones-desarrollo/declarante/updateDeclaranteOtroEncargoActual",
+    url: ip + "/declaraciones/declarante/updateDeclaranteOtroEncargoActual",
     type: "POST",
     contentType: "application/json",
     headers: {
@@ -321,9 +319,7 @@ function actualizarExpLaboral() {
     ambito = $("#ambitoEsp").val();
   }
   $.ajax({
-    url:
-      ip +
-      "/declaraciones-desarrollo/declarante/updateDeclaranteExperienciaLaboral",
+    url: ip + "/declaraciones/declarante/updateDeclaranteExperienciaLaboral",
     type: "POST",
     contentType: "application/json",
     headers: {
@@ -447,7 +443,7 @@ function actualizarDatosParejaDependiente(pareja) {
     actividadLaboral = $("#ambitoEsp").val();
   }
   $.ajax({
-    url: ip + "/declaraciones-desarrollo/declarante/updateDeclaranteConyugeDep",
+    url: ip + "/declaraciones/declarante/updateDeclaranteConyugeDep",
     type: "POST",
     contentType: "application/json",
     headers: {
@@ -614,7 +610,7 @@ function actualizarPrestamos() {
     no_serie_vehiculo = $("#numeroSerie").val();
   }
   $.ajax({
-    url: ip + "/declaraciones-desarrollo/pasivos/updatePasivosPrestamoComodato",
+    url: ip + "/declaraciones/pasivos/updatePasivosPrestamoComodato",
     type: "POST",
     contentType: "application/json",
     headers: {
@@ -702,7 +698,7 @@ function actualizarEmpresasSociedades() {
     dependiente_economico = true;
   }
   $.ajax({
-    url: ip + "/declaraciones-desarrollo/intereses/updateInteresesEmpSoc",
+    url: ip + "/declaraciones/intereses/updateInteresesEmpSoc",
     type: "POST",
     contentType: "application/json",
     headers: {
@@ -783,8 +779,7 @@ function actualizarInstituciones() {
     tipoInstitucion = $("#otraInst").val();
   }
   $.ajax({
-    url:
-      ip + "/declaraciones-desarrollo/intereses/updateInteresesInstituciones",
+    url: ip + "/declaraciones/intereses/updateInteresesInstituciones",
     type: "POST",
     contentType: "application/json",
     headers: {
@@ -845,9 +840,7 @@ function actualizarApoyosBeneficios() {
     tipoBeneficio = $("#otroApoyo").val();
   }
   $.ajax({
-    url:
-      ip +
-      "/declaraciones-desarrollo/intereses/updateInteresesBeneficiosPublicos",
+    url: ip + "/declaraciones/intereses/updateInteresesBeneficiosPublicos",
     type: "POST",
     contentType: "application/json",
     headers: {
@@ -924,9 +917,7 @@ function actualizarRepresentacion() {
     dependiente_economico = true;
   }
   $.ajax({
-    url:
-      ip +
-      "/declaraciones-desarrollo/intereses/updateInteresesRepresentacionActiva",
+    url: ip + "/declaraciones/intereses/updateInteresesRepresentacionActiva",
     type: "POST",
     contentType: "application/json",
     headers: {
@@ -1009,9 +1000,7 @@ function actualizarClientesPrincipales() {
     dependiente_economico = true;
   }
   $.ajax({
-    url:
-      ip +
-      "/declaraciones-desarrollo/intereses/updateInteresesClientesPrincipales",
+    url: ip + "/declaraciones/intereses/updateInteresesClientesPrincipales",
     type: "POST",
     contentType: "application/json",
     headers: {
@@ -1082,9 +1071,7 @@ function actualizarBeneficiosPrivados() {
   }
 
   $.ajax({
-    url:
-      ip +
-      "/declaraciones-desarrollo/intereses/updateInteresesBeneficiosPrivados",
+    url: ip + "/declaraciones/intereses/updateInteresesBeneficiosPrivados",
     type: "POST",
     contentType: "application/json",
     headers: {
@@ -1170,7 +1157,7 @@ function actualizarFideicomisos() {
     dependiente_economico = true;
   }
   $.ajax({
-    url: ip + "/declaraciones-desarrollo/intereses/updateInteresesFideicomisos",
+    url: ip + "/declaraciones/intereses/updateInteresesFideicomisos",
     type: "POST",
     contentType: "application/json",
     headers: {

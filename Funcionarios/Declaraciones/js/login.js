@@ -2,7 +2,7 @@ function login() {
   idUser = $("#userName").val();
   password = hex_md5($("#password").val());
   $.ajax({
-    url: ip + "/declaraciones-desarrollo/data/login",
+    url: ip + "/declaraciones/data/login",
     type: "POST",
     contentType: "application/json",
     data: JSON.stringify({
@@ -20,7 +20,7 @@ function login() {
         sessionStorage.setItem("token", token);
 
         $.ajax({
-          url: ip + "/declaraciones-desarrollo/control/needChangePassword",
+          url: ip + "/declaraciones/control/needChangePassword",
           type: "GET",
           dataType: "json",
           headers: {
@@ -55,7 +55,7 @@ function sesionI() {
 
 function salir() {
   $.ajax({
-    url: ip + "/declaraciones-desarrollo/data/logout ",
+    url: ip + "/declaraciones/data/logout ",
     type: "GET",
     dataType: "json",
     headers: {
@@ -81,7 +81,7 @@ function sesionI2() {
 
 function salir2() {
   $.ajax({
-    url: ip + "/declaraciones-desarrollo/data/logout ",
+    url: ip + "/declaraciones/data/logout ",
     type: "GET",
     dataType: "json",
     headers: {
@@ -101,7 +101,7 @@ function salir2() {
 function historialEntes() {
   $("#anioFiscal").val(new Date().getFullYear());
   $.ajax({
-    url: ip + "/declaraciones-desarrollo/control/selectUserEnteHistorial",
+    url: ip + "/declaraciones/control/selectUserEnteHistorial",
     type: "GET",
     dataType: "json",
     headers: {
@@ -147,7 +147,7 @@ function buscarDeclaraciones() {
   $.ajax({
     url:
       ip +
-      "/declaraciones-desarrollo/declarante/selectControlDeclarante?tipo_declaracion=" +
+      "/declaraciones/declarante/selectControlDeclarante?tipo_declaracion=" +
       sessionStorage.getItem("tipoDec") +
       "&anio=" +
       $("#anioFiscal").val() +
@@ -204,7 +204,7 @@ function continuarDeclaracion() {
   $.ajax({
     url:
       ip +
-      "/declaraciones-desarrollo/declarante/selectControlDeclarante?tipo_declaracion=" +
+      "/declaraciones/declarante/selectControlDeclarante?tipo_declaracion=" +
       sessionStorage.getItem("tipoDec") +
       "&anio=&ente=",
     type: "GET",
@@ -260,8 +260,7 @@ function continuarDeclaracion() {
 ////////////////////////// Envio de Declaracion //////////////////////////
 
 function publicoPrivado() {
-  var dec =
-    "/declaraciones-desarrollo/declarante/setDeclaracionPublica?tipo_declaracion=";
+  var dec = "/declaraciones/declarante/setDeclaracionPublica?tipo_declaracion=";
 
   $.ajax({
     url: ip + dec + sessionStorage.getItem("tipoDec"),
@@ -281,7 +280,7 @@ function envioFinal() {
   $.ajax({
     url:
       ip +
-      "/declaraciones-desarrollo/declarante/updateControlDeclarante?tipo_declaracion=" +
+      "/declaraciones/declarante/updateControlDeclarante?tipo_declaracion=" +
       sessionStorage.getItem("tipoDec"),
     type: "GET",
     dataType: "json",
@@ -308,10 +307,7 @@ function passwordNew() {
     var passwordN = hex_md5($("#newPassword1").val());
     sessionStorage.removeItem("pass");
     $.ajax({
-      url:
-        ip +
-        "/declaraciones-desarrollo/control/updatePassword?psn=" +
-        passwordN,
+      url: ip + "/declaraciones/control/updatePassword?psn=" + passwordN,
       type: "GET",
       dataType: "json",
       headers: {
@@ -366,7 +362,7 @@ function vistaPrevia() {
   xhr.open(
     "GET",
     ip +
-      "/declaraciones-desarrollo/generate/preview?id_declarante=" +
+      "/declaraciones/generate/preview?id_declarante=" +
       sessionStorage.getItem("id_declarante") +
       "&tipo_declaracion=" +
       sessionStorage.getItem("tipoDec"),
@@ -404,7 +400,7 @@ function vistaPrevia2() {
   xhr.open(
     "GET",
     ip +
-      "/declaraciones-desarrollo/generate/preview?id_declarante=" +
+      "/declaraciones/generate/preview?id_declarante=" +
       idDec +
       "&tipo_declaracion=" +
       tipoDeclaracion,
@@ -430,7 +426,7 @@ function autoDescargaReporte() {
   xhr.open(
     "GET",
     ip +
-      "/declaraciones-desarrollo/generate/declaracionReport?id_declarante=" +
+      "/declaraciones/generate/declaracionReport?id_declarante=" +
       sessionStorage.getItem("id_declarante") +
       "&tipo_declaracion=" +
       sessionStorage.getItem("tipoDec") +
@@ -459,7 +455,7 @@ function autoDescargaRecibo() {
   xhr.open(
     "GET",
     ip +
-      "/declaraciones-desarrollo/generate/getAcuseRecibo?tipo_declaracion=" +
+      "/declaraciones/generate/getAcuseRecibo?tipo_declaracion=" +
       sessionStorage.getItem("tipoDec") +
       "&id_declarante=" +
       sessionStorage.getItem("id_declarante"),
@@ -486,7 +482,7 @@ function descargarReporte() {
   xhr.open(
     "GET",
     ip +
-      "/declaraciones-desarrollo/generate/declaracionReport?id_declarante=" +
+      "/declaraciones/generate/declaracionReport?id_declarante=" +
       sessionStorage.getItem("declaranteId") +
       "&tipo_declaracion=" +
       sessionStorage.getItem("tipoDec"),
@@ -511,7 +507,7 @@ function descargarReporte2(id) {
   xhr.open(
     "GET",
     ip +
-      "/declaraciones-desarrollo/generate/declaracionReport?id_declarante=" +
+      "/declaraciones/generate/declaracionReport?id_declarante=" +
       id +
       "&tipo_declaracion=" +
       sessionStorage.getItem("tipoDec") +
@@ -538,7 +534,7 @@ function descargarReportePublico2(id) {
   xhr.open(
     "GET",
     ip +
-      "/declaraciones-desarrollo/generate/publicDeclaracionReport?id_declarante=" +
+      "/declaraciones/generate/publicDeclaracionReport?id_declarante=" +
       id +
       "&tipo_declaracion=" +
       sessionStorage.getItem("tipoDec") +
@@ -565,7 +561,7 @@ function descargarRecibo() {
   xhr.open(
     "GET",
     ip +
-      "/declaraciones-desarrollo/generate/getAcuseRecibo?tipo_declaracion=" +
+      "/declaraciones/generate/getAcuseRecibo?tipo_declaracion=" +
       sessionStorage.getItem("tipoDec") +
       "&id_declarante=" +
       sessionStorage.getItem("declaranteId"),
@@ -590,7 +586,7 @@ function descargarRecibo2(id) {
   xhr.open(
     "GET",
     ip +
-      "/declaraciones-desarrollo/generate/getAcuseRecibo?tipo_declaracion=" +
+      "/declaraciones/generate/getAcuseRecibo?tipo_declaracion=" +
       sessionStorage.getItem("tipoDec") +
       "&id_declarante=" +
       id,
@@ -619,7 +615,7 @@ function consultarDeclaracionPrivada() {
   xhr.open(
     "GET",
     ip +
-      "/declaraciones-desarrollo/generate/declaracionReport?id_declarante=" +
+      "/declaraciones/generate/declaracionReport?id_declarante=" +
       idDec +
       "&tipo_declaracion=" +
       tipoDeclaracion +
@@ -650,7 +646,7 @@ function consultarDeclaracionPublica() {
   xhr.open(
     "GET",
     ip +
-      "/declaraciones-desarrollo/generate/publicDeclaracionReport?id_declarante=" +
+      "/declaraciones/generate/publicDeclaracionReport?id_declarante=" +
       idDec +
       "&tipo_declaracion=" +
       tipoDeclaracion +
@@ -681,7 +677,7 @@ function consultarAcuseRecibo() {
   xhr.open(
     "GET",
     ip +
-      "/declaraciones-desarrollo/generate/getAcuseRecibo?id_declarante=" +
+      "/declaraciones/generate/getAcuseRecibo?id_declarante=" +
       idDec +
       "&tipo_declaracion=" +
       tipoDeclaracion,
@@ -712,7 +708,7 @@ function descargarReporteDeclarantes() {
   xhr.open(
     "GET",
     ip +
-      "/declaraciones-desarrollo/generate/getMonitorDeclaraciones?tipo_declaracion=" +
+      "/declaraciones/generate/getMonitorDeclaraciones?tipo_declaracion=" +
       tipo +
       "&tiempo_envio=" +
       tiempo +
@@ -745,7 +741,7 @@ function consultarDeclaracionFiscal() {
   xhr.open(
     "GET",
     ip +
-      "/declaraciones-desarrollo/decFiscal/downloadDecFiscal?id_declarador=" +
+      "/declaraciones/decFiscal/downloadDecFiscal?id_declarador=" +
       declarador,
     true
   );
@@ -773,7 +769,7 @@ function alta() {
     $("#contenedorEnte").show();
   }
   $.ajax({
-    url: ip + "/declaraciones-desarrollo/control/getGeneratedUsers",
+    url: ip + "/declaraciones/control/getGeneratedUsers",
     type: "GET",
     dataType: "json",
     headers: {
@@ -816,10 +812,7 @@ function selectDeclarante() {
   }
 
   $.ajax({
-    url:
-      ip +
-      "/declaraciones-desarrollo/control/getGeneratedUserById?id=" +
-      idCurriculum,
+    url: ip + "/declaraciones/control/getGeneratedUserById?id=" + idCurriculum,
     type: "GET",
     dataType: "json",
     headers: {
@@ -856,10 +849,10 @@ function insertDeclarante() {
     rol = "";
 
   if (sessionStorage.getItem("rol") == "seseaadmin") {
-    insertar = "/declaraciones-desarrollo/control/insertEntAdmin";
+    insertar = "/declaraciones/control/insertEntAdmin";
     rol = $("#rol").val();
   } else {
-    insertar = "/declaraciones-desarrollo/control/insertSimpleUser";
+    insertar = "/declaraciones/control/insertSimpleUser";
   }
   $.ajax({
     url: ip + insertar,
@@ -913,7 +906,7 @@ function updateDeclarante() {
 
   $.ajax({
     type: "POST",
-    url: ip + "/declaraciones-desarrollo/control/updateGralUsers",
+    url: ip + "/declaraciones/control/updateGralUsers",
     headers: {
       "X-Auth-Token": sessionStorage.getItem("token"),
     },
@@ -961,7 +954,7 @@ function deleteDeclarante() {
     }
     if (confirm("¿Seguro que desea eliminar este registro?")) {
       $.ajax({
-        url: ip + "/declaraciones-desarrollo/control/deleteGralUsers",
+        url: ip + "/declaraciones/control/deleteGralUsers",
         type: "POST",
         contentType: "application/json",
         headers: {
@@ -999,7 +992,7 @@ function insertOrUpdate() {
 
 function cargarEntes() {
   $.ajax({
-    url: ip + "/declaraciones-desarrollo/ente/getEntePublicoByUser",
+    url: ip + "/declaraciones/ente/getEntePublicoByUser",
     type: "GET",
     dataType: "json",
     headers: {
@@ -1040,7 +1033,7 @@ function insertEnte() {
     $("#municipio").val() != null
   ) {
     $.ajax({
-      url: ip + "/declaraciones-desarrollo/ente/insertEntePublico",
+      url: ip + "/declaraciones/ente/insertEntePublico",
       type: "POST",
       contentType: "application/json",
       headers: {
@@ -1074,10 +1067,7 @@ function selectEnteById() {
   }
 
   $.ajax({
-    url:
-      ip +
-      "/declaraciones-desarrollo/ente/getEntePublicoById?id=" +
-      idCurriculum,
+    url: ip + "/declaraciones/ente/getEntePublicoById?id=" + idCurriculum,
     type: "GET",
     dataType: "json",
     headers: {
@@ -1114,7 +1104,7 @@ function updateEnte() {
     $("#municipio").val() != null
   ) {
     $.ajax({
-      url: ip + "/declaraciones-desarrollo/ente/updateEntePublico",
+      url: ip + "/declaraciones/ente/updateEntePublico",
       type: "POST",
       contentType: "application/json",
       headers: {
@@ -1148,10 +1138,7 @@ function deleteEnte() {
     }
   }
   $.ajax({
-    url:
-      ip +
-      "/declaraciones-desarrollo/ente/deleteEntePublico?id=" +
-      idCurriculum,
+    url: ip + "/declaraciones/ente/deleteEntePublico?id=" + idCurriculum,
     type: "GET",
     contentType: "application/json",
     headers: {
@@ -1181,7 +1168,7 @@ function entes() {
     sessionStorage.getItem("rol") == "contraloria"
   ) {
     $.ajax({
-      url: ip + "/declaraciones-desarrollo/ente/getEntePublico",
+      url: ip + "/declaraciones/ente/getEntePublico",
       type: "GET",
       dataType: "json",
       headers: {
@@ -1203,7 +1190,7 @@ function entes() {
       });
   } else {
     $.ajax({
-      url: ip + "/declaraciones-desarrollo/ente/getEntePublicoUserLogged",
+      url: ip + "/declaraciones/ente/getEntePublicoUserLogged",
       type: "GET",
       dataType: "json",
       headers: {
@@ -1234,7 +1221,7 @@ function selectEnte(indice) {
 
   if (sessionStorage.getItem("rol") == "seseaadmin") {
     $.ajax({
-      url: ip + "/declaraciones-desarrollo/ente/getEntePublico",
+      url: ip + "/declaraciones/ente/getEntePublico",
       type: "GET",
       dataType: "json",
       headers: {
@@ -1259,7 +1246,7 @@ function selectEnte(indice) {
       });
   } else {
     $.ajax({
-      url: ip + "/declaraciones-desarrollo/ente/getEntePublicoUserLogged",
+      url: ip + "/declaraciones/ente/getEntePublicoUserLogged",
       type: "GET",
       dataType: "json",
       headers: {
@@ -1281,8 +1268,7 @@ function selectEnte(indice) {
 }
 function domMunicipio(indice, estado) {
   $.ajax({
-    url:
-      ip + "/declaraciones-desarrollo/geoInfo/munByCveEdo?id_estado=" + estado,
+    url: ip + "/declaraciones/geoInfo/munByCveEdo?id_estado=" + estado,
     type: "GET",
     dataType: "json",
   })
@@ -1350,7 +1336,7 @@ function allStatus() {
       },
     },
     ajax: {
-      url: ip + "/declaraciones-desarrollo/monitor/getMonitorDeclaraciones",
+      url: ip + "/declaraciones/monitor/getMonitorDeclaraciones",
       type: "POST",
       contentType: "application/json",
       headers: { "X-Auth-Token": sessionStorage.getItem("token") },
@@ -1432,7 +1418,7 @@ function allStatus() {
           if (row.status == "Enviada") {
             url =
               ip +
-              "/declaraciones-desarrollo/public/publicDeclaracionReport?id_declarante=" +
+              "/declaraciones/public/publicDeclaracionReport?id_declarante=" +
               row.id_declarante +
               "&tipo_declaracion=" +
               row.tipo_declaracion +
@@ -1453,7 +1439,7 @@ function guardarInfo(id, tipo_declaracion, id_declarante) {
 }
 function getAnioFiscal() {
   $.ajax({
-    url: ip + "/declaraciones-desarrollo/monitor/getAnioFiscal",
+    url: ip + "/declaraciones/monitor/getAnioFiscal",
     type: "GET",
     dataType: "json",
     headers: {
@@ -1515,7 +1501,7 @@ function verStatus() {
       },
     },
     ajax: {
-      url: ip + "/declaraciones-desarrollo/monitor/getMonitorDeclaraciones",
+      url: ip + "/declaraciones/monitor/getMonitorDeclaraciones",
       type: "POST",
       contentType: "application/json",
       headers: { "X-Auth-Token": sessionStorage.getItem("token") },
@@ -1597,7 +1583,7 @@ function verStatus() {
           if (row.status == "Enviada") {
             url =
               ip +
-              "/declaraciones-desarrollo/public/publicDeclaracionReport?id_declarante=" +
+              "/declaraciones/public/publicDeclaracionReport?id_declarante=" +
               row.id_declarante +
               "&tipo_declaracion=" +
               row.tipo_declaracion +
@@ -1622,7 +1608,7 @@ function validarDecFiscal() {
     $.ajax({
       url:
         ip +
-        "/declaraciones-desarrollo/decFiscal/rechazaDecFiscal?id_declarador=" +
+        "/declaraciones/decFiscal/rechazaDecFiscal?id_declarador=" +
         declarador,
       type: "GET",
       dataType: "json",
@@ -1653,7 +1639,7 @@ function reactivarDeclaracion() {
     $.ajax({
       url:
         ip +
-        "/declaraciones-desarrollo/monitor/reactivarDeclaracion?id_declarante=" +
+        "/declaraciones/monitor/reactivarDeclaracion?id_declarante=" +
         idDec,
       type: "POST",
       contentType: "application/json",
@@ -1680,7 +1666,7 @@ function insertOrUpdateEmail() {
 }
 function selectEmails() {
   $.ajax({
-    url: ip + "/declaraciones-desarrollo/monitor/getMonitorEmailEnvio",
+    url: ip + "/declaraciones/monitor/getMonitorEmailEnvio",
     type: "GET",
     dataType: "json",
     headers: {
@@ -1721,7 +1707,7 @@ function insertEmail() {
     $("#correo").val() != ""
   ) {
     $.ajax({
-      url: ip + "/declaraciones-desarrollo/monitor/insertMonitorEmailEnvio",
+      url: ip + "/declaraciones/monitor/insertMonitorEmailEnvio",
       type: "POST",
       contentType: "application/json",
       headers: {
@@ -1756,9 +1742,7 @@ function selectEmailById() {
 
   $.ajax({
     url:
-      ip +
-      "/declaraciones-desarrollo/monitor/getMonitorEmailEnvioById?id=" +
-      idCurriculum,
+      ip + "/declaraciones/monitor/getMonitorEmailEnvioById?id=" + idCurriculum,
     type: "GET",
     dataType: "json",
     headers: {
@@ -1791,7 +1775,7 @@ function updateEmail() {
     $("#correo").val() != ""
   ) {
     $.ajax({
-      url: ip + "/declaraciones-desarrollo/monitor/updateMonitorEmailEnvio",
+      url: ip + "/declaraciones/monitor/updateMonitorEmailEnvio",
       type: "POST",
       contentType: "application/json",
       headers: {
@@ -1826,9 +1810,7 @@ function deleteEmail() {
   }
   $.ajax({
     url:
-      ip +
-      "/declaraciones-desarrollo/monitor/deleteMonitorEmailEnvio?id=" +
-      idCurriculum,
+      ip + "/declaraciones/monitor/deleteMonitorEmailEnvio?id=" + idCurriculum,
     type: "GET",
     contentType: "application/json",
     headers: {
@@ -1935,8 +1917,7 @@ function insertarEmpleo(id) {
     noInt = $("#numInterior").val();
   }
   $.ajax({
-    url:
-      ip + "/declaraciones-desarrollo/declarante/insertDeclaranteEncargoActual",
+    url: ip + "/declaraciones/declarante/insertDeclaranteEncargoActual",
     type: "POST",
     contentType: "application/json",
     headers: {
@@ -2033,8 +2014,7 @@ function actualizarEmpleo() {
   }
 
   $.ajax({
-    url:
-      ip + "/declaraciones-desarrollo/declarante/updateDeclaranteEncargoActual",
+    url: ip + "/declaraciones/declarante/updateDeclaranteEncargoActual",
     type: "POST",
     contentType: "application/json",
     headers: {
@@ -2098,7 +2078,7 @@ function selectEmpleo() {
   $.ajax({
     url:
       ip +
-      "/declaraciones-desarrollo/declarante/selectDeclaranteEncargoActualByID?tipo_declaracion=" +
+      "/declaraciones/declarante/selectDeclaranteEncargoActualByID?tipo_declaracion=" +
       $("#tipoDecEditar").val() +
       "&id_declarador=" +
       idCurriculum +
@@ -2206,7 +2186,7 @@ function selectEmpleo() {
 ////////////////////////// Funciones para completar datos //////////////////////////
 function estado(indice) {
   $.ajax({
-    url: ip + "/declaraciones-desarrollo/geoInfo/allEdos",
+    url: ip + "/declaraciones/geoInfo/allEdos",
     type: "GET",
     dataType: "json",
   })
@@ -2229,8 +2209,7 @@ function estado(indice) {
 }
 function domMunicipio(indice, estado) {
   $.ajax({
-    url:
-      ip + "/declaraciones-desarrollo/geoInfo/munByCveEdo?id_estado=" + estado,
+    url: ip + "/declaraciones/geoInfo/munByCveEdo?id_estado=" + estado,
     type: "GET",
     dataType: "json",
   })
@@ -2253,7 +2232,7 @@ function domMunicipio(indice, estado) {
 }
 function domColonia(indice, cp) {
   $.ajax({
-    url: ip + "/declaraciones-desarrollo/geoInfo/infoByCP?cp=" + cp,
+    url: ip + "/declaraciones/geoInfo/infoByCP?cp=" + cp,
     type: "GET",
     dataType: "json",
   })
@@ -2300,7 +2279,7 @@ function activarDeclaracion() {
   $.ajax({
     url:
       ip +
-      "/declaraciones-desarrollo/declarante/activateControlDeclarante?tipo_declaracion=" +
+      "/declaraciones/declarante/activateControlDeclarante?tipo_declaracion=" +
       $("#tipoDeclaracion").val() +
       "&id_declarador=" +
       id_declarador +
@@ -2331,10 +2310,7 @@ function buscarFuncionario() {
     alert("La RFC es incorrecta");
   } else {
     $.ajax({
-      url:
-        ip +
-        "/declaraciones-desarrollo/declarante/selectDeclaranteByRFC?rfc=" +
-        rfc,
+      url: ip + "/declaraciones/declarante/selectDeclaranteByRFC?rfc=" + rfc,
       type: "GET",
       dataType: "json",
       headers: {
@@ -2366,8 +2342,7 @@ function buscarFuncionario() {
 ////////////////////////// Actualizar Ente Publico //////////////////////////
 function actualizarEntePublico() {
   $.ajax({
-    url:
-      ip + "/declaraciones-desarrollo/declarante/updateDeclaradorEntePublico",
+    url: ip + "/declaraciones/declarante/updateDeclaradorEntePublico",
     type: "POST",
     contentType: "application/json",
     headers: {
@@ -2416,7 +2391,7 @@ function cambioEnte() {
       $.ajax({
         url:
           ip +
-          "/declaraciones-desarrollo/declarante/notificaCambioEnteDeclarante?id_declarador=" +
+          "/declaraciones/declarante/notificaCambioEnteDeclarante?id_declarador=" +
           id_declarador,
         type: "GET",
         dataType: "json",
@@ -2447,7 +2422,7 @@ function bajaEnte() {
   $.ajax({
     url:
       ip +
-      "/declaraciones-desarrollo/declarante/notificaBajaEnteDeclarante?id_declarador=" +
+      "/declaraciones/declarante/notificaBajaEnteDeclarante?id_declarador=" +
       id_declarador,
     type: "GET",
     dataType: "json",
@@ -2473,7 +2448,7 @@ function desactivarDeclaracion() {
     $.ajax({
       url:
         ip +
-        "/declaraciones-desarrollo/declarante/desactivarControlDeclarante?id_declarante=" +
+        "/declaraciones/declarante/desactivarControlDeclarante?id_declarante=" +
         idDec,
       type: "GET",
       dataType: "json",
@@ -2510,7 +2485,7 @@ function activarDeclaracionConclusion() {
   $.ajax({
     url:
       ip +
-      "/declaraciones-desarrollo/declarante/activateControlDeclarante?tipo_declaracion=3" +
+      "/declaraciones/declarante/activateControlDeclarante?tipo_declaracion=3" +
       "&id_declarador=" +
       id_declarador +
       "&fecha_finalizacion=" +
@@ -2536,7 +2511,7 @@ function restablecerPassword() {
   $.ajax({
     url:
       ip +
-      "/declaraciones-desarrollo/public/passRecover?user=" +
+      "/declaraciones/public/passRecover?user=" +
       $("#user").val() +
       "&correo=" +
       $("#mail").val(),
@@ -2597,7 +2572,7 @@ function allStatus2() {
       },
     },
     ajax: {
-      url: ip + "/declaraciones-desarrollo/monitor/getMonitorDeclaracionesV2",
+      url: ip + "/declaraciones/monitor/getMonitorDeclaracionesV2",
       type: "POST",
       contentType: "application/json",
       headers: { "X-Auth-Token": sessionStorage.getItem("token") },
@@ -2681,7 +2656,7 @@ function allStatus2() {
           if (row.status == "Enviada") {
             url =
               ip +
-              "/declaraciones-desarrollo/public/publicDeclaracionReport?id_declarante=" +
+              "/declaraciones/public/publicDeclaracionReport?id_declarante=" +
               row.id_declarante +
               "&tipo_declaracion=" +
               row.tipo_declaracion +
@@ -2698,7 +2673,7 @@ function allStatus2() {
         render: function (row) {
           url =
             ip +
-            "/declaraciones-desarrollo/public/infoCurricularReport?id_declarante=" +
+            "/declaraciones/public/infoCurricularReport?id_declarante=" +
             row.id_declarante +
             "&tipo_declaracion=" +
             row.tipo_declaracion +
@@ -2758,7 +2733,7 @@ function verStatus2(pag) {
       },
     },
     ajax: {
-      url: ip + "/declaraciones-desarrollo/monitor/getMonitorDeclaracionesV2",
+      url: ip + "/declaraciones/monitor/getMonitorDeclaracionesV2",
       type: "POST",
       contentType: "application/json",
       headers: { "X-Auth-Token": sessionStorage.getItem("token") },
@@ -2845,7 +2820,7 @@ function verStatus2(pag) {
           if (row.status == "Enviada") {
             url =
               ip +
-              "/declaraciones-desarrollo/public/publicDeclaracionReport?id_declarante=" +
+              "/declaraciones/public/publicDeclaracionReport?id_declarante=" +
               row.id_declarante +
               "&tipo_declaracion=" +
               row.tipo_declaracion +
@@ -2862,7 +2837,7 @@ function verStatus2(pag) {
         render: function (row) {
           url =
             ip +
-            "/declaraciones-desarrollo/public/infoCurricularReport?id_declarante=" +
+            "/declaraciones/public/infoCurricularReport?id_declarante=" +
             row.id_declarante +
             "&tipo_declaracion=" +
             row.tipo_declaracion +

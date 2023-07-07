@@ -4,10 +4,7 @@ var idDec = 0;
 
 function buscar() {
   $.ajax({
-    url:
-      ip +
-      "/declaraciones-desarrollo/control/getUserByRfc?rfc=" +
-      $("#rfc").val(),
+    url: ip + "/declaraciones/control/getUserByRfc?rfc=" + $("#rfc").val(),
     type: "GET",
     dataType: "json",
     headers: {
@@ -52,7 +49,7 @@ function resetearContraseña() {
   $("#myModal").modal("hide");
 
   $.ajax({
-    url: ip + "/declaraciones-desarrollo/control/resetPassword?id=" + idDec,
+    url: ip + "/declaraciones/control/resetPassword?id=" + idDec,
     type: "GET",
     dataType: "json",
     headers: {

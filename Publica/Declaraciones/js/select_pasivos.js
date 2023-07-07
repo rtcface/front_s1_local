@@ -2,7 +2,7 @@ function selectDeudas() {
   $.ajax({
     url:
       ip +
-      "/declaraciones-desarrollo/public/selectPasivosAdeudos?tipo_declaracion=" +
+      "/declaraciones/public/selectPasivosAdeudos?tipo_declaracion=" +
       td +
       "&id_declarador=" +
       id,
@@ -114,7 +114,7 @@ function selectPrestamos() {
   $.ajax({
     url:
       ip +
-      "/declaraciones-desarrollo/public/selectPasivosPrestamoComodato?tipo_declaracion=" +
+      "/declaraciones/public/selectPasivosPrestamoComodato?tipo_declaracion=" +
       td +
       "&id_declarador=" +
       id,

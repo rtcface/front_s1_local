@@ -2,7 +2,7 @@ function login() {
   idUser = $("#userName").val();
   password = hex_md5($("#password").val());
   $.ajax({
-    url: ip + "/declaraciones-desarrollo/data/login",
+    url: ip + "/declaraciones/data/login",
     type: "POST",
     contentType: "application/json",
     data: JSON.stringify({
@@ -20,7 +20,7 @@ function login() {
         sessionStorage.setItem("token", token);
 
         $.ajax({
-          url: ip + "/declaraciones-desarrollo/control/needChangePassword",
+          url: ip + "/declaraciones/control/needChangePassword",
           type: "GET",
           dataType: "json",
           headers: {
@@ -56,10 +56,7 @@ function passwordNew() {
     var passwordN = hex_md5($("#newPassword1").val());
     sessionStorage.removeItem("pass");
     $.ajax({
-      url:
-        ip +
-        "/declaraciones-desarrollo/control/updatePassword?psn=" +
-        passwordN,
+      url: ip + "/declaraciones/control/updatePassword?psn=" + passwordN,
       type: "GET",
       dataType: "json",
       headers: {
@@ -93,7 +90,7 @@ function sesionI() {
 
 function salir() {
   $.ajax({
-    url: ip + "/declaraciones-desarrollo/data/logout ",
+    url: ip + "/declaraciones/data/logout ",
     type: "GET",
     dataType: "json",
     headers: {
@@ -169,7 +166,7 @@ function cargarArchivo() {
   );
 
   $.ajax({
-    url: ip + "/declaraciones-desarrollo/decFiscal/uploadDecFiscal",
+    url: ip + "/declaraciones/decFiscal/uploadDecFiscal",
     type: "POST",
     data: paqueteDeDatos,
     cache: false,
@@ -191,7 +188,7 @@ function cargarArchivo() {
 
 function infoFiscal() {
   $.ajax({
-    url: ip + "/declaraciones-desarrollo/decFiscal/getInfoDecFiscal",
+    url: ip + "/declaraciones/decFiscal/getInfoDecFiscal",
     type: "GET",
     dataType: "json",
     headers: {

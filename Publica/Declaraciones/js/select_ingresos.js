@@ -2,7 +2,7 @@ function selectIngresosNetos() {
   $.ajax({
     url:
       ip +
-      "/declaraciones-desarrollo/public/selectDeclaranteIngresosNetos?tipo_declaracion=" +
+      "/declaraciones/public/selectDeclaranteIngresosNetos?tipo_declaracion=" +
       td +
       "&id_declarador=" +
       id,
@@ -217,7 +217,7 @@ function selectServidorAnterior() {
   $.ajax({
     url:
       ip +
-      "/declaraciones-desarrollo/public/selectDeclaranteServidorAnterior?tipo_declaracion=" +
+      "/declaraciones/public/selectDeclaranteServidorAnterior?tipo_declaracion=" +
       td +
       "&id_declarador=" +
       id,

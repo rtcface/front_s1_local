@@ -2,7 +2,7 @@
 function graficaEdad() {
   $("#leyenda").hide();
   $.ajax({
-    url: ip + "/declaraciones-desarrollo/public/graphics/selectRangoEdades",
+    url: ip + "/declaraciones/public/graphics/selectRangoEdades",
     type: "GET",
     dataType: "json",
   })
@@ -16,8 +16,7 @@ function graficaEdad() {
 function graficaEdadNivel() {
   $("#leyenda").hide();
   $.ajax({
-    url:
-      ip + "/declaraciones-desarrollo/public/graphics/selectRangoEdadesNivel",
+    url: ip + "/declaraciones/public/graphics/selectRangoEdadesNivel",
     type: "GET",
     dataType: "json",
   })
@@ -32,7 +31,7 @@ function graficaEdadNivel() {
 function graficaEdadEstudio() {
   $("#leyenda").hide();
   $.ajax({
-    url: ip + "/declaraciones-desarrollo/public/graphics/selectRangoEdadesEduc",
+    url: ip + "/declaraciones/public/graphics/selectRangoEdadesEduc",
     type: "GET",
     dataType: "json",
   })
@@ -47,7 +46,7 @@ function graficaEdadEstudio() {
 function graficaNivelGob() {
   $("#leyenda").hide();
   $.ajax({
-    url: ip + "/declaraciones-desarrollo/public/graphics/selectNivelGob",
+    url: ip + "/declaraciones/public/graphics/selectNivelGob",
     type: "GET",
     dataType: "json",
   })
@@ -61,8 +60,7 @@ function graficaNivelGob() {
 function graficaNivelEdad() {
   $("#leyenda").hide();
   $.ajax({
-    url:
-      ip + "/declaraciones-desarrollo/public/graphics/selectRangoEdadesNivel",
+    url: ip + "/declaraciones/public/graphics/selectRangoEdadesNivel",
     type: "GET",
     dataType: "json",
   })
@@ -77,7 +75,7 @@ function graficaNivelEdad() {
 function graficaNivelEstudios() {
   $("#leyenda").hide();
   $.ajax({
-    url: ip + "/declaraciones-desarrollo/public/graphics/selectNivelGobEduc",
+    url: ip + "/declaraciones/public/graphics/selectNivelGobEduc",
     type: "GET",
     dataType: "json",
   })
@@ -92,7 +90,7 @@ function graficaNivelEstudios() {
 function graficaEntidades() {
   $("#leyenda").hide();
   $.ajax({
-    url: ip + "/declaraciones-desarrollo/public/graphics/selectFuncEntidad",
+    url: ip + "/declaraciones/public/graphics/selectFuncEntidad",
     type: "GET",
     dataType: "json",
   })
@@ -106,9 +104,7 @@ function graficaEntidades() {
 function graficaEntidadesEdad() {
   $("#leyenda").hide();
   $.ajax({
-    url:
-      ip +
-      "/declaraciones-desarrollo/public/graphics/selectFuncEntidadRangoEdad",
+    url: ip + "/declaraciones/public/graphics/selectFuncEntidadRangoEdad",
     type: "GET",
     dataType: "json",
   })
@@ -122,7 +118,7 @@ function graficaEntidadesEdad() {
 function graficaEntidadesEstudio() {
   $("#leyenda").hide();
   $.ajax({
-    url: ip + "/declaraciones-desarrollo/public/graphics/selectFuncEntidadEduc",
+    url: ip + "/declaraciones/public/graphics/selectFuncEntidadEduc",
     type: "GET",
     dataType: "json",
   })
@@ -136,7 +132,7 @@ function graficaEntidadesEstudio() {
 function graficaEstudio() {
   $("#leyenda").hide();
   $.ajax({
-    url: ip + "/declaraciones-desarrollo/public/graphics/selectNivelEduc",
+    url: ip + "/declaraciones/public/graphics/selectNivelEduc",
     type: "GET",
     dataType: "json",
   })
@@ -150,7 +146,7 @@ function graficaEstudio() {
 function graficaEstudioEdad() {
   $("#leyenda").hide();
   $.ajax({
-    url: ip + "/declaraciones-desarrollo/public/graphics/selectRangoEdadesEduc",
+    url: ip + "/declaraciones/public/graphics/selectRangoEdadesEduc",
     type: "GET",
     dataType: "json",
   })
@@ -174,7 +170,7 @@ function graficaEstudioEdad() {
 function graficaEstudioNivel() {
   $("#leyenda").hide();
   $.ajax({
-    url: ip + "/declaraciones-desarrollo/public/graphics/selectNivelGobEduc",
+    url: ip + "/declaraciones/public/graphics/selectNivelGobEduc",
     type: "GET",
     dataType: "json",
   })
@@ -198,7 +194,7 @@ function graficaEstudioNivel() {
 function graficaIngresos() {
   $("#leyenda").show();
   $.ajax({
-    url: ip + "/declaraciones-desarrollo/public/graphics/selectIngresoBruto",
+    url: ip + "/declaraciones/public/graphics/selectIngresoBruto",
     type: "GET",
     dataType: "json",
   })

@@ -25,7 +25,7 @@ function insertarDomicilio() {
   }
 
   $.ajax({
-    url: ip + "/declaraciones-desarrollo/declarante/insertDeclaranteDomicilio",
+    url: ip + "/declaraciones/declarante/insertDeclaranteDomicilio",
     type: "POST",
     contentType: "application/json",
     headers: {
@@ -75,7 +75,7 @@ function insertarDatosCurriculo() {
     lugar = $("#pais").val();
   }
   $.ajax({
-    url: ip + "/declaraciones-desarrollo/declarante/insertDeclaranteCurriculo",
+    url: ip + "/declaraciones/declarante/insertDeclaranteCurriculo",
     type: "POST",
     contentType: "application/json",
     headers: {
@@ -153,9 +153,7 @@ function insertarEmpleo() {
   }
 
   $.ajax({
-    url:
-      ip +
-      "/declaraciones-desarrollo/declarante/insertDeclaranteOtroEncargoActual",
+    url: ip + "/declaraciones/declarante/insertDeclaranteOtroEncargoActual",
     type: "POST",
     contentType: "application/json",
     headers: {
@@ -250,9 +248,7 @@ function insertarExpLaboral() {
   }
 
   $.ajax({
-    url:
-      ip +
-      "/declaraciones-desarrollo/declarante/insertDeclaranteExperienciaLaboral",
+    url: ip + "/declaraciones/declarante/insertDeclaranteExperienciaLaboral",
     type: "POST",
     contentType: "application/json",
     headers: {
@@ -366,7 +362,7 @@ function insertarDatosParejaDependiente(pareja) {
     actividadLaboral = $("#ambitoEsp").val();
   }
   $.ajax({
-    url: ip + "/declaraciones-desarrollo/declarante/insertDeclaranteConyugeDep",
+    url: ip + "/declaraciones/declarante/insertDeclaranteConyugeDep",
     type: "POST",
     contentType: "application/json",
     headers: {
@@ -536,7 +532,7 @@ function insertarPrestamos() {
     no_serie_vehiculo = $("#numeroSerie").val();
   }
   $.ajax({
-    url: ip + "/declaraciones-desarrollo/pasivos/insertPrestamoComodato",
+    url: ip + "/declaraciones/pasivos/insertPrestamoComodato",
     type: "POST",
     contentType: "application/json",
     headers: {
@@ -624,7 +620,7 @@ function insertarEmpresasSociedades() {
     dependiente_economico = true;
   }
   $.ajax({
-    url: ip + "/declaraciones-desarrollo/intereses/insertInteresesEmpSoc",
+    url: ip + "/declaraciones/intereses/insertInteresesEmpSoc",
     type: "POST",
     contentType: "application/json",
     headers: {
@@ -705,8 +701,7 @@ function insertarInstituciones() {
     tipoInstitucion = $("#otraInst").val();
   }
   $.ajax({
-    url:
-      ip + "/declaraciones-desarrollo/intereses/insertInteresesInstituciones",
+    url: ip + "/declaraciones/intereses/insertInteresesInstituciones",
     type: "POST",
     contentType: "application/json",
     headers: {
@@ -767,9 +762,7 @@ function insertarApoyosBeneficios() {
     tipoBeneficio = $("#otroApoyo").val();
   }
   $.ajax({
-    url:
-      ip +
-      "/declaraciones-desarrollo/intereses/insertInteresesBeneficiosPublicos",
+    url: ip + "/declaraciones/intereses/insertInteresesBeneficiosPublicos",
     type: "POST",
     contentType: "application/json",
     headers: {
@@ -847,9 +840,7 @@ function insertarRepresentacion() {
     dependiente_economico = true;
   }
   $.ajax({
-    url:
-      ip +
-      "/declaraciones-desarrollo/intereses/insertInteresesRepresentacionActiva",
+    url: ip + "/declaraciones/intereses/insertInteresesRepresentacionActiva",
     type: "POST",
     contentType: "application/json",
     headers: {
@@ -932,9 +923,7 @@ function insertarClientesPrincipales() {
     dependiente_economico = true;
   }
   $.ajax({
-    url:
-      ip +
-      "/declaraciones-desarrollo/intereses/insertInteresesClientesPrincipales",
+    url: ip + "/declaraciones/intereses/insertInteresesClientesPrincipales",
     type: "POST",
     contentType: "application/json",
     headers: {
@@ -1005,9 +994,7 @@ function insertarBeneficiosPrivados() {
   }
 
   $.ajax({
-    url:
-      ip +
-      "/declaraciones-desarrollo/intereses/insertInteresesBeneficiosPrivados",
+    url: ip + "/declaraciones/intereses/insertInteresesBeneficiosPrivados",
     type: "POST",
     contentType: "application/json",
     headers: {
@@ -1092,7 +1079,7 @@ function insertarFideicomisos() {
     dependiente_economico = true;
   }
   $.ajax({
-    url: ip + "/declaraciones-desarrollo/intereses/insertInteresesFideicomisos",
+    url: ip + "/declaraciones/intereses/insertInteresesFideicomisos",
     type: "POST",
     contentType: "application/json",
     headers: {

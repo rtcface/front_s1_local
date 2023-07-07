@@ -2,7 +2,7 @@ function selectBienesInmuebles() {
   $.ajax({
     url:
       ip +
-      "/declaraciones-desarrollo/public/selectActivosBienesInmuebles?tipo_declaracion=" +
+      "/declaraciones/public/selectActivosBienesInmuebles?tipo_declaracion=" +
       td +
       "&id_declarador=" +
       id,
@@ -155,7 +155,7 @@ function selectBienesMuebles() {
   $.ajax({
     url:
       ip +
-      "/declaraciones-desarrollo/public/selectActivosBienesMuebles?tipo_declaracion=" +
+      "/declaraciones/public/selectActivosBienesMuebles?tipo_declaracion=" +
       td +
       "&id_declarador=" +
       id,
@@ -299,7 +299,7 @@ function selectBienesMueblesNR() {
   $.ajax({
     url:
       ip +
-      "/declaraciones-desarrollo/public/selectActivosBienesMueblesNR?tipo_declaracion=" +
+      "/declaraciones/public/selectActivosBienesMueblesNR?tipo_declaracion=" +
       td +
       "&id_declarador=" +
       id,
@@ -431,7 +431,7 @@ function selectInversionesCuentas() {
   $.ajax({
     url:
       ip +
-      "/declaraciones-desarrollo/public/selectActivosInversionesCuentas?tipo_declaracion=" +
+      "/declaraciones/public/selectActivosInversionesCuentas?tipo_declaracion=" +
       td +
       "&id_declarador=" +
       id,

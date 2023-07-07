@@ -9,7 +9,7 @@ function deleteDatosCurriculo() {
   $.ajax({
     url:
       ip +
-      "/declaraciones-desarrollo/declarante/deleteDeclaranteCurriculoById?tipo_declaracion=" +
+      "/declaraciones/declarante/deleteDeclaranteCurriculoById?tipo_declaracion=" +
       tipoDeclaracion +
       "&id=" +
       idDeclaracion,
@@ -38,7 +38,7 @@ function deleteEmpleo() {
   $.ajax({
     url:
       ip +
-      "/declaraciones-desarrollo/declarante/deleteDeclaranteOtroEncargoActual?tipo_declaracion=" +
+      "/declaraciones/declarante/deleteDeclaranteOtroEncargoActual?tipo_declaracion=" +
       tipoDeclaracion +
       "&id=" +
       idDeclaracion,
@@ -67,7 +67,7 @@ function deleteExpLaboral() {
   $.ajax({
     url:
       ip +
-      "/declaraciones-desarrollo/declarante/deleteDeclaranteExperienciaLaboralById?tipo_declaracion=" +
+      "/declaraciones/declarante/deleteDeclaranteExperienciaLaboralById?tipo_declaracion=" +
       tipoDeclaracion +
       "&id=" +
       idDeclaracion,
@@ -96,7 +96,7 @@ function deleteDatosParejaDependiente(pareja) {
   $.ajax({
     url:
       ip +
-      "/declaraciones-desarrollo/declarante/deleteDeclaranteConyugeDepById?tipo_declaracion=" +
+      "/declaraciones/declarante/deleteDeclaranteConyugeDepById?tipo_declaracion=" +
       tipoDeclaracion +
       "&id=" +
       idDeclaracion +
@@ -127,7 +127,7 @@ function deleteBienesInmuebles() {
   $.ajax({
     url:
       ip +
-      "/declaraciones-desarrollo/activos/deleteActivosBienesInmueblesById?tipo_declaracion=" +
+      "/declaraciones/activos/deleteActivosBienesInmueblesById?tipo_declaracion=" +
       tipoDeclaracion +
       "&id=" +
       idDeclaracion,
@@ -156,7 +156,7 @@ function deleteVehiculos() {
   $.ajax({
     url:
       ip +
-      "/declaraciones-desarrollo/activos/deleteActivosVehiculosById?tipo_declaracion=" +
+      "/declaraciones/activos/deleteActivosVehiculosById?tipo_declaracion=" +
       tipoDeclaracion +
       "&id=" +
       idDeclaracion,
@@ -185,7 +185,7 @@ function deleteBienesMuebles() {
   $.ajax({
     url:
       ip +
-      "/declaraciones-desarrollo/activos/deleteActivosBienesMueblesNRById?tipo_declaracion=" +
+      "/declaraciones/activos/deleteActivosBienesMueblesNRById?tipo_declaracion=" +
       tipoDeclaracion +
       "&id=" +
       idDeclaracion,
@@ -214,7 +214,7 @@ function deleteInversiones() {
   $.ajax({
     url:
       ip +
-      "/declaraciones-desarrollo/activos/deleteActivosInversionesCuentasById?tipo_declaracion=" +
+      "/declaraciones/activos/deleteActivosInversionesCuentasById?tipo_declaracion=" +
       tipoDeclaracion +
       "&id=" +
       idDeclaracion,
@@ -243,7 +243,7 @@ function deleteAdeudos() {
   $.ajax({
     url:
       ip +
-      "/declaraciones-desarrollo/pasivos/deletePasivosAdeudosById?tipo_declaracion=" +
+      "/declaraciones/pasivos/deletePasivosAdeudosById?tipo_declaracion=" +
       tipoDeclaracion +
       "&id=" +
       idDeclaracion,
@@ -272,7 +272,7 @@ function deletePrestamos() {
   $.ajax({
     url:
       ip +
-      "/declaraciones-desarrollo/pasivos/deletePasivosPrestamoComodatoById?tipo_declaracion=" +
+      "/declaraciones/pasivos/deletePasivosPrestamoComodatoById?tipo_declaracion=" +
       tipoDeclaracion +
       "&id=" +
       idDeclaracion,
@@ -301,7 +301,7 @@ function deleteEmpresasSociedades() {
   $.ajax({
     url:
       ip +
-      "/declaraciones-desarrollo/intereses/deleteInteresesEmpSocById?tipo_declaracion=" +
+      "/declaraciones/intereses/deleteInteresesEmpSocById?tipo_declaracion=" +
       tipoDeclaracion +
       "&id=" +
       idDeclaracion,
@@ -330,7 +330,7 @@ function deleteInstituciones() {
   $.ajax({
     url:
       ip +
-      "/declaraciones-desarrollo/intereses/deleteInteresesInstitucionesById?tipo_declaracion=" +
+      "/declaraciones/intereses/deleteInteresesInstitucionesById?tipo_declaracion=" +
       tipoDeclaracion +
       "&id=" +
       idDeclaracion,
@@ -359,7 +359,7 @@ function deleteApoyosBeneficios() {
   $.ajax({
     url:
       ip +
-      "/declaraciones-desarrollo/intereses/deleteInteresesBeneficiosPublicosById?tipo_declaracion=" +
+      "/declaraciones/intereses/deleteInteresesBeneficiosPublicosById?tipo_declaracion=" +
       tipoDeclaracion +
       "&id=" +
       idDeclaracion,
@@ -388,7 +388,7 @@ function deleteRepresentacion() {
   $.ajax({
     url:
       ip +
-      "/declaraciones-desarrollo/intereses/deleteInteresesRepresentacionActivaById?tipo_declaracion=" +
+      "/declaraciones/intereses/deleteInteresesRepresentacionActivaById?tipo_declaracion=" +
       tipoDeclaracion +
       "&id=" +
       idDeclaracion,
@@ -417,7 +417,7 @@ function deleteClientesPrincipales() {
   $.ajax({
     url:
       ip +
-      "/declaraciones-desarrollo/intereses/deleteInteresesClientesPrincipales?tipo_declaracion=" +
+      "/declaraciones/intereses/deleteInteresesClientesPrincipales?tipo_declaracion=" +
       tipoDeclaracion +
       "&id=" +
       idDeclaracion,
@@ -446,7 +446,7 @@ function deleteBeneficiosPrivados() {
   $.ajax({
     url:
       ip +
-      "/declaraciones-desarrollo/intereses/deleteInteresesBeneficiosPrivados?tipo_declaracion=" +
+      "/declaraciones/intereses/deleteInteresesBeneficiosPrivados?tipo_declaracion=" +
       tipoDeclaracion +
       "&id=" +
       idDeclaracion,
@@ -475,7 +475,7 @@ function deleteFideicomisos() {
   $.ajax({
     url:
       ip +
-      "/declaraciones-desarrollo/intereses/deleteInteresesFideicomisos?tipo_declaracion=" +
+      "/declaraciones/intereses/deleteInteresesFideicomisos?tipo_declaracion=" +
       tipoDeclaracion +
       "&id=" +
       idDeclaracion,

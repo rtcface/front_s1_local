@@ -2,7 +2,7 @@ function selectEmpresas() {
   $.ajax({
     url:
       ip +
-      "/declaraciones-desarrollo/public/selectInteresesEmpSoc?tipo_declaracion=" +
+      "/declaraciones/public/selectInteresesEmpSoc?tipo_declaracion=" +
       td +
       "&id_declarador=" +
       id,
@@ -103,7 +103,7 @@ function selectInstituciones() {
   $.ajax({
     url:
       ip +
-      "/declaraciones-desarrollo/public/selectInteresesInstituciones?tipo_declaracion=" +
+      "/declaraciones/public/selectInteresesInstituciones?tipo_declaracion=" +
       td +
       "&id_declarador=" +
       id,
@@ -192,7 +192,7 @@ function selectApoyosPublicos() {
   $.ajax({
     url:
       ip +
-      "/declaraciones-desarrollo/public/selectInteresesBeneficiosPublicos?tipo_declaracion=" +
+      "/declaraciones/public/selectInteresesBeneficiosPublicos?tipo_declaracion=" +
       td +
       "&id_declarador=" +
       id,
@@ -281,7 +281,7 @@ function selectRepActiva() {
   $.ajax({
     url:
       ip +
-      "/declaraciones-desarrollo/public/selectInteresesRepresentacionActiva?tipo_declaracion=" +
+      "/declaraciones/public/selectInteresesRepresentacionActiva?tipo_declaracion=" +
       td +
       "&id_declarador=" +
       id,
@@ -386,7 +386,7 @@ function selectClientesPrincipales() {
   $.ajax({
     url:
       ip +
-      "/declaraciones-desarrollo/public/selectInteresesClientesPrincipales?tipo_declaracion=" +
+      "/declaraciones/public/selectInteresesClientesPrincipales?tipo_declaracion=" +
       td +
       "&id_declarador=" +
       id,
@@ -481,7 +481,7 @@ function selectBeneficiosGratuitos() {
   $.ajax({
     url:
       ip +
-      "/declaraciones-desarrollo/public/selectInteresesBeneficiosPrivados?tipo_declaracion=" +
+      "/declaraciones/public/selectInteresesBeneficiosPrivados?tipo_declaracion=" +
       td +
       "&id_declarador=" +
       id,
@@ -573,7 +573,7 @@ function selectFideicomisos() {
   $.ajax({
     url:
       ip +
-      "/declaraciones-desarrollo/public/selectInteresesFideicomisos?tipo_declaracion=" +
+      "/declaraciones/public/selectInteresesFideicomisos?tipo_declaracion=" +
       td +
       "&id_declarador=" +
       id,
