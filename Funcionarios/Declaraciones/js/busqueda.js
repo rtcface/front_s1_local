@@ -28,14 +28,14 @@ $(document).ready(function(){
             if($(this).text().toLowerCase().substring(0,115).indexOf($(_this).val().toLowerCase()) === -1){
                 $(this).hide();
                 listaRow.push(i);
-                table.update({
-                    ignoreRows: listaRow // pass in a new set of properties
-                  });
             }else{
                 $(this).show();
             }
             i++;
         });
+        table.update({
+            ignoreRows: listaRow // pass in a new set of properties
+          });
     });
 });
 
@@ -45,7 +45,7 @@ function reporteExcel(){
         position: 'button',  // Posicion que se muestran los botones puedes ser: (top, bottom)
         bootstrap: true,//Usar lo estilos de css de bootstrap para los botones (true, false)
         fileName: "Reporte",    //Nombre del archivo 
-        ignoreCols: [7]
+        ignoreCols: [11]
     });
 }
 
