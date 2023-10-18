@@ -6,11 +6,13 @@
 	<meta name="viewport"
 		content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 
-	<title>PDE Tlaxcala</title>
+	<title>PDE Aguascalientes</title>
     <link rel="icon" type="image/ico" href="../../Img/icono_pde1.ico" />
 	<link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/estilos.css">
     <link rel="stylesheet" href="css/altas.css">
+	<!-- Data table -->
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.css">
 
 	<script src="js/jquery-3.3.1.min.js"></script>
 	<script src="js/tether.min.js"></script>
@@ -24,10 +26,16 @@
 	<script src="exportjs/Blob.min.js"></script>
 	<script src="exportjs/xls.core.min.js"></script>
 	<script src="exportjs/tableexport.js"></script>
+	<!-- Data table -->
+	<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.js"></script>
+	<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/buttons/2.2.2/js/dataTables.buttons.min.js"></script>
+	<script type="text/javascript" charset="utf8" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+	<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.html5.min.js"></script>
+	<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.print.min.js"></script>
 	
 </head>
 
-<body oncontextmenu="return false" id="cuerpo"  onload="entes();sesionI();allStatus2();" style="background: rgb(248, 248, 248);">
+<body oncontextmenu="return false" id="cuerpo"  onload="entes();sesionI();allStatus2();getAnioFiscal();" style="background: rgb(248, 248, 248);">
 	
 	<div>
 		
@@ -65,14 +73,14 @@
 			<div class="container-fluid" style="padding-top: 1%">
 				<div class="col-md-4">
 					<label>Ente Público: <br>
-						<select name="entePublico" id="entePublico" onchange="verStatus2(0)" >
+						<select name="entePublico" id="entePublico">
 							<option value="null">TODOS</option>
 						</select>
 					</label>
 				</div>
 				<div class="col-md-3">
 					<label>Tipo de Declaración: <br>
-						<select name="tipoDeDeclaracion" id="tipoDeDeclaracion" onchange="verStatus2(0)">
+						<select name="tipoDeDeclaracion" id="tipoDeDeclaracion">
 							<option value="null">TODOS</option>
 							<option value="1">Declaración Inicial</option>
 							<option value="2">Declaración de Modificación</option>
@@ -80,17 +88,42 @@
 						</select>
 					</label>
 				</div>
-				<div class="col-md-3">
+				<div class="col-md-2">
 					<label>Tiempo de Envio: <br>
-						<select name="tiempoEnvio" id="tiempoEnvio" onchange="verStatus2(0)">
+						<select name="tiempoEnvio" id="tiempoEnvio">
 							<option value="null">TODOS</option>
 							<option value="A tiempo">Presentadas a Tiempo</option>
 							<option value="Extemporanea">Extemporaneas</option>
+							<option value="Sin enviar">Sin Enviar</option>
+						</select>
+					</label>
+				</div>
+				<div class="col-md-2">
+					<label>Ejercicio Fiscal: <br>
+						<select name="anio_fiscal" id="anio_fiscal">
+							<option value="null">TODOS</option>
 						</select>
 					</label>
 				</div>
 			</div>
-
+			<div class="container-fluid" style="padding-top: 1%">
+				<div class="col-md-1">
+					<label>Periodo de Envio</label>
+				</div>
+				<div class="col-md-2">
+					<label>Fecha Inicial: <br>
+						<input type="date" name="fecha_inicio" id="fecha_inicio" style="width: 100%;">
+					</label>
+				</div>
+				<div class="col-md-2">
+					<label>Fecha Final: <br>
+						<input type="date" name="fecha_fin" id="fecha_fin" style="width: 100%;">
+					</label>
+				</div>
+				<div class="col-md-2"><br>
+					<button class="botonActualizar" onclick="verStatus2(1)">Buscar</button>
+				</div>
+			</div>
 		</div>
 		<br>
 		
@@ -162,56 +195,35 @@
 				</div>
 			</div>
 		<!-- Final Modal Antes de Enviar Correo-->
-			<hr>
-			<div class="search">
-				<input type="text" id="busqueda" placeholder="Buscar Funcionario...">
+		<hr>
+		<div class="container-fluid">
+			<div class="col-md-2">
+				<br>
+				<label>Tamaño Página: <br>
+					<select name="tamPag" id="tamPag" onchange="verStatus2(1)" > 
+						<option value="100">100</option>
+						<option value="500">500</option>
+						<option value="1000">1000</option>
+						<option value="3000">3000</option>
+						<option value="5000">5000</option>
+					</select>
+				</label>
 			</div>
-			<div class="container-fluid">
-				<div class="col-md-2">
-					<label>Tamaño Página: <br>
-						<select name="tamPag" id="tamPag" onchange="verStatus2(1)" > 
-							<option value="1000">1000</option>
-							<option value="3000">3000</option>
-							<option value="5000">5000</option>
-						</select>
-					</label>
-				</div>
-				<div class="col-md-2">
-					<label>Número Página: <br>
-						<select name="numPag" id="numPag" onchange="verStatus2(0)" > </select>
-					</label>
-				</div>
+			<div class="col-md-2">
+				<br>
+				<label>Número Página: <br>
+					<select name="numPag" id="numPag" onchange="verStatus2(0)" > </select>
+				</label>
 			</div>
+		</div>
+		<div style="padding: 15px;">
 			<table class="table" id="tablaDeclarantes">
-                <thead class="thead-dark">
-					<tr>
-						<th>Nombre Completo</th>
-						<th>RFC</th>
-						<th>Año Fiscal</th>
-						<th>Tipo de Declaración</th>
-						<th>Estatus</th>
-						<th>Tiempo de Envio</th>
-						<th>Dec. Fiscal</th>
-						<th>Seleccionar</th>
-						<th style="display: none;">CURP</th>
-						<th style="display: none;">Area Adscripción</th>
-						<th style="display: none;">Nivel Encargo</th>
-						<th style="display: none;">Cargo o Comisión</th>
-						<th style="display: none;">Fecha Alta</th>
-						<th style="display: none;">Fecha Baja</th>
-						<th style="display: none;">Fecha Enviada</th>
-						<th style="display: none;">Activo</th>
-						<th style="display: none;">LINK</th>
-					</tr>
-                </thead>
-				<tbody id="contenido">
-					
-                </tbody>
-            </table>
-        </div>   
-              
-        
-	</div>
+				<thead class="thead-dark"></thead>
+			</table>
+		</div>
+	</div>   
+		  
+</div>
 
 </body>
 </html>

@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -6,7 +6,7 @@
     <meta name="viewport"
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 
-    <title>PDE Tlaxcala</title>
+    <title>PDE Aguascalientes</title>
     <link rel="icon" type="image/ico" href="../../Img/icono_pde1.ico" />
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/login.css">
@@ -41,9 +41,7 @@
                 <button class="btn btn-primary btn-lg btn-block" onclick="login()">Aceptar</button>
             </div>
             <br>
-            <h4 class="text-center">En caso de perder su contraseña deberá ponerse en contacto con su Órgano Interno de Control
-                .
-            </h4>
+            <h4 class="text-center" ><a data-toggle="modal" data-target="#myModal">Olvide mi Contraseña</a></h4>
         </div>
         <!-------------------Nueva contraseña-------------------------->
         <form class="formulario" id="nuevaContraseña" style="display: none" onsubmit="passwordNew();return false">
@@ -73,6 +71,36 @@
             </div>
         </form>
     </div>
+<!------------------- Modal ------------------->
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 id="tituloModal" class="modal-title">Recuperar Contraseña</h4>
+            </div>
+            <div class="modal-body">
+                <div class="formulario">
+                    <div class="form-group">
+                        <label>Usuario</label>
+                        <input type="text" class="form-control" name="user" id="user" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Correo</label>
+                        <input type="email" class="form-control" name="mail" id="mail" required>
+                    </div> 
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="activarDeclaracion" class="boton-reset-pass" onclick="restablecerPassword()">Enviar</button>
+            </div>
+        </div>
+        
+    </div>
+</div>
+<!---------------- Final Modal ---------------->
 
 </body>
 
