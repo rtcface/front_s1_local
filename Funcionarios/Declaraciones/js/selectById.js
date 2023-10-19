@@ -59,6 +59,67 @@ function selectDatosGenerales() {
         }
         document.getElementById("obsComentarios").value =
           datos.result.data.observaciones;
+function selectDatosGenerales() {
+  $.ajax({
+    url:
+      ip +
+      "/declaraciones/declarante/selectDeclarante?id_declarante=" +
+      id_declarante +
+      "&tipo_declaracion=" +
+      tipoDeclaracion,
+    type: "GET",
+    dataType: "json",
+    headers: {
+      "X-Auth-Token": token,
+    },
+  })
+    .done(function (datos) {
+      if (datos.status) {
+        document.getElementById("nombre").value = datos.result.data.nombres;
+        document.getElementById("primerApellido").value =
+          datos.result.data.apellido_paterno;
+        document.getElementById("segundoApellido").value =
+          datos.result.data.apellido_materno;
+        document.getElementById("curp").value = datos.result.data.curp;
+        document.getElementById("rfc").value = datos.result.data.rfc;
+        document.getElementById("homoclave").value =
+          datos.result.data.rfc_homoclave;
+        document.getElementById("emailInstituto").value =
+          datos.result.data.correo_electronico_lab;
+        document.getElementById("emailPersonal").value =
+          datos.result.data.correo_electronico_per;
+        document.getElementById("telParticular").value =
+          datos.result.data.tel_per;
+        document.getElementById("telCelular").value = datos.result.data.tel_cel;
+        $("#nacionalidad").val(datos.result.data.nacionalidad);
+        paisNac(datos.result.data.pais_nacimimiento);
+
+        $("#estadoCivil").val(datos.result.data.estado_civil);
+        if (datos.result.data.estado_civil == "CASADO (A)") {
+          $("#regimen").show();
+          if (
+            datos.result.data.regimen_matrimonial != "SOCIEDAD CONYUGAL" &&
+            datos.result.data.regimen_matrimonial != "SEPARACION DE BIENES"
+          ) {
+            $("#otroRegimen").show();
+            document.getElementById("regimenM").value = "OTRO";
+            document.getElementById("otroRegimen").value =
+              datos.result.data.regimen_matrimonial;
+          } else {
+            document.getElementById("regimenM").value =
+              datos.result.data.regimen_matrimonial;
+            $("#otroRegimen").hide();
+          }
+        } else {
+          $("#regimen").hide();
+        }
+        if (datos.result.data.serv_publico_anterior) {
+          document.getElementById("desempeñoS").checked = true;
+        } else {
+          document.getElementById("desempeñoN").checked = true;
+        }
+        document.getElementById("obsComentarios").value =
+          datos.result.data.observaciones;
 
         actualizar = true;
       } else {
@@ -1468,20 +1529,11 @@ function selectInstituciones() {
         alert(datos.msg);
         if (datos.msg == "Sesión Expirada") {
           window.parent.location.href = "../login.html";
-        }
-      }
-    })
-    .fail(function (jqXHR, textStatus, errorThrown) {
-      alert(jqXHR.responseJSON.msg);
-    });
-}
-function selectApoyosBeneficios() {
-  var nFilas = $("#tablaCurriculares tr").length;
-  for (var i = 0; i < nFilas; i++) {
-    var id = "#posicion" + i;
-    if ($(id).is(":checked")) {
-      idDeclaracion = $(id).val();
-    }
+        }$(document).ready(function () {
+          var d = new Date(),
+            month = "" + (d.getMonth() + 1),
+            day = "" + d.getDate(),
+        
   }
   $("#agregar_nuevo").attr("disabled", "disabled");
 

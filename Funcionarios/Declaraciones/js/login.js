@@ -55,7 +55,7 @@ function sesionI() {
 
 function salir() {
   $.ajax({
-    url: ip + "/declaraciones-desarrollo/data/logout ",
+    url: ip + "/declaraciones/data/logout ",
     type: "GET",
     dataType: "json",
     headers: {
