@@ -1,76 +1,111 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport"
-		content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <!-- #region head -->
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
 
     <title>PDE Tlaxcala</title>
-    <link rel="icon" type="image/ico" href="../Img/icono_pde1.ico" />
-	<link rel="stylesheet" href="Declaraciones/css/bootstrap.css">
-	<link rel="stylesheet" href="Declaraciones/css/estilos.css">
-    <link rel="stylesheet" href="Declaraciones/css/app-saet.css" />
+    <link
+      rel="icon"
+      type="image/ico"
+      href="../Img/icono_pde1.ico"
+    />
+    <link
+      rel="stylesheet"
+      href="Declaraciones/css/bootstrap.css"
+    />
+    <link
+      rel="stylesheet"
+      href="Declaraciones/css/estilos.css"
+    />
+    <link
+      rel="stylesheet"
+      href="Declaraciones/css/app-saet.css"
+    />
 
-
-	<script src="Declaraciones/js/jquery-3.3.1.min.js"></script>
-	<script src="Declaraciones/js/tether.min.js"></script>
-	<script src="Declaraciones/js/popper.min.js"></script>
+    <script src="Declaraciones/js/jquery-3.3.1.min.js"></script>
+    <script src="Declaraciones/js/tether.min.js"></script>
+    <script src="Declaraciones/js/popper.min.js"></script>
     <script src="Declaraciones/js/bootstrap.min.js"></script>
-    <script src="Declaraciones/js/hover.js"></script>	
-	<script src="Declaraciones/js/sesaet.js"></script>
-</head>
+    <script src="Declaraciones/js/hover.js"></script>
+    <script src="Declaraciones/js/sesaet.js"></script>
+  </head>
+  <!-- #endregion -->
 
-<body oncontextmenu="return false">           
+  <body oncontextmenu="return false">
+    <!-- #region contenedor principal -->
     <div class="container-saet">
-        <div class="logo-header">
+      <!-- #region logo del header -->
+      <div class="logo-header">
+        <img
+          src="Declaraciones/Img/logo_plataforma-11.png"
+          alt="imagen_header"
+        />
+      </div>
+      <!-- #endregion -->
+      <!-- #region backbuttom -->
+      <div class="box-buttom">
+        <a
+          href="../index.html"
+          class="atras round"
+          >&laquo; Volver</a
+        >
+      </div>
+      <!-- #endregion -->
+      <!-- #region menu row one -->
+      <div class="container-menu">
+        <div class="card-body-rounded-black">
+          <a href="Declaraciones/index.html">
             <img
-              src="Declaraciones/Img/logo_plataforma-11.png"
-              alt="imagen_header"
+              src="Declaraciones/Img/icon_01_gray.png"
+              onmouseover="hover1(this);"
+              onmouseout="unhover1(this);"
             />
+          </a>
         </div>
-        <div class="box-buttom">
-            <a  href="../index.html" class="atras round">&laquo; Volver</a>
-        </div>               
-        <div class="container-menu">
-            <div class="card-body-rounded-black">
-                <a  href="Declaraciones/index.html">
-                    <img src="Declaraciones/Img/icon_01_gray.png" 
-                    onmouseover="hover1(this);" 
-                    onmouseout="unhover1(this);"/>
-                </a>
-            </div>
-            <div class="card-body-rounded-black">
-                <a ><img  src="Declaraciones/Img/icon_02_gray.png"></a>
-            </div>
-            <div class="card-body-rounded-black">
-                <a><img src="Declaraciones/Img/icon_03_gray.png"></a>
-            </div>
-            <div class="card-body-rounded-black">
-                <a><img src="Declaraciones/Img/icon_04_gray.png"></a>
-            </div> 
-            <div class="card-body-rounded-black">
-                <a><img src="Declaraciones/Img/icon_05_gray.png"></a>
-            </div> 
-            <div class="card-body-rounded-black">
-                <a><img  src="Declaraciones/Img/icon_06_gray.png"></a>
-            </div> 
-        </div> 
-        <footer class="footer-container">
-            <div class="navbar-color footer-saet">
-              <p>
-                <script>
-                  document.write(
-                    "Copyright © 2021 - " +
-                      getYear() +
-                      " " +
-                      "Plataforma digital estatal"
-                  );
-                </script>
-              </p>
-            </div>
-        </footer>
-    </div>   
-</body>
-
+        <div class="card-body-rounded-black">
+          <a><img src="Declaraciones/Img/icon_02_gray.png" /></a>
+        </div>
+        <div class="card-body-rounded-black">
+          <a><img src="Declaraciones/Img/icon_03_gray.png" /></a>
+        </div>
+      </div>
+      <!-- #endregion -->
+      <!-- #region menu row two -->
+      <div class="container-menu-footer">
+        <div class="item-container">
+          <div class="card-body-rounded-black">
+            <a><img src="Declaraciones/Img/icon_05_gray.png" /></a>
+          </div>
+        </div>
+        <div class="item-container">
+          <div class="card-body-rounded-black">
+            <a><img src="Declaraciones/Img/icon_06_gray.png" /></a>
+          </div>
+        </div>
+      </div>
+      <!-- #endregion -->
+      <!-- #region footer -->
+      <footer class="footer-container">
+        <div class="navbar-color footer-saet">
+          <p>
+            <script>
+              document.write(
+                "Copyright © 2021 - " +
+                  getYear() +
+                  " " +
+                  "Plataforma digital estatal"
+              );
+            </script>
+          </p>
+        </div>
+      </footer>
+      <!-- #endregion -->
+    </div>
+    <!-- #endregion -->
+  </body>
 </html>
